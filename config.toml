@@ -55,3 +55,33 @@ hasCJKLanguage = true
   [markup.highlight]
     # false 是必要的设置 (https://github.com/dillonzq/LoveIt/issues/158)
     noClasses = false
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
+
+# search config
+[params.search]
+  enable = true
+  # 搜索引擎的类型 ["lunr", "algolia"]
+  type = "lunr"
+  # 文章内容最长索引长度
+  contentLength = 4000
+  # 搜索框的占位提示语
+  placeholder = ""
+  #  最大结果数目
+  maxResultLength = 10
+  #  结果内容片段长度
+  snippetLength = 50
+  #  搜索结果中高亮部分的 HTML 标签
+  highlightTag = "em"
+  #  是否在搜索索引中使用基于 baseURL 的绝对路径
+  absoluteURL = false
+  [params.search.algolia]
+    index = ""
+    appID = ""
+    searchKey = ""
+
+[params.page.math]
+    enable = true
+    copyTex = true

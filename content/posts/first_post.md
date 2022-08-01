@@ -5,16 +5,17 @@ aliases:
 tags: [公理系统, logic, set-theory]
 date created: July 28th 2022, 6:51:48 pm
 date modified: August 1st 2022, 8:41:32 pm
+math: true
 ---
 
 ## 基本逻辑
 
 ### Proposition
 
-```ad-definition
+{{< admonition type=tip title="This is a tip" open=false >}}
 title: proposition
 A proposition p is a variable that can take the values true (T) or false (F), and no others.
-```
+{{< /admonition >}}
 [^1]
 
 一个 proposition 如果一直是 true 被称为 *tautology*，反之被称为 *contradiction*
@@ -95,6 +96,9 @@ are not necessarily equivalent
 
 ## 集合论公理
 
+
+$$\left( a\in \left\{ x,y \right\} \Rightarrow a\in \left\{ y,x \right\} \right) \land \left( a\in \left\{ y,x \right\} \Rightarrow a\in \left\{ x,y \right\} \right)$$
+
 ### The $\in$ -relation
 we give 9 axioms and above them define $\in$ and sets
 
@@ -171,7 +175,8 @@ Note that in our definition, the choose order doesn’t effect the result, i. e,
 
 Indeed, by definition, we have:
 
-$$\left( a\in \left\{ x,y \right\} \Rightarrow a\in \left\{ y,x \right\} \right) \land \left( a\in \left\{ y,x \right\} \Rightarrow a\in \left\{ x,y \right\} \right) $$
+$$\left( a\in \left\{ x,y \right\} \Rightarrow a\in \left\{ y,x \right\} \right) \land \left( a\in \left\{ y,x \right\} \Rightarrow a\in \left\{ x,y \right\} \right)$$
+
 independently of a, hence
 
 $$\left( \left\{ x,y \right\} \subseteq \left\{ y,x \right\} \right) \land \left( \left\{ y,x \right\} \subseteq \left\{ x,y \right\} \right) \Rightarrow \left\{ x,y \right\} =\left\{ y,x \right\} $$
