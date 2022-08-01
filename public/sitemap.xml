@@ -1,0 +1,12 @@
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    ><url>
+            <loc>http://example.org/posts/first_post/</loc><lastmod>2022-08-01T21:43:31&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/tags/logic/</loc><lastmod>2022-08-01T21:43:31&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/posts/</loc><lastmod>2022-08-01T21:43:31&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/tags/set-theory/</loc><lastmod>2022-08-01T21:43:31&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/tags/</loc><lastmod>2022-08-01T21:43:31&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/tags/%E5%85%AC%E7%90%86%E7%B3%BB%E7%BB%9F/</loc><lastmod>2022-08-01T21:43:31&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/</loc><lastmod>2022-08-01T21:43:31&#43;08:00</lastmod></url><url>
+            <loc>http://example.org/categories/</loc></url></urlset>
