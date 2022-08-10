@@ -1,15 +1,17 @@
 {
-  "name": "randolfly.github.io",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/randolfly/randolfly.github.io.git",
-  "author": "randolf <1665718426@qq.com>",
+  "name": "randolf-blog",
+  "version": "2.0.0",
+  "description": "银鞍照白马，飒沓如流星",
   "license": "MIT",
-  "devDependencies": {
-    "vuepress": "^1.9.7"
-  },
   "scripts": {
-    "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "docs:build": "vuepress build docs",
+    "docs:clean-dev": "vuepress dev docs --clean-cache",
+    "docs:dev": "vuepress dev docs"
+  },
+  "devDependencies": {
+    "@vuepress/client": "^2.0.0-beta.49",
+    "vue": "^3.2.36",
+    "vuepress": "^2.0.0-beta.49",
+    "vuepress-theme-hope": "^2.0.0-beta.90"
   }
 }
