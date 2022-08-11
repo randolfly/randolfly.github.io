@@ -6,6 +6,7 @@ category:
   - CategoryB
 tag:
   - tag A
+  - C
   - tag B
 ---
 
