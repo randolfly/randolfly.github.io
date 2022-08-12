@@ -1,18 +1,16 @@
 import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
-import theme from "./theme";
+// import theme from "./theme";
 
-export default defineUserConfig({
+
+module.exports = {
+  extends: '@vuepress/theme-hope',
   lang: "zh-CN",
   title: "天策",
   description: "银鞍照白马，飒沓如流星",
 
   base: "/",
-
-//   theme: hopeTheme({
-
-//   }),
-//   theme, 
+ 
   theme: hopeTheme({
     hostname: "https://randolfly.github.io/",
 
@@ -97,10 +95,11 @@ export default defineUserConfig({
             mark: true,
             footnote: true,
             tasklist: true,
+            container: true,
         },
 
-        components: ["PDF"]
+        components: ["PDF"],
     },
-  })
+  }),
   
-});
+}
