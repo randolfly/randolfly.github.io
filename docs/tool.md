@@ -1,13 +1,13 @@
 ---
 home: true
 icon: home
-title: 项目主页
+title: TOOl
 heroImage: /logo.svg
 heroText: 项目名称
 tagline: 你可以在这里放置或是整个项目的描述。
 actions:
   - text: 使用指南 💡
-    link: /guide/
+    link: /tool/
     type: primary
 
   - text: 博客主页 🏠

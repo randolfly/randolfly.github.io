@@ -20,8 +20,15 @@ export default defineUserConfig({
         name: "randolf",
         url: "https://randolfly.github.io/",
     },
-
-    sidebar: "heading",
+    sidebar: {
+        "/control/": "structure",
+        "/math/": "structure",
+        "/robot/": "structure",
+        "/paper/": "structure", 
+        "/physics/": "structure",
+        "/tool/": "structure",
+        "/": "structure"
+    },
 
     iconAssets: "iconfont",
 
