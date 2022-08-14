@@ -6,7 +6,7 @@ category:
   - CategoryB
 tag:
   - tag A
-  - tag B
+  - tag Bs
 ---
 
 # 文章 7

@@ -2,9 +2,7 @@ import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 // import theme from "./theme";
 
-
-module.exports = {
-  extends: '@vuepress/theme-hope',
+export default defineUserConfig({
   lang: "zh-CN",
   title: "天策",
   description: "银鞍照白马，飒沓如流星",
@@ -101,5 +99,9 @@ module.exports = {
         components: ["PDF"],
     },
   }),
+});
+
+// module.exports = {
   
-}
+  
+// }
