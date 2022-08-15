@@ -1,0 +1,42 @@
+\documentclass[lang=cn,11pt,a4paper]{elegantpaper}
+\usepackage[UTF8,scheme=plain]{ctex}
+\usepackage[]{booktabs}
+\usepackage[]{subfig}
+\usepackage[section]{placeins}
+\usepackage[]{float}
+
+% 标题信息
+\title{一种快速收敛的自适应滑膜控制算法及其在柔性支撑Stewart主动抑振上的应用}
+\author{张荣侨}
+\institute{清华大学机械工程系}
+% \version{1.00}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+FAST的馈源机构是一个由绳索柔性支撑的Stewart平台，需要对其进行抑振控制。针对动力学模型难以获得的情况，本文提出了一种基于自适应滑膜控制和凸优化的控制方法，
+保证了控制对象在给定时间内的收敛特性，同时约束了控制对象的速度、加速度范围，保证控制对象运动过程的稳定和安全。
+\keywords{滑膜控制，自适应控制，Stewart 平台}
+\end{abstract}
+
+% 引言
+\input{src/01-intro}
+
+\input{src/02-model}
+
+\input{src/03-algo}
+
+\input{src/04-simu}
+
+\input{src/05-exp}
+
+\input{src/06-con}
+
+
+% 生成参考文献
+\bibliography{ref}
+
+\end{document}

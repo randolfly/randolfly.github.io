@@ -1,0 +1,134 @@
+\begin{thebibliography}{15}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{#1}
+\expandafter\ifx\csname urlstyle\endcsname\relax\else
+  \urlstyle{same}\fi
+\expandafter\ifx\csname href\endcsname\relax
+  \DeclareUrlCommand\doi{\urlstyle{rm}}
+  \def\eprint#1#2{#2}
+\else
+  \def\doi#1{\href{https://doi.org/#1}{\nolinkurl{#1}}}
+  \let\eprint\href
+\fi
+
+\bibitem[Peng et~al.(2001)Peng, Nan, Su, Qiu, Zhu, and
+  Zhu]{pengFiveHundredMeterApertureSpherical2001}
+PENG B, NAN R, SU Y, et~al.
+\newblock Five-{{Hundred-Meter Aperture Spherical Telescope
+  Project}}\allowbreak[J/OL].
+\newblock International Astronomical Union Colloquium, 2001, 182: 219-224.
+\newblock DOI: \doi{10.1017/S0252921100001019}.
+
+\bibitem[Nan(2006)]{nanFiveHundredMeter2006}
+NAN R.
+\newblock Five hundred meter aperture spherical radio telescope
+  ({{FAST}})\allowbreak[J/OL].
+\newblock Science in China Series G, 2006, 49\allowbreak (2): 129-148.
+\newblock DOI: \doi{10.1007/s11433-006-0129-9}.
+
+\bibitem[刘志华(2015)]{liuGangRouHunLianJiGouDeZhenDongTeXingJiYiZhenKongZhiYanJiu2015}
+刘志华.
+\newblock 刚柔混联机构的振动特性及抑振控制研究\allowbreak[D].
+\newblock {北京}: 清华大学, 2015.
+
+\bibitem[段学超(2008)]{duanRouXingZhiChengStewartPingTaiDeFenXiYouHuaYuKongZhiYanJiu2008}
+段学超.
+\newblock
+  {柔性支撑Stewart平台的分析、优化与控制研究}\allowbreak[D].
+\newblock 西安电子科技大学, 2008.
+
+\bibitem[Yoshikawa et~al.(1993)Yoshikawa, Hosoda, Doi, and
+  Murakami]{yoshikawaQuasistaticTrajectoryTracking1993}
+YOSHIKAWA T, HOSODA K, DOI T, et~al.
+\newblock Quasi-static trajectory tracking control of flexible manipulator by
+  macro-micro manipulator system\allowbreak[C/OL]//\allowbreak
+[1993] {{Proceedings IEEE International Conference}} on {{Robotics}} and
+  {{Automation}}.
+\newblock 1993: 210-215 vol.3.
+\newblock DOI: \doi{10.1109/ROBOT.1993.291848}.
+
+\bibitem[Parsa et~al.(2005)Parsa, Angeles, and
+  Misra]{parsaControlMacroMicroManipulators2005}
+PARSA K, ANGELES J, MISRA A.
+\newblock Control of {{Macro-Micro Manipulators Revisited}}\allowbreak[J/OL].
+\newblock Transactions of the ASME.Journal of Dynamic Systems, Measurement and
+  Control, 2005, 127: 688-699.
+\newblock DOI: \doi{10.1115/1.1870039}.
+
+\bibitem[Torres et~al.(1996)Torres, Dubowsky, and
+  Pisoni]{torresVibrationControlDeployment1996}
+TORRES M, DUBOWSKY S, PISONI A.
+\newblock Vibration control of deployment structures' long-reach space
+  manipulators: {{The P-PED}} method: volume~3\allowbreak[M/OL].
+\newblock 1996: 2504 vol.3.
+\newblock DOI: \doi{10.1109/ROBOT.1996.506538}.
+
+\bibitem[Vliet et~al.(1998)Vliet and
+  Sharf]{vlietFrequencyMatchingAlgorithm1998}
+VLIET J, SHARF I.
+\newblock A frequency matching algorithm for active damping of macro-micro
+  manipulator vibrations\allowbreak[M/OL].
+\newblock 1998: 787 vol.2.
+\newblock DOI: \doi{10.1109/IROS.1998.727291}.
+
+\bibitem[Cerda~Salzmann(2010)]{cerdasalzmannAmpelmannDevelopmentAccess2010}
+CERDA~SALZMANN D~J.
+\newblock Ampelmann: Development of the access system for offshore wind
+  turbines.\allowbreak[D].
+\newblock {Oisterwijk}: BOXPress, 2010.
+
+\bibitem[Ono et~al.(2019)Ono, Eto, Yamakawa, and
+  Murakami]{onoDevelopmentEquationsMotion2019}
+ONO T, ETO R, YAMAKAWA J, et~al.
+\newblock Development of {{Equations}} of {{Motion}} for a {{Stewart Platform
+  Under Prescribed Mount Motion}}\allowbreak[C/OL]//\allowbreak
+{{ASME}} 2018 {{International Mechanical Engineering Congress}} and
+  {{Exposition}}.
+\newblock {American Society of Mechanical Engineers Digital Collection}, 2019.
+\newblock DOI: \doi{10.1115/IMECE2018-87253}.
+
+\bibitem[Ono et~al.(2020)Ono, Eto, Yamakawa, and
+  Murakami]{onoControlSimulationsStewart2020}
+ONO T, ETO R, YAMAKAWA J, et~al.
+\newblock Control {{Simulations}} for a {{Stewart Platform Compensator
+  Mounted}} on {{Moving Base}}\allowbreak[C/OL]//\allowbreak
+{{ASME}} 2019 {{International Mechanical Engineering Congress}} and
+  {{Exposition}}.
+\newblock {American Society of Mechanical Engineers Digital Collection}, 2020.
+\newblock DOI: \doi{10.1115/IMECE2019-10780}.
+
+\bibitem[Ono et~al.(2021)Ono, Eto, Yamakawa, and
+  Murakami]{onoNonlinearModelPredictive2021}
+ONO T, ETO R, YAMAKAWA J, et~al.
+\newblock Nonlinear {{Model Predictive Control}} of a {{Stewart Platform Motion
+  Stabilizer}}\allowbreak[C/OL]//\allowbreak
+{{ASME}} 2020 {{International Mechanical Engineering Congress}} and
+  {{Exposition}}.
+\newblock {American Society of Mechanical Engineers Digital Collection}, 2021.
+\newblock DOI: \doi{10.1115/IMECE2020-23725}.
+
+\bibitem[Plestan et~al.(2010)Plestan, Shtessel, Br{\'e}geault, and
+  Poznyak]{plestanNewMethodologiesAdaptive2010}
+PLESTAN F, SHTESSEL Y, BR{\'E}GEAULT V, et~al.
+\newblock New methodologies for adaptive sliding mode control\allowbreak[J/OL].
+\newblock International Journal of Control, 2010, 83\allowbreak (9): 1907-1919.
+\newblock DOI: \doi{10.1080/00207179.2010.501385}.
+
+\bibitem[Levant et~al.(1993)Levant and
+  Levantovsky]{levantSlidingOrderSliding1993}
+LEVANT A, LEVANTOVSKY L.
+\newblock Sliding {{Order}} and {{Sliding Accuracy}} in {{Sliding Mode
+  Control}}\allowbreak[J/OL].
+\newblock International Journal of Control - INT J CONTR, 1993, 58: 1247-1263.
+\newblock DOI: \doi{10.1080/00207179308923053}.
+
+\bibitem[Williams et~al.(2003)Williams, Albus, and
+  Bostelman]{williamsCableBasedMetrologySystem2003}
+WILLIAMS R~L, ALBUS J~S, BOSTELMAN R~V.
+\newblock Cable-{{Based Metrology System}} for {{Sculpting
+  Assistance}}\allowbreak[C/OL]//\allowbreak
+Volume 2: 29th {{Design Automation Conference}}, {{Parts A}} and {{B}}.
+\newblock {Chicago, Illinois, USA}: {ASMEDC}, 2003: 1165-1174.
+\newblock DOI: \doi{10.1115/DETC2003/DAC-48827}.
+
+\end{thebibliography}

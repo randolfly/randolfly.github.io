@@ -30,7 +30,7 @@ projects:
 
   - icon: friend
     name: Robot
-    desc: ????
+    desc: 我是火车王
     link: https://randolfly.github.io/robot
 
   - icon: book
