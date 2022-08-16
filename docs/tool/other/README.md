@@ -7,11 +7,11 @@ category:
 ---
 
  ## 目录
-- [figma 制作简历](figma 制作简历.md)
-- [lambda 演算](lambda 演算.md)
-- [markdown 公式引用](markdown 公式引用.md)
+- [figma-制作简历](figma-制作简历.md)
+- [lambda-演算](lambda-演算.md)
+- [markdown-公式引用](markdown-公式引用.md)
 - [markdown语法规则](markdown语法规则.md)
-- [nvidia 控制面板闪退](nvidia 控制面板闪退.md)
+- [nvidia-控制面板闪退](nvidia-控制面板闪退.md)
 - [other](other.md)
 - [pdf文件制作目录](pdf文件制作目录.md)
 - [实验室云盘指北](实验室云盘指北.md)

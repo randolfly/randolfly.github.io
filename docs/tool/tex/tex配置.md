@@ -1,7 +1,10 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - tex
+  - 字体
+  - config
+  - install
 category:
   - skill
   - tex
@@ -14,7 +17,7 @@ category:
 
 ## 定义
 
-::: note 
+::: note note
 注意不要用*texlive*了，**MikTeX**太香了
 :::
 

@@ -1,7 +1,8 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - 爬虫
+  - 教材
 category:
   - skill
   - other
@@ -15,7 +16,7 @@ category:
 
 下载教材中心的教材并转为 pdf.
 
-此外，对于文泉学堂的教材，使用 [wqxuetang-downloader-0.2.1.zip](assets\wqxuetang-downloader-0.2.1.zip) 安装浏览器插件，实现下载全部图片，进而得到 pdf.
+此外，对于文泉学堂的教材，使用 [assets\wqxuetang-downloader-0](.//) 安装浏览器插件，实现下载全部图片，进而得到 pdf.
 
 
 ## 参考

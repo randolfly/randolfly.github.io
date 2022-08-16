@@ -1,7 +1,8 @@
 ---
 date: 2022-08-09
 tag:
-  - default
+  - paper
+  - unread
 category:
   - library
   - zotero
@@ -26,4 +27,4 @@ This handbook provides engineers and scientists with guidelines for improving co
 
 ## Contents
 
-[MPC.md](control\MPC\MPC.md)
+[MPC](./../control/MPC/MPC.md)

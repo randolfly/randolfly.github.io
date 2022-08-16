@@ -94,7 +94,7 @@ optional arguments:
 
 ## Contribution
 
-请查看[`contribution.md`](/contribution.md)。
+请查看[`contribution](./contribution.md)。
 
 欢迎Star/Issue/PR~
 

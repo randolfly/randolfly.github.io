@@ -1,7 +1,8 @@
 ---
 date: 2022-06-17
 tag:
-  - default
+  - mma
+  - install
 category:
   - skill
   - mma

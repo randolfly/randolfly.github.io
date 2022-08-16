@@ -13,20 +13,20 @@ category:
 
 A powerful tool that converts excel table to latex table in human-readable format.
 
-Documentation for simplified Chinese: [简体中文](../master/doc/zh_cn.md)
+Documentation for simplified Chinese: [简体中文](./doc/zh_cn.md)
 
 <!--ts-->
-   * [Convert excel table to latex table](#convert-excel-table-to-latex-table)
-      * [Supported excel's styles](#supported-excels-styles)
-      * [Before conversion](#before-conversion)
-      * [Requirements](#requirements)
-      * [Usage](#usage)
-         * [Simple usage](#simple-usage)
-         * [Enable all formats](#enable-all-formats)
-      * [Trouble shooting](#trouble-shooting)
-         * [Mess code](#mess-code)
-      * [Support](#support)
-      * [Buy me a coffee](#buy-me-a-coffee)
+   * [#convert-excel-table-to-latex-table](.//)
+      * [#supported-excels-styles](.//)
+      * [#before-conversion](.//)
+      * [#requirements](.//)
+      * [#usage](.//)
+         * [#simple-usage](.//)
+         * [#enable-all-formats](.//)
+      * [#trouble-shooting](.//)
+         * [#mess-code](.//)
+      * [#support](.//)
+      * [#buy-me-a-coffee](.//)
 
 <!-- Added by: zhiyuan, at: Sat 25 Apr 2020 08:05:09 PM UTC -->
 
@@ -90,7 +90,7 @@ If you are using windows and have no python installed, an executable file is pro
 
 We have the following excel table to be converted to latex table.
 
-![Excel table](img/excel_table.png)
+![Excel table](./img/excel_table.png)
 
 `python excel2tex.py` is the simplest method to do this, which means converting an excel file of name `table.xlsx` to a tex file of name `table.tex`. And because you are not using the `-e` option, the table is resolved in the simplest way:
 - All lines are drawn
@@ -98,9 +98,9 @@ We have the following excel table to be converted to latex table.
 - Text are all centered
 - All characters are converted to what they have been.
 
-So this is the converted table drawn in latex. Generated code is in [`simple.tex`](../master/examples/simple.tex)
+So this is the converted table drawn in latex. Generated code is in [`simple](./examples/simple.tex)
 
-![latex table of simple format](img/simple.png)
+![latex table of simple format](./img/simple.png)
 
 ### Enable all formats
 
@@ -110,9 +110,9 @@ If you want more styles to be resolved, try to use the `-e` option. The followin
 python excel2tex.py -e -m
 ```
 
-Here is the result. The generated code is in [`all.tex`](../master/examples/all.tex)
+Here is the result. The generated code is in [`all](./examples/all.tex)
 
-![latex table of all format](img/all.png)
+![latex table of all format](./img/all.png)
 
 ## Trouble shooting
 
@@ -131,7 +131,7 @@ If you have some emergency trouble with this tool, send me your code to my email
 
 Does this tool help you? You can buy me coffee!
 
-<!-- ![wechat](../img/wechat.png) ![alipay](../img/alipay.jpg) -->
+<!-- ![wechat](](./img/alipay.jpg) -->
 | wechat                                                                                     | alipay                                                                                     |
 |  |  |
 | <img src="https://github.com/ZhiyuanLck/excel2tex/blob/master/img/wechat.png" width="300"> | <img src="https://github.com/ZhiyuanLck/excel2tex/blob/master/img/alipay.jpg" width="300"> |

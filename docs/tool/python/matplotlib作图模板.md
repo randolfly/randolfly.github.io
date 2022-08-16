@@ -1,7 +1,9 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - python
+  - matplotlib
+  - template
 category:
   - skill
   - python
@@ -108,7 +110,7 @@ plt.savefig("data/test1.pdf", bbox_inches='tight')
 plt.savefig("data/test1.svg", bbox_inches='tight')
 ```
 
-![Pasted image 20220502165211.png](tool\python\assets\Pasted image 20220502165211.png)
+![Pasted image 20220502165211](./assets/Pasted-image-20220502165211.png)
 
 ## 普通单栏图片
 
@@ -158,7 +160,7 @@ plt.savefig("data/test2.pdf", bbox_inches='tight')
 plt.savefig("data/test2.svg", bbox_inches='tight')
 ```
 
-![Pasted image 20220502165255.png](tool\python\assets\Pasted image 20220502165255.png)
+![Pasted image 20220502165255](./assets/Pasted-image-20220502165255.png)
 
 ## 双栏图片
 
@@ -207,13 +209,13 @@ plt.savefig("data/test3.pdf", bbox_inches='tight')
 plt.savefig("data/test3.svg", bbox_inches='tight')
 ```
 
-![Pasted image 20220502165337.png](tool\python\assets\Pasted image 20220502165337.png)
+![Pasted image 20220502165337](./assets/Pasted-image-20220502165337.png)
 
 ## 在 Word 中显示比例对比
 
 直接使用 png 文件粘贴，宽度在 word 内分别按比例调整为 **13 9 6.67 厘米**
 
-![Pasted image 20220502165400.png](tool\python\assets\Pasted image 20220502165400.png)
+![Pasted image 20220502165400](./assets/Pasted-image-20220502165400.png)
 
 ## 快速画图模板
 
@@ -256,7 +258,7 @@ fig.savefig("data/test4.svg", bbox_inches='tight')
 plt.show()
 ```
 
-![Pasted image 20220502165514.png](tool\python\assets\Pasted image 20220502165514.png)
+![Pasted image 20220502165514](./assets/Pasted-image-20220502165514.png)
 
 ## 好看的 Cmap
 
@@ -268,7 +270,7 @@ cs = matplotlib.cm.rainbow(np.linspace(0, 1, 1000))
 plt.scatter(t, y, color=cs, alpha=0.5)
 ```
 
-![Pasted image 20220502165543.png](tool\python\assets\Pasted image 20220502165543.png)
+![Pasted image 20220502165543](./assets/Pasted-image-20220502165543.png)
 
 ## 参考
 

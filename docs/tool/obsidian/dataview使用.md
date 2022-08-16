@@ -1,7 +1,7 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - dataview
 category:
   - skill
   - obsidian
@@ -16,7 +16,7 @@ Obsidian 原本是基于纯文本的，它只设计了基础的数据查询功�
 
 通过利用 Dataview 插件，你可以且轻易地实现倒计时功能、表格创建功能、任务查询功能等（当然还有各种聚合功能）；而随着 Dataview 的更新，它在原来只能使用已经封装好的函数的基础上，加上了对利用 Obsidian API 的支持，也就是说如果你懂或者照抄别人的 Javascript 代码，你就可以基于 Javascript 的代码逻辑对 Obsidian 的数据进行改动后展示，你可以任意删改其中的数据后再展示，例如，你发现自己获取的文字有一些想要标注拼音的，那么你可以利用 Dataview 对这些字符做专门的匹配后输出（只要利用 Markdown Furigana 插件就可以实现任意的字符串标注）：
 
-![](extra/web-image/v2-e875c9e2dd34098cc7836dd72fe7130f_b.png)
+[v2-e875c9e2dd34098cc7836dd72fe7130f_b](.//)
 
 ## 基本用法
 
@@ -42,7 +42,7 @@ sort rating desc
 
 如图：
 
-![](extra/web-image/v2-128d52e2eb406645fcc5f48938edc953_r.jpg)
+[v2-128d52e2eb406645fcc5f48938edc953_r](.//)
 
 如果你问，如果你不想这个表头显示成英文，也很简单，你可以用 `AS` 来修改对应的表格头，例如：
 
@@ -67,7 +67,7 @@ SORT rating [ASCENDING/DESCENDING/ASC/DESC], ..., time-played [ASC/DESC]
 ```
 ​```dataview
 [list|table|task] field1, (field2 + field3) as myfield, ..., fieldN
-from #tag or "folder" or [link.md](/) or outgoing([link.md](/))
+from #tag or "folder" or [link](.//) or outgoing([link](.//))
 where field [>|>=|<|<=|=|&|'|'] [field2|literal value] (and field2 ...) (or field3...)
 sort field [ascending|descending|asc|desc] (ascending is implied if not provided)
 ​```
@@ -75,7 +75,7 @@ sort field [ascending|descending|asc|desc] (ascending is implied if not provided
 
 `list` 、`table` 、`task` 分别对应 dataview 的列表、表格以及任务内容；
 
-`from` 指的是从哪里获取数据，可以从 `#tag` 标签获取、 从 `folder` 文件夹获取、从 `[link.md](/)` 链接获取，或者从链接了 link 的文件获取 `outgoing([link.md](/))` ；
+`from` 指的是从哪里获取数据，可以从 `#tag` 标签获取、 从 `folder` 文件夹获取、从 `[link](.//)` 链接获取，或者从链接了 link 的文件获取 `outgoing([link](.//))` ；
 
 `where` 指的是上边获取的数据，要符合怎样的规则，也就是筛选；
 
@@ -93,7 +93,7 @@ list from #game/moba or #game/crpg
 
 然后就可以基于这两个标签来生成对应的列表了，如下：
 
-![](extra/web-image/v2-12fedd7259290c4e2a48d0c8d2ea1b4a_b.jpg)
+[v2-12fedd7259290c4e2a48d0c8d2ea1b4a_b](.//)
 
 其它与表格的设置类似，也可以排序以及筛选。
 
@@ -109,11 +109,11 @@ task from #projects/active
 
 然后就可以生成：
 
-![](extra/web-image/v2-6e27a80861f992868bad715a4384a1f8_r.jpg)
+[v2-6e27a80861f992868bad715a4384a1f8_r](.//)
 
 基于以上的代码，你其实就已经可以实现下图的效果了：
 
-![](extra/web-image/v2-b02f24dafa107cbe7b1f3034843210d2_r.jpg)
+[v2-b02f24dafa107cbe7b1f3034843210d2_r](.//)
 
 而如果你想要实现类似的效果，你只需要在你的 Markdown 文件中设置对应的数据，例如上图中的：
 
@@ -173,7 +173,7 @@ Dataview 目前支持的行内代码块主要是对于日期以及本页信息�
 
 你就可以获得相关的时间差值，如下：
 
-![](extra/web-image/v2-51e6e5d6aa72e711292f0ef6cdff7de5_b.jpg)
+[v2-51e6e5d6aa72e711292f0ef6cdff7de5_b](.//)
 
 ### 查看当前文件的信息
 
@@ -319,12 +319,12 @@ dv.list(dv.pages("").file.tags.distinct())
 ​```dataviewjs
 // 生成所有的标签且以 | 分割，修改时只需要修改 join(" | ") 里面的内容。
 dv.paragraph(
-  dv.pages("").file.tags.distinct().map(t => {return `[${t}](${t})`}).array().join(" | ")
+  dv.pages("").file.tags.distinct().map(t => {return `[${t}](.//)`}).array().join(" | ")
 )
 ​```
 ```
 
-![](extra/web-image/v2-409842ee36188bff87c1a48ba5ea2239_r.jpg)
+[v2-409842ee36188bff87c1a48ba5ea2239_r](.//)
 
 #### 高级版
 
@@ -334,14 +334,14 @@ dv.paragraph(
 for (let group of dv.pages("").filter(p => p.file.folder != "").groupBy(p => p.file.folder.split("/")[0])) {
   dv.paragraph(`## ${group.key}`);
   dv.paragraph(
-    dv.pages(`"${group.key}"`).file.tags.distinct().map(t => {return `[${t}](${t})`}).array().sort().join(" | "));
+    dv.pages(`"${group.key}"`).file.tags.distinct().map(t => {return `[${t}](.//)`}).array().sort().join(" | "));
 }
 ​```
 ```
 
 效果如下：
 
-![](extra/web-image/v2-3fe7e64309ae888ca0cac41635685929_r.jpg)
+[v2-3fe7e64309ae888ca0cac41635685929_r](.//)
 
 ### 输出内容
 
@@ -364,7 +364,7 @@ dv.list(values.flat()))
 
 如下：
 
-![](extra/web-image/v2-ce72d265ebc2d61306622dce0e984e62_r.jpg)
+[v2-ce72d265ebc2d61306622dce0e984e62_r](.//)
 
 #### 输出所有带有标签的文件名以及对应行且形成表格
 
@@ -412,14 +412,14 @@ let arr = files.map(async(file) => {
   const content = await app.vault.cachedRead(file)
 //turn all the content into an array
 let lines = await content.split("\n").filter(line => line.includes("#tag"))
-return ["["+file.name.split(".")[0]+"](/)", lines]
+return ["["+file](.//)", lines]
 })
 
 // 生成表格，如果要将当前的文件排除的话，请修改其中的排除文件
 Promise.all(arr).then(values => {
 console.log(values)
 //filter out files without "Happy" and the note with the dataview script
-const exists = values.filter(value => value[1][0] && value[0] != "[排除文件.md](/)")
+const exists = values.filter(value => value[1][0] && value[0] != "[排除文件](.//)")
 dv.table(["file", "lines"], exists)
 })
 ​```
@@ -427,7 +427,7 @@ dv.table(["file", "lines"], exists)
 
 如下：
 
-![](extra/web-image/v2-1abe55c9291d239d66cc0d1a08aab9c1_r.jpg)
+[v2-1abe55c9291d239d66cc0d1a08aab9c1_r](.//)
 
 ### 输出任务
 
@@ -477,7 +477,7 @@ dv.paragraph(str);
 
 如下：
 
-![](extra/web-image/v2-9b8aded0822c91d2ed478ac952e0c236_b.png)
+[v2-9b8aded0822c91d2ed478ac952e0c236_b](.//)
 
 #### 复杂版
 
@@ -511,7 +511,7 @@ const files = app.vault.getMarkdownFiles()
 const prompt = "<% tp.system.prompt("Query for") %>"
 
 const fileObject = files.map(async (file) => {
-const fileLink = "["+file.name.split(".")[0]+"](/)"
+const fileLink = "["+file](.//)"
 const content = await app.vault.cachedRead(file)
 return {fileLink, content}
 })
@@ -524,7 +524,7 @@ if (lines[0] && !file.fileLink.includes("<% tp.file.title %>")) {
 if (acc[0]) {
 return [...acc, [file.fileLink, lines.join("\n")]]
 } else {
-return [file.fileLink, lines.join("\n")](/)
+return [file](.//)
 }
 }
 return acc

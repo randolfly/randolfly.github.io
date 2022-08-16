@@ -7,5 +7,5 @@ category:
 ---
 
  ## 目录
-- [zotero 配置](zotero 配置.md)
+- [zotero-配置](zotero-配置.md)
 - [zotero](zotero.md)

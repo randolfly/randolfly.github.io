@@ -1,7 +1,11 @@
 ---
 date: 2022-08-09
 tag:
-  - default
+  - 专业书籍
+  - 其他
+  - 大学教材
+  - 教材
+  - paper
 category:
   - library
   - zotero
@@ -26,4 +30,4 @@ category:
 
 ## Contents
 
-[材料力学简析.md](physics\材料力学简析\材料力学简析.md)
+[材料力学简析](./../physics/材料力学简析/材料力学简析.md)

@@ -1,7 +1,11 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - mma
+  - math
+  - mat
+  - derivate
+  - 符号计算
 category:
   - skill
   - mma
@@ -49,15 +53,15 @@ NCGrad[expr, x]
 
 **result**
 
-![Pasted image 20220126170919.png](tool\mma\assets\Pasted image 20220126170919.png)
+![Pasted image 20220126170919](./assets/Pasted-image-20220126170919.png)
 
-可以发现计算少了个转置，相比我们定义的 [矩阵求导](math\线性代数\矩阵求导.md)，这是因为定义微元的时候差了一个转置所以给一个转置就行，即结果为 `NCGrad[expr, x]//tp` 即可
+可以发现计算少了个转置，相比我们定义的 [|矩阵求导](./../../math/线性代数/矩阵求导.md)，这是因为定义微元的时候差了一个转置所以给一个转置就行，即结果为 `NCGrad[expr, x]//tp` 即可
 
 需要注意，计算 `NCGrad` 的时候不能计算可交换乘法，即==所有乘法必须要使用不可交换乘法进行计算==
 
 ### 参考文档
 
-![DOC-NCAlgebra_5.0.pdf](tool\mma\assets\DOC-NCAlgebra_5.0.pdf)
+![DOC-NCAlgebra_5](./assets/DOC-NCAlgebra_5.0.pdf)
 
 ## 参考
 

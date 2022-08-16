@@ -1,7 +1,9 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - shell
+  - powershell
+  - config
 category:
   - skill
   - shell
@@ -20,7 +22,7 @@ category:
 
 安装主题 `Oh-My-Posh`
 - [Tooltips | Oh My Posh](https://ohmyposh.dev/docs/configuration/tooltips)
-- 注意需要使用 [scoop](tool\scoop\windows scoop配置.md) 安装
+- 注意需要使用 [|scoop](./../../scoop/windows-scoop配置.md) 安装
 
 其余的抄两个引文即可
 

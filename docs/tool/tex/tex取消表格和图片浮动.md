@@ -1,7 +1,9 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - tex
+  - image
+  - table
 category:
   - skill
   - tex

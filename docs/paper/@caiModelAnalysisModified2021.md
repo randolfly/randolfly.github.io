@@ -1,7 +1,9 @@
 ---
 date: 2022-08-13
 tag:
-  - default
+  - paper
+  - dynamic-model
+  - Stewart-platform
 category:
   - library
   - zotero

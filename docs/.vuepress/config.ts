@@ -89,7 +89,14 @@ export default defineUserConfig({
 
         mdEnhance: {
             // enableAll: true,
-            tex: true,
+            tex: {
+                displayMode: true,
+                output: 'html',
+                leqno: false,
+                fleqn: true,
+                throwOnError: false,
+                strict: false
+            },
             mark: true,
             footnote: true,
             tasklist: true,

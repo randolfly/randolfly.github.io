@@ -1,7 +1,8 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - shell
+  - powershell
 category:
   - skill
   - shell
@@ -18,11 +19,11 @@ category:
 
 那么，我们开头还以文件为例。当你在使用 PowerShell 的时候，角括号后面的这个路径就是目前所在的目录，当前目录会影响许多命令，这些命令常常和文件相关。目前我在 Test 目录中，如果我运行 「ls」，我们可以看到这个文件夹里的所有东西，这里有一个 「Inner」文件夹：
 
-![Pasted image 20220504161517.png](tool\shell\powershell\assets\Pasted image 20220504161517.png)
+![Pasted image 20220504161517](./assets/Pasted-image-20220504161517.png)
 
 如果我想进入此目录，可以使用一个叫做 「Set-Location」 的命令，它能设置我们当前所处的目录，只要告诉它我们要进入哪个文件夹即可
 
-![Pasted image 20220504161523.png](tool\shell\powershell\assets\Pasted image 20220504161523.png)
+![Pasted image 20220504161523](./assets/Pasted-image-20220504161523.png)
 
 很明显，每次你想要改变当前位置时，都要写 「Set-Location」，很麻烦。这就是为什么 PowerShell 有一个叫做 「别名」 的东西。**一个别名基本上就是一个命令的简单的写法**。实际上我们已经用了不少别名：例如，「Where」这个命令实际上并不是一条命令，而是一个别名，全称是：「Where-Object」；「ls 」，它也不是一个命令，它实际上是「Get-ChildItem」。
 
@@ -38,13 +39,13 @@ category:
 
 那么，就以 Windows 系统上的驱动器为例。要在 PowerShell 中看到我们目前拥有的所有驱动器，可以使用 「Get-PSDrive」 命令，就像这样：
 
-![Pasted image 20220504161603.png](tool\shell\powershell\assets\Pasted image 20220504161603.png)
+![Pasted image 20220504161603](./assets/Pasted-image-20220504161603.png)
 
 你会注意到，有一个用于注册表的驱动器。像这样写上它的名字，并在后面加上一个冒号，那么我就能 cd 进入此驱动器，我现在就在注册表里了，要是我用 「ls」，我就会得到一份所有注册表项目的列表：
 
-![Pasted image 20220504161612.png](tool\shell\powershell\assets\Pasted image 20220504161612.png)
+![Pasted image 20220504161612](./assets/Pasted-image-20220504161612.png)
 
-::: note 
+::: note comment
 试着进入 Alias: 驱动器，使用 ls 看看会发生什么
 :::
 
@@ -63,7 +64,7 @@ category:
 
 此外，命令还能由什么构成？当你写命令的时候，你在命令后面写什么？命令后面应该是参数。例如，当我输入 「mkdir」时，要建立一个文件夹，我输入的是 「mkdir」 加上一个文件夹名称，那个文件夹的名字就是一个参数，所以，我们也应该将命令所拥有的各种参数作为属性。
 
-![Pasted image 20220504161652.png](tool\shell\powershell\assets\Pasted image 20220504161652.png)
+![Pasted image 20220504161652](./assets/Pasted-image-20220504161652.png)
 
 ## 参数
 
@@ -75,17 +76,17 @@ category:
 
 我们有两种方法可以提供参数：我们可以按顺序键入，在这种情况下，我知道第一个参数是频道名称，所以就输入 「ABMedia」；我知道第二个参数是订阅通知，就像这样：
 
-![Pasted image 20220504161720.png](tool\shell\powershell\assets\Pasted image 20220504161720.png)
+![Pasted image 20220504161720](./assets/Pasted-image-20220504161720.png)
 
 如果想要更精确一点，或者键入一个不能按顺序提供的参数，我们可以准确地告诉命令我们想改变哪个参数。也就是说，假如我想先写 「NotificationLevel」，再输入 「ChannelName」，我们需要明确指定每次想改变的参数名称。指定参数的方法是先写一个「-」（短横杠），后面跟上参数名称。因而，把 「NotificationLevel」 设置为 「None」的话，需要写「-NotificationLevel」，也就是该参数的名称，接着是一个空格，在这里写上我想设置的内容。输入 「Some」，然后再把「-ChannelName 」设置为 「ABMedia」。运行后，它仍然按预期工作——命令接收到了这两个参数。此外，一个有用的小技巧是：按 「Tab 」键 PowerShell 会自动填充参数名称。
 
-![Pasted image 20220504161731.png](tool\shell\powershell\assets\Pasted image 20220504161731.png)
+![Pasted image 20220504161731](./assets/Pasted-image-20220504161731.png)
 
 不过，如果我不提供参数，会发生什么？会运行错误吗？我们试着在没有参数的情况下运行命令，看看会发生什么。能看到，PowerShell 没有直接运行，它清楚地告诉我们说：「啊，你没有填 'ChannelName' 参数，请在这里补充」。所以，如果我们没有写必须的参数，PowerShell 会给我们补充输入的选项。
 
-![Pasted image 20220504161738.png](tool\shell\powershell\assets\Pasted image 20220504161738.png)
+![Pasted image 20220504161738](./assets/Pasted-image-20220504161738.png)
 
-::: note 
+::: note note
 PowerShell 使用命令的方式为：命令 -参数名参数值 -参数名2 参数值2 ... 必须提供必要参数的值，可选参数则选填。参数名没有必要打出全称，例如 ls -fo 和 ls -Force 的功能是一样的，只要 PowerShell 能通过前几个字母辨认出参数即可
 
 :::
@@ -97,9 +98,9 @@ PowerShell 使用命令的方式为：命令 -参数名参数值 -参数名2 参
 
 此时需要用到 「Get-Help」 命令。其用法是：先写 「Get-Help」，然后在第一个参数中，告诉 Get-Help 我们想要什么命令的帮助文档。在上面的例子中，我就输入我自制的命令 「Subscrib-Channel」，就像这样，高亮的部分是需要关注的主要内容：
 
-![Pasted image 20220504161807.png](tool\shell\powershell\assets\Pasted image 20220504161807.png)
+![Pasted image 20220504161807](./assets/Pasted-image-20220504161807.png)
 
-::: note 
+::: note comment
 尝试使用 `Get-Help Get-Help` 来获取 Get-Help 的帮助文档。使用 `Get-Help 命令 -online` 可以打开在线的帮助文档
 :::
 
@@ -108,13 +109,13 @@ PowerShell 使用命令的方式为：命令 -参数名参数值 -参数名2 参
 
 回到我在第一集中举的例子：获取所有以 「txt 」为后缀的文件，当时我们的做法是先用 「ls」，然后使用 「Where」 来筛选出 txt 后缀的文件。我个人很喜欢 「Where」：因为它对所有的东西都有用，不管你运行的是什么命令，也不管它输出的是什么对象，只要给定意图限定条件的属性，就能进行筛选；ForEach 也是这样，不管是什么对象，我都能轻松地将它们过滤到一个属性。然而，在 bash 之类的地方，情况就不一样了。
 
-![Pasted image 20220504161822.png](tool\shell\powershell\assets\Pasted image 20220504161822.png)
+![Pasted image 20220504161822](./assets/Pasted-image-20220504161822.png)
 
 过滤筛选的能力是由命令自己提供的，例如去筛选出那些 「txt」 文件的能力。对，虽然在通常情况下，命令们都用法大致相同，但是很难保证所有命令都一样，很多时候，用法就是不一样，命令间缺乏一致性。
 
 在 PowerShell 中，大多数命令实际上自己也提供了更直接的过滤方式。例如，如果我想要找出所有后缀为 「txt」 的文件，我可以用前面提到的方式，也就是标准的 「Where」，它适用于所有对象；或者，「ls」 也提供了直接筛选的方法，其大致和 bash 中类似。
 
-![Pasted image 20220504161830.png](tool\shell\powershell\assets\Pasted image 20220504161830.png)
+![Pasted image 20220504161830](./assets/Pasted-image-20220504161830.png)
 
 所以记住：命令常常也提供自己的过滤筛选功能，我在第一节故意没有提及。类似于 bash，不能保证有这样的机制，也不能保证各个命令的操作是完全一致的。但机制确实存在，而且用起来也简约方便。
 
@@ -126,13 +127,13 @@ PowerShell 使用命令的方式为：命令 -参数名参数值 -参数名2 参
 
 命令的名称是有含义的。讲真的，「htop」 是什么意思，嗯？在 PowerShell 中，对应的是 「Get-Process」，如你所见，至少对我们这些用户来讲，这个名字更有逻辑。这种命名方式就很有帮助。比方说，想要获取日期，你认为这个命令是什么？别忘了，所有的命令都遵循 「动词 - 名词」 结构，所以，我们要获取（Get）日期（Date），看起来，就是这个命令：
 
-![Pasted image 20220504161845.png](tool\shell\powershell\assets\Pasted image 20220504161845.png)
+![Pasted image 20220504161845](./assets/Pasted-image-20220504161845.png)
 
 此外，Tab 使这个命名体系更加好用。比方说，我想获得和网络相关的信息，我们不完全知道这个命令是什么，因而只想遍览一下 PowerShell 提供的网络相关的命令。那么，先写 「Get-Network」，我也不知道后面该写什么，所以就在这里按 Tab 键，看看 PowerShell 有什么。嗯，好的，你能看到，我可以通过多按 Tab 键来浏览命令，可能就会找到我想要的那个：
 
-![Pasted image 20220504161853.png](tool\shell\powershell\assets\Pasted image 20220504161853.png)
+![Pasted image 20220504161853](./assets/Pasted-image-20220504161853.png)
 
-::: note 
+::: note note
 Tab / Shift+Tab 可以向前向后切换补全的结果
 :::
 
@@ -141,28 +142,28 @@ Tab / Shift+Tab 可以向前向后切换补全的结果
 
 等一下，等一下，获取（Get）……命令（Command），看，所有的命令都在这里了
 
-![Pasted image 20220504161921.png](tool\shell\powershell\assets\Pasted image 20220504161921.png)
+![Pasted image 20220504161921](./assets/Pasted-image-20220504161921.png)
 
 呃，显然这个结果不太友好。我们可以用 「Where」查找，举个例子： 查找「Get-Process」 命令：
 
-![Pasted image 20220504161929.png](tool\shell\powershell\assets\Pasted image 20220504161929.png)
+![Pasted image 20220504161929](./assets/Pasted-image-20220504161929.png)
 
 成功了，可惜这样找不太实用，还好，我们能在 「Where」 命令中使用另一个运算符：「like」，可以用 「-like」（近似）来代替「-eq」（相等），这么用我们就能使用通配符了。通配符用星号 * 表示，大致的意思是：「这里可以是任何东西」，举个例子吧，要是我想获取所有以 「Get-」开头的命令，我可以写 「Get-\*」。这么写的意思是，开头必须有 「Get-」，后面则可以是任何东西，以此类推，如果我想获取名字中含有 「process」 的命令，我可以直接写 `*process*`，就像这样，我们得到了所有和进程有关的命令：
 
-![Pasted image 20220504161943.png](tool\shell\powershell\assets\Pasted image 20220504161943.png)
+![Pasted image 20220504161943](./assets/Pasted-image-20220504161943.png)
 
-::: note 
+::: note note
 关于通配符的知识可以参考 PowerShell 的此 [文档](https://docs.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_wildcards)。常用的只有两个：* 匹配任何字符，? 匹配单个字符
 :::
 
 
 每次写出这一整条命令有点麻烦，不过，你猜怎么着？「Get-Command」 自己就有一个参数，接受通配符，因此，我也可以像这样写，这样就好多了，很简短：
 
-![Pasted image 20220504161959.png](tool\shell\powershell\assets\Pasted image 20220504161959.png)
+![Pasted image 20220504161959](./assets/Pasted-image-20220504161959.png)
 
 我们还可以写得更短，PowerShell 允许我们在写单字文本（不含空格）时去掉引号，因而实际上可以直接写命令名，就像这样：
 
-![Pasted image 20220504162011.png](tool\shell\powershell\assets\Pasted image 20220504162011.png)
+![Pasted image 20220504162011](./assets/Pasted-image-20220504162011.png)
 
 ## Powershell 内部架构
 
@@ -170,9 +171,9 @@ Tab / Shift+Tab 可以向前向后切换补全的结果
 
 话不多说，从 PowerShell 的最底层开始讲起，PowerShell 最基本最核心的，是一个叫做 「CLR」 的东西。意思是 「通用语言运行时」，我们不会自己去和它打交道，但是，整个对象系统滥觞于此。
 
-![Pasted image 20220504162043.png](tool\shell\powershell\assets\Pasted image 20220504162043.png)
+![Pasted image 20220504162043](./assets/Pasted-image-20220504162043.png)
 
-::: note 
+::: note note
 * CLR 为 Common Language Runtime 的缩写，视频中有误
 :::
 
@@ -183,23 +184,23 @@ Tab / Shift+Tab 可以向前向后切换补全的结果
 
 .NET 的大致作用是：提供用于各类事物上的，大量对象和代码。还记得前文中我们获取了那些代表文件的对象的吗？那些 「文件」 对象是在 .NET 中定义的，所有让这些对象可以被使用的代码，所有处理这些对象的代码，也是在 .NET 中定义的。
 
-![Pasted image 20220504162102.png](tool\shell\powershell\assets\Pasted image 20220504162102.png)
+![Pasted image 20220504162102](./assets/Pasted-image-20220504162102.png)
 
 我前面说 CLR 和 .NET 「紧密结合」，我是说两者真的是紧密集成的，当人们说到 .NET 的时候，他们通常指的是 CLR 和 .NET。要是看一下它们的代码，你能看到 CLR 的代码和 .NET 的代码甚至放在同一个地方，尽管分别由不同的团队维护，它们为彼此而生，完美结合在一起。如果说 CLR 提供了基础功能，那么 .NET 就提供了我们实际上需要的东西，比如处理文件的方法，以及处理文本编码的方法，如此等等。
 
 另外，有时你也会用到 .NET 库。库本质上是在 .NET 的基础上，额外增加的对象和代码。在 Windows 中，看到过那些 DLL 文件吗？每个 DLL 都是一个库，.NET DLL 则是一个使用 .NET 和 CLR 构建的库。只需你需要，就能在任何事情上添加库，数以百万计的 .NET 库可以让你访问各种对象和系统，你几乎能做到任何想象的到的事情，在这个系列中，我也会教大家如何在 PowerShell 中使用 .NET 库。
 
-![Pasted image 20220504162110.png](tool\shell\powershell\assets\Pasted image 20220504162110.png)
+![Pasted image 20220504162110](./assets/Pasted-image-20220504162110.png)
 
 言归正传，我们终于说到 PowerShell 了，PowerShell 构建在 . NET 的基础之上，这个架构就是 PowerShell 的核心要义，它定义了 PowerShell：
 
-![Pasted image 20220504162117.png](tool\shell\powershell\assets\Pasted image 20220504162117.png)
+![Pasted image 20220504162117](./assets/Pasted-image-20220504162117.png)
 
 简要地说，PowerShell 是从 .NET 中由库构建出来的，这些库新增了 PowerShell 使用的特殊对象，运行 PowerShell 所需的代码、用户界面等等。
 
 最后，在整个架构之上，还有一个可以调用其他部分的东西：PowerShell 模块。它大致上与库相同，但是专门用于扩展 PowerShell 的，也就是说，PowerShell 模块能添加自定义 PowerShell 命令，并在其中使用 PowerShell 的对象等等。
 
-![Pasted image 20220504162124.png](tool\shell\powershell\assets\Pasted image 20220504162124.png)
+![Pasted image 20220504162124](./assets/Pasted-image-20220504162124.png)
 
 整个架构就是这样，现在，你已经学习到了目前所需了解的 PowerShell 内部原理的一切。
 

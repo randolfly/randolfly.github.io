@@ -1,7 +1,9 @@
 ---
 date: 2022-08-09
 tag:
-  - default
+  - paper
+  - 有限元
+  - 理论
 category:
   - library
   - zotero
@@ -26,4 +28,4 @@ category:
 
 ## Contents
 
-- [有限元分析基础教程.md](physics\有限元分析基础教程\有限元分析基础教程.md)
+- [有限元分析基础教程](./../physics/有限元分析基础教程/有限元分析基础教程.md)

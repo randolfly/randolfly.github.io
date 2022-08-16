@@ -7,4 +7,4 @@ category:
 ---
 
  ## 目录
-- [jupyter 美化](jupyter 美化.md)
+- [jupyter-美化](jupyter-美化.md)

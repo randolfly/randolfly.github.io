@@ -1,7 +1,7 @@
 ---
 date: 2022-08-10
 tag:
-  - default
+  - paper
 category:
   - library
   - zotero

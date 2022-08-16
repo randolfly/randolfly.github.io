@@ -1,7 +1,7 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - docker
 category:
   - skill
   - docker
@@ -11,19 +11,19 @@ category:
 # 安装 Docker
 
 ## Ubuntu
-* [ubuntu 20.04 LTS 安装 docker](#ubuntu-2004-lts-安装docker)
-	* [零：卸载旧版本](#零：卸载旧版本)
-	* [一：设置仓库](#一：设置仓库)
-		* [更新 apt 包索引。](#更新-apt-包索引。)
-		* [安装依赖包:](#安装依赖包)
-		* [添加 GPG 密钥](#添加gpg密钥)
-		* [添加软件源](#添加软件源)
-	* [二：安装 Docker Engine-Community](#二：安装-docker-engine-community)
-	* [三：测试](#三：测试)
-	* [四：免 sudo 运行 & 镜像加速](#四：免sudo运行镜像加速)
-		* [免 sudo](#免sudo)
-		* [docker 镜像加速](#docker镜像加速)
-	* [五：参考资料](#五：参考资料)
+* [#ubuntu-2004-lts-安装docker](.//)
+	* [#零：卸载旧版本](.//)
+	* [#一：设置仓库](.//)
+		* [#更新-apt-包索引。](.//)
+		* [#安装依赖包](.//)
+		* [#添加gpg密钥](.//)
+		* [#添加软件源](.//)
+	* [#二：安装-docker-engine-community](.//)
+	* [#三：测试](.//)
+	* [#四：免sudo运行镜像加速](.//)
+		* [#免sudo](.//)
+		* [#docker镜像加速](.//)
+	* [#五：参考资料](.//)
 
 ### 零：卸载旧版本
 

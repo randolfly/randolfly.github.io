@@ -15,17 +15,17 @@ category:
 将excel中的表格转换为latex中的表格，支持识别多种格式。
 
 <!--ts-->
-   * [excel表格转换工具](#excel表格转换工具)
-      * [支持识别的excel样式](#支持识别的excel样式)
-      * [准备表格时的注意事项](#准备表格时的注意事项)
-      * [依赖的python包和tex包](#依赖的python包和tex包)
-      * [使用](#使用)
-         * [简单用法](#简单用法)
-         * [识别更多格式](#识别更多格式)
-      * [可能出现的问题](#可能出现的问题)
-         * [乱码](#乱码)
-      * [联系邮箱](#联系邮箱)
-      * [打赏](#打赏)
+   * [#excel表格转换工具](.//)
+      * [#支持识别的excel样式](.//)
+      * [#准备表格时的注意事项](.//)
+      * [#依赖的python包和tex包](.//)
+      * [#使用](.//)
+         * [#简单用法](.//)
+         * [#识别更多格式](.//)
+      * [#可能出现的问题](.//)
+         * [#乱码](.//)
+      * [#联系邮箱](.//)
+      * [#打赏](.//)
 
 <!-- Added by: zhiyuan, at: Sat 25 Apr 2020 08:05:27 PM UTC -->
 
@@ -89,7 +89,7 @@ usage: excel2tex.py [-h] [-s SOURCE] [-o TARGET] [--setting SETTING] [--sig] [-m
 
 下面是将要被转换的excel表格
 
-![Excel table](../img/excel_table.png)
+![Excel table](./../img/excel_table.png)
 
 使用命令`python excel2tex.py`，你将得到一个只有必要格式的表格。这条命令的含义是将`table.xlsx`转换为`table.tex`。因为`-e`选项并没有被使用，生成的表格是最简的：
 - 绘制所有的线条
@@ -97,9 +97,9 @@ usage: excel2tex.py [-h] [-s SOURCE] [-o TARGET] [--setting SETTING] [--sig] [-m
 - 所有文本居中对齐
 - 所有字符以本来的样子在latex生成的表格中显示
 
-下面是转换生成的latex表格，生成的代码见[`simple.tex`](../master/simple.tex)
+下面是转换生成的latex表格，生成的代码见[`simple](./../examples/simple.tex)
 
-![latex table of simple format](../img/simple.png)
+![latex table of simple format](./../img/simple.png)
 
 ### 识别更多格式
 
@@ -109,9 +109,9 @@ usage: excel2tex.py [-h] [-s SOURCE] [-o TARGET] [--setting SETTING] [--sig] [-m
 python excel2tex.py -e -m
 ```
 
-下面是转换生成的latex表格，生成的代码见[`all.tex`](../master/all.tex)
+下面是转换生成的latex表格，生成的代码见[`all](./../examples/all.tex)
 
-![latex table of all format](../img/all.png)
+![latex table of all format](./../img/all.png)
 
 ## 可能出现的问题
 
@@ -131,7 +131,7 @@ python excel2tex.py -s table.xlsx -o table.tex --sig
 
 如果这个工具帮助到了你，你喜欢它的话，欢迎打赏！
 
-<!-- ![wechat](../img/wechat.png) ![alipay](../img/alipay.jpg) -->
+<!-- ![wechat](](./../img/alipay.jpg) -->
 | 微信                                                                                     | 支付宝                                                                                     |
 |  |  |
 | <img src="https://github.com/ZhiyuanLck/excel2tex/blob/master/img/wechat.png" width="300"> | <img src="https://github.com/ZhiyuanLck/excel2tex/blob/master/img/alipay.jpg" width="300"> |

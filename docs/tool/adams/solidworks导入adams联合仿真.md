@@ -16,20 +16,20 @@ category:
 
 后来的补充：强烈建议没有强制要求的同志不要用 ADAMS 仿真了，在这篇文章里你会看到我从各个角度吐槽这个软件难用，但是当时的课程设计要求我们使用 ADAMS 进行仿真。现在我本人已经转用 **Recurdyn** 进行机电联合仿真了，Recurdyn 的仿真性能更强，人机交互也更加优秀，还支持柔性零部件的有限元分析，有机电联合仿真需求的同志都可以尝试。我还犹豫过要不要把这个文章写完，但是转念一想还是得有始有终，因此把怎么使用 ADAMS 进行机电联合仿真补完。
 
-::: note 
+::: note note
 经过确认，Adams确实还存在计算的能量发散的问题。一个单摆为例，5s 100点能量为：
 
 总能量：
-![Pasted image 20220708165717.png](tool\adams\assets\Pasted image 20220708165717.png)
+![Pasted image 20220708165717](./assets/Pasted-image-20220708165717.png)
 
 势能：
-![Pasted image 20220708165759.png](tool\adams\assets\Pasted image 20220708165759.png)
+![Pasted image 20220708165759](./assets/Pasted-image-20220708165759.png)
 
 确实存在能量不守恒;
 
 如果加到1000点，还是存在能量不守恒：
 
-![Pasted image 20220708170046.png](tool\adams\assets\Pasted image 20220708170046.png)
+![Pasted image 20220708170046](./assets/Pasted-image-20220708170046.png)
 :::
 
 

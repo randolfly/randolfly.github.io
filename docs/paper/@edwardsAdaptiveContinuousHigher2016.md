@@ -1,7 +1,12 @@
 ---
 date: 2022-08-10
 tag:
-  - default
+  - paper
+  - unread
+  - Adaptive-control
+  - Higher-order-sliding-modes
+  - Sliding-modes
+  - ASMC
 category:
   - library
   - zotero
@@ -61,19 +66,27 @@ This paper is concerned with the development of an adaptation structure which ca
 
 consider a fitst-order sliding mode equation representing the dynamics of the switching variable:
 
-$$\dot{\sigma}\left( t \right) =a\left( t \right) +u\left( t \right) $$
+
+$$
+\dot{\sigma}\left( t \right) =a\left( t \right) +u\left( t \right) 
+$$
+
 ^eqn-siso-formualtion
 
 assume that $|a(t)|<a_0$ and $|\dot{a}(t)|<a_1$, consider the control law:
 
-$$u\left( t \right) =-\left( k\left( t \right) +\eta \right) \mathrm{sign}\left( \sigma \left( t \right) \right) $$
+
+$$
+u\left( t \right) =-\left( k\left( t \right) +\eta \right) \mathrm{sign}\left( \sigma \left( t \right) \right) 
+$$
+
 ^eqn-siso-control-law
 
 where $\eta$ is a small positive design constant and $k(t)$ is a varing scalar term
 
 Note that when $k(t)>|a(t)|$, the $\eta$ -reachability condition $\sigma \dot{\sigma}<-\eta \left| \sigma \right|$ is satisfied
 
-::: note 
+::: note note
 should be $k(t)+\eta > |a(t)|$??
 :::
 
@@ -81,14 +94,22 @@ should be $k(t)+\eta > |a(t)|$??
 
 Based on previous paper, during sliding motion ($\sigma = 0$), the so called equivalent contol $u_{eq}(t)$ should maintain $\dot{\sigma} = 0$, so that $u_{eq}(t) = -a(t)$. Because a is unknown, we can obtain a **close approximation** by taking low-pass filter of the switch signal u(t):
 
-$$\dot{\bar{u}}_{eq}=\frac{1}{\tau}\left( -\left( k\left( t \right) +\eta \right) \mathrm{sign}\left( \sigma \left( t \right) \right) -\bar{u}_{eq}\left( t \right) \right) $$
+
+$$
+\dot{\bar{u}}_{eq}=\frac{1}{\tau}\left( -\left( k\left( t \right) +\eta \right) \mathrm{sign}\left( \sigma \left( t \right) \right) -\bar{u}_{eq}\left( t \right) \right) 
+$$
+
 
 Based on previous paper, when $\tau>0$ is small enough, $\left| \bar{u}_{eq}\left( t \right) -u_{eq}\left( t \right) \right|$ can be small enough.
 
-::: note 
+::: note Assumption
 exists a scalar $1>\epsilon_{1}>0$ and $\epsilon_0>0$ such that:
 
-$$\left| \left| \bar{u}_{eq}\left( t \right) \right|-\left| u_{eq}\left( t \right) \right| \right|<\epsilon _1\left| u_{eq}\left( t \right) \right|+\epsilon _0$$
+
+$$
+\left| \left| \bar{u}_{eq}\left( t \right) \right|-\left| u_{eq}\left( t \right) \right| \right|<\epsilon _1\left| u_{eq}\left( t \right) \right|+\epsilon _0
+$$
+
 
 holds for all time after a finite time $t_eq$, to allow for the (fast) dissipation of the effects of the initial condition of the filter
 :::
@@ -97,65 +118,96 @@ holds for all time after a finite time $t_eq$, to allow for the (fast) dissipati
 
 Introduce a *safety margin*, rewrite the **objective**:
 
-$$k\left( t \right) >\frac{1}{\alpha}\left| \bar{u}_{eq}\left( t \right) \right|+\epsilon $$
+
+$$
+k\left( t \right) >\frac{1}{\alpha}\left| \bar{u}_{eq}\left( t \right) \right|+\epsilon 
+$$
+
 
 where $0<\alpha<1$ and $\epsilon>0$ are **designed scalar**(depending on $\epsilon_0$ and $\epsilon_{1}$) chosen to ensure the estimate $\bar{u}_{eq}(t)$ satisfies:
 
-$$\frac{1}{\alpha}\left| \bar{u}_{eq}\left( t \right) \right|+\frac{\epsilon}{2}>\left| u_{eq}\left( t \right) \right|$$
+
+$$
+\frac{1}{\alpha}\left| \bar{u}_{eq}\left( t \right) \right|+\frac{\epsilon}{2}>\left| u_{eq}\left( t \right) \right|
+$$
+
 
 Now define an error variable:
 
-$$\delta \left( t \right) =k\left( t \right) -\left( \frac{1}{\alpha}\left| \bar{u}_{eq}\left( t \right) \right|+\epsilon \right) $$
+
+$$
+\delta \left( t \right) =k\left( t \right) -\left( \frac{1}{\alpha}\left| \bar{u}_{eq}\left( t \right) \right|+\epsilon \right) 
+$$
+
 ^eqn-siso-error
 
 Notice that when $\delta =0$ the $k(t)>|u_{eq}(t)|>|a(t)|$, so the target is to forcing $\delta \left( t \right) \rightarrow 0$, so that the $k(t)+\eta > |a(t)|$ can be guranted.
 
 
-::: note 
+::: note note
 1. this methodology is basically to broaded the sliding manifold
 2. the trick here is to introduce a small constant to seperate target and approximation 
 :::
 
 
 
-::: danger 
+::: danger corollary
 Till now, the problem is reformed as a **tracking problem**, target is to gurantee error variable $\delta \rightarrow 0$
 :::
 
 
 ##### New Methodology
 
-The k(t) in [^eqn-siso-control-law](@edwardsAdaptiveContinuousHigher2016.md#^eqn-siso-control-law) can will be formed below:
+The k(t) in [^eqn-siso-control-law](./#^eqn-siso-control-law) can will be formed below:
 
-$$\dot{k}\left( t \right) =-\rho \left( t \right) \mathrm{sign}\left( \delta \left( t \right) \right) $$
+
+$$
+\dot{k}\left( t \right) =-\rho \left( t \right) \mathrm{sign}\left( \delta \left( t \right) \right) 
+$$
+
 ^eqn-siso-k-adapt
 
 **In this paper**, author give a form of $\rho$ as :
 
-$$\rho(t)=r_0+r(t)$$
+
+$$
+\rho(t)=r_0+r(t)
+$$
+
 
 Based on different prior knowledge of uncertainties , different adaption law is proposed
 
 ###### When Bound a1 is Known
 
-::: note 
+::: note Assumption
 In this subsection, $a_0$ is assumed to be unknown but bounded, but $a_1$ is available, i.e. the worst case rate of change of the disturbances 
 :::
 
 
 define :
 
-$$e\left( t \right) =\frac{qa_1}{\alpha}-r\left( t \right) $$
+
+$$
+e\left( t \right) =\frac{qa_1}{\alpha}-r\left( t \right) 
+$$
+
 
 where *user-define* scalar $q>1$ is a safety margin chosed to ensure:
 
-$$\left| \frac{\mathrm{d}}{\mathrm{d}t}\left( \bar{u}_{eq}\left( t \right) \right) \right|<qa_1$$
+
+$$
+\left| \frac{\mathrm{d}}{\mathrm{d}t}\left( \bar{u}_{eq}\left( t \right) \right) \right|<qa_1
+$$
+
 ^eqn-q-design
 
 Give the adaption scheme :
 
-::: tip 
-$$\dot{r}\left( t \right) =\gamma \left| \delta \left( t \right) \right|+r_0\sqrt{\gamma}\mathrm{sign}\left( e\left( t \right) \right) $$
+::: tip definition
+$$
+\dot{r}\left( t \right) =\gamma \left| \delta \left( t \right) \right|+r_0\sqrt{\gamma}\mathrm{sign}\left( e\left( t \right) \right) 
+$$
+
 
 where $\gamma>0$ is a design scalar
 :::
@@ -164,11 +216,19 @@ where $\gamma>0$ is a design scalar
 
 By analysing the Lyaponov function:
 
-$$V=\frac{1}{2}\delta ^2+\frac{1}{2\gamma}e^2$$
+
+$$
+V=\frac{1}{2}\delta ^2+\frac{1}{2\gamma}e^2
+$$
+
 
 and can ensure:
 
-$$\dot{V}\leqslant -r_0\sqrt{2V}$$
+
+$$
+\dot{V}\leqslant -r_0\sqrt{2V}
+$$
+
 
 so $\delta(t)$ and $e(t)$ converge to 0 in finite time, and makes k satisfy condition
 
@@ -176,41 +236,49 @@ so $\delta(t)$ and $e(t)$ converge to 0 in finite time, and makes k satisfy cond
 
 since $a_1$ is unknown, update the adaptive scheme as below:
 
-$$\dot{r}\left( t \right) =\begin{cases}
+
+$$
+\dot{r}\left( t \right) =\begin{cases}
 	\gamma \left| \delta \left( t \right) \right|\\
 	0\\
 \end{cases}\quad \begin{array}{c}
 	\mathrm{if} \left| \delta \left( t \right) \right|>\delta _0\\
 	\mathrm{otherwise}\\
-\end{array}\quad \quad $$
+\end{array}\quad \quad 
+$$
+
 
 where $\delta_{0}>0$ is a designed scalar
 
-::: info 
+::: info theorem
 Consider above dual-adaptive sliding mode control law, and the uncertainties $a(t)$ satisfy: $|a(t)|<a_0$ and $|\dot{a}(t)|<a_1$, where $a_0$ and $a_1$ are finite but unknown.
 
 If choose $\epsilon$ to satisfy :
 
-$$\frac{1}{4}\epsilon ^2>\delta _0+\frac{1}{\gamma}\left( \frac{qa_1}{\alpha} \right) ^2$$
+
+$$
+\frac{1}{4}\epsilon ^2>\delta _0+\frac{1}{\gamma}\left( \frac{qa_1}{\alpha} \right) ^2
+$$
+
 
 for **any given** $\delta_{0}$ and $a_1$, then the control law forces $|\delta(t)|<\epsilon/2$ in finite time and consequently ensures a sliding motion can be sustained.
 :::
 
 ^themrem-siso-a0-a1
 
-![375](paper\assets\Pasted image 20220809231444.png)
+![|375](./assets/Pasted-image-20220809231444.png)
 
-::: note 
+::: note remark
 1. The scalar $\delta_0$ needs to be larger than noise or computational errors
 2. The user defined parameters $\epsilon$, $\alpha$ are the safety factors whilst $q$ reflects the accuracy associated with the estimation of the equivalent control
 3. **though $a_1$ is unknown, by selecting the adaptive gain $\gamma$ sufficiently large (to dominate $a_1$), for any value of $\delta_0$
-, $q$ and $a_1$ there always exists an $\epsilon$ to ensure [^themrem-siso-a0-a1](@edwardsAdaptiveContinuousHigher2016.md#^themrem-siso-a0-a1) is satisfied**
+, $q$ and $a_1$ there always exists an $\epsilon$ to ensure [^themrem-siso-a0-a1](./#^themrem-siso-a0-a1) is satisfied**
 	1. the order of magnitude of $a_1$ should be known
 	2. or can be choosed by simulation
 :::
 
 
-::: note 
+::: note note
 看看人家怎么写解释的
 :::
 
@@ -242,33 +310,33 @@ for **any given** $\delta_{0}$ and $a_1$, then the control law forces $|\delta(t
 
 我用 simulink 尝试复现其中的 Example 1，即最简单的 SISO 的模型，模型如下：
 
-![Pasted image 20220810112458.png](paper\assets\Pasted image 20220810112458.png)
+![Pasted image 20220810112458](./assets/Pasted-image-20220810112458.png)
 
 环境为: Matlab 2022a
 
-![asmc_edward_init.mlx](paper\assets\asmc_edward_init.mlx)
+[asmc_edward_init](./assets/asmc_edward_init.mlx)
 
-![asmc_edward.slx](paper\assets\asmc_edward.slx)
+[asmc_edward](./assets/asmc_edward.slx)
 
 
 作者给出了相关的参数，除了 $q$ 这个自定义的参数。
 
-![Pasted image 20220810112650.png](paper\assets\Pasted image 20220810112650.png)
+![Pasted image 20220810112650](./assets/Pasted-image-20220810112650.png)
 
 > 不得不吐槽，这个方法参数怎么这么多
 
 由于没有给定 q，论文中给了一个 q 的设计准则：
 
-![^eqn-q-design](@edwardsAdaptiveContinuousHigher2016.md#^eqn-q-design)
+[^eqn-q-design](./#^eqn-q-design)
 
 这里的 $a_1$ 取 1，那么需要 q 大于 $\bar{u}_{eq}$ 的微分，即大概是 a 的微分，那么 q>1 就可以了
 
-::: note 
+::: note note
 不得不吐槽，这作者设计的算法仿真真的感觉有问题，太容易受扰动了，至少我用adaptive的结果太慢了，只能用定点的0.001步长仿真
 :::
 
 
-::: note 
+::: note note
 还有一点可以吐槽，这个作者画的图，比如fig4，纵坐标轴都到3去了，误差就算在0.2也看不出来
 :::
 
@@ -277,12 +345,12 @@ for **any given** $\delta_{0}$ and $a_1$, then the control law forces $|\delta(t
 
 ###### 仿真 1：q=1
 
-![Pasted image 20220810113020.png](paper\assets\Pasted image 20220810113020.png)
+![Pasted image 20220810113020](./assets/Pasted-image-20220810113020.png)
 
-::: note 
+::: note note
 取0.0001的步长仿真3s结果为：
 
-![Pasted image 20220810113211.png](paper\assets\Pasted image 20220810113211.png)
+![Pasted image 20220810113211](./assets/Pasted-image-20220810113211.png)
 
 所以不是我仿真不行，是这个算法真的不对
 :::
@@ -292,12 +360,12 @@ for **any given** $\delta_{0}$ and $a_1$, then the control law forces $|\delta(t
 ###### 仿真 2：q=1.5
 
 
-![Pasted image 20220810112809.png](paper\assets\Pasted image 20220810112809.png)
+![Pasted image 20220810112809](./assets/Pasted-image-20220810112809.png)
 
 可以看到形式上和作者结果一样，但是精度实在太差
 
 ###### 仿真 3：q=5
 
-![Pasted image 20220810113452.png](paper\assets\Pasted image 20220810113452.png)
+![Pasted image 20220810113452](./assets/Pasted-image-20220810113452.png)
 
 真的不对

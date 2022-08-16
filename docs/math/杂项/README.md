@@ -7,6 +7,6 @@ category:
 ---
 
  ## 目录
-- [Hardy space](Hardy space.md)
-- [Lipschitz 条件](Lipschitz 条件.md)
+- [Hardy-space](Hardy-space.md)
+- [Lipschitz-条件](Lipschitz-条件.md)
 - [常用三角函数公式](常用三角函数公式.md)

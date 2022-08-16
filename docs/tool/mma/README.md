@@ -7,9 +7,9 @@ category:
 ---
 
  ## 目录
-- [mma 生成对称张量](mma 生成对称张量.md)
-- [mma 矩阵操作](mma 矩阵操作.md)
-- [mma 表达式转matlab](mma 表达式转matlab.md)
+- [mma-生成对称张量](mma-生成对称张量.md)
+- [mma-矩阵操作](mma-矩阵操作.md)
+- [mma-表达式转matlab](mma-表达式转matlab.md)
 - [mma](mma.md)
 - [mma13安装配置](mma13安装配置.md)
 - [mma推导函数微分矩阵](mma推导函数微分矩阵.md)

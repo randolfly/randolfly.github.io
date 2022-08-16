@@ -75,16 +75,16 @@ Download and unzip the template. Specific usage documentation and examples can b
 Please follow the procedure below:
 
 * [GitHub Issues](https://github.com/YangLaTeX/thubeamer/issues)
-* [Educational Email](mailto:yangjx20@mails.tsinghua.edu.cn)
-* [Gmail](mailto:yanglatex2e@gmail.com)
+* [mailto:yangjx20@mails](.//)
+* [mailto:yanglatex2e@gmail](.//)
 
 # 模板问题反馈
 
 请按照以下顺序反馈问题：
 
 * [GitHub 问题反馈](https://github.com/YangLaTeX/thubeamer/issues)
-* [教育邮箱](mailto:yangjx20@mails.tsinghua.edu.cn)
-* [Gmail 邮箱](mailto:yanglatex2e@gmail.com)
+* [mailto:yangjx20@mails](.//)
+* [mailto:yanglatex2e@gmail](.//)
 
 # Makefile Usage
 

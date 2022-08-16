@@ -1,7 +1,8 @@
 ---
 date: 2022-08-13
 tag:
-  - default
+  - paper
+  - 线性代数
 category:
   - library
   - zotero

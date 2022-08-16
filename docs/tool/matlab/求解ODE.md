@@ -1,7 +1,10 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - tool
+  - matlab
+  - mma
+  - ode
 category:
   - skill
   - matlab
@@ -24,10 +27,14 @@ category:
 使用 Mathematica 符号计算 (DSolve) 求解 ODE 的解析解，效果挺好.
 
 比如求解
-$$\begin{aligned}
+
+$$
+\begin{aligned}
 	\ddot{x}+ae^x&=0\\
 	\Rightarrow x&=\log \left( \frac{c_1\left( \tanh ^2\left( \frac{1}{2}\sqrt{c_1(c_2+t)^2} \right) -1 \right. )}{2a} \right)\\
-\end{aligned}$$
+\end{aligned}
+$$
+
 显然手解是不方便的
 
 ### 没有解析解，尝试数值解
@@ -38,11 +45,11 @@ $$\begin{aligned}
 
 一个直观的例子是李家聪提出的，求解大变形的球面应力 - 变形映射关系，问题如下：
 
-![小球膨胀理论计算.docx](tool\matlab\assets\小球膨胀理论计算.docx)
+[小球膨胀理论计算](./assets/小球膨胀理论计算.docx)
 
 具体问题形式为：
 
-![Pasted image 20220228111015.png](tool\matlab\assets\Pasted image 20220228111015.png)
+![Pasted image 20220228111015](./assets/Pasted-image-20220228111015.png)
 
 求解代码参考：
 
@@ -60,7 +67,7 @@ matlab 求 ODE 数值解从基本问题到 BVP 都有包可以调用，但对复
 
 - [pde - Implementation of Neumann boundary condition with method of lines - 1D diffusion/reaction equation - Computational Science Stack Exchange](https://scicomp.stackexchange.com/questions/21692/implementation-of-neumann-boundary-condition-with-method-of-lines-1d-Diffusion)
 - [amath.kaist.ac.kr/pde_lab/members/JaywanChung/MatlabLecture.pdf](http://amath.kaist.ac.kr/pde_lab/members/JaywanChung/MatlabLecture.pdf)
-- ![10.1.1.390.7447.pdf](tool\matlab\assets\10.1.1.390.7447.pdf)
+- ![10](./assets/10.1.1.390.7447.pdf)
 
 #### Julia
 
@@ -72,4 +79,4 @@ matlab 求 ODE 数值解从基本问题到 BVP 都有包可以调用，但对复
 - [求解具有多边界条件的 BVP - MATLAB & Simulink - MathWorks 中国](https://ww2.mathworks.cn/help/matlab/math/solve-bvp-with-multiple-boundary-conditions.html)
 - [pde - Implementation of Neumann boundary condition with method of lines - 1D diffusion/reaction equation - Computational Science Stack Exchange](https://scicomp.stackexchange.com/questions/21692/implementation-of-neumann-boundary-condition-with-method-of-lines-1d-Diffusion)
 - [amath.kaist.ac.kr/pde_lab/members/JaywanChung/MatlabLecture.pdf](http://amath.kaist.ac.kr/pde_lab/members/JaywanChung/MatlabLecture.pdf)
-- ![10.1.1.390.7447.pdf](tool\matlab\assets\10.1.1.390.7447.pdf)
+- ![10](./assets/10.1.1.390.7447.pdf)

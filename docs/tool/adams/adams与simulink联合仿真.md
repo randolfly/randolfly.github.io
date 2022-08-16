@@ -1,7 +1,7 @@
 ---
 date: 2022-07-08
 tag:
-  - default
+  - adams simulink
 category:
   - skill
   - adams
@@ -75,7 +75,7 @@ Adams 的软件 UI 设计很糟糕，因此尽量不在 Adams 中做仿真；此
 
 随后，如下图所示，创建 3 个状态变量，其中【moter_torque】为输入力矩，不需要修改内容，它的值会从 Simulink 中获取；【motor_theta】为轴的角位移，对应的公式为【AZ(Shaft.cm, marker_ref)】，【motor_omega】为轴的角速度，对应的公式为【WZ(Shaft.cm, marker_ref, marker_ref)】，这两者为输出变量。
 
-::: note 
+::: note note
 注意这里的WZ函数，其有3个参数：
 - To Marker: Measure Prop to ground
 - From Marker: Subtract Prop to ground
@@ -103,7 +103,7 @@ Adams 的软件 UI 设计很糟糕，因此尽量不在 Adams 中做仿真；此
 
 ![](https://pic4.zhimg.com/v2-8e621410d8ff2b0ad1a70e7e3a9ad7bb_r.jpg)
 
-::: note 
+::: note note
 注意这里力矩选择的是Space-Fixed，意味着力固定在空间中；实际上选择Body-Fixed会更好，固定在物体上
 :::
 

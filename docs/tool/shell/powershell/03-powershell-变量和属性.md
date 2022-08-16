@@ -1,7 +1,8 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - shell
+  - powershell
 category:
   - skill
   - shell
@@ -36,17 +37,17 @@ $expensiveProcesses = Get-Process | Where { $_.CPU -gt 20}
 
 不过，该怎么使用变量呢？该怎么获取变量中的内容并操作它们呢？也很简单：写出变量的名字就可以了，就像这样：
 
-![Pasted image 20220504163207.png](tool\shell\powershell\assets\Pasted image 20220504163207.png)
+![Pasted image 20220504163207](./assets/Pasted-image-20220504163207.png)
 
 如果我只是简单地写出变量名，不用它做任何其他事情，它会获取其中的所有对象，并且由于我们没有操作这些对象，PowerShell 将它们输出在终端中。
 
 在上述案例中，我们要做的第一件事是获取变量中的内容，并将其 CPU 时间过滤出来，算出平均值。因此，首先获取变量中的内容，然后将其中的数据通过管道传输到 `ForEach` 中，然后从中计算出平均值。
 
-![Pasted image 20220504163220.png](tool\shell\powershell\assets\Pasted image 20220504163220.png)
+![Pasted image 20220504163220](./assets/Pasted-image-20220504163220.png)
 
 这就是变量的使用方式。这还解释了我们在第 1 集中没有详述的一个问题：使用 `ForEach` 时，`$_` 是什么意思？答案很简单，`$_` 是一个特殊的变量，它会被 `ForEach` 根据管道中的对象，自动替换。它只是一个变量，每有一个对象，就会被 `ForEach` 更换。
 
-::: note 
+::: note note
 `$_` 还有一种写法：`$PSItem`
 :::
 
@@ -55,7 +56,7 @@ $expensiveProcesses = Get-Process | Where { $_.CPU -gt 20}
 
 现在，如果想单独获取这个人的名字，可以先写 `$person`，然后写 . Name，也就是将人放进这个变量，仅从变量获取人名：
 
-![Pasted image 20220504163244.png](tool\shell\powershell\assets\Pasted image 20220504163244.png)
+![Pasted image 20220504163244](./assets/Pasted-image-20220504163244.png)
 
 另外，设置/更改变量非常简单，方法是写一个等号，接着写需要存入其中的值，比如说 `Mike` ：
 
@@ -63,13 +64,13 @@ $expensiveProcesses = Get-Process | Where { $_.CPU -gt 20}
 $person.Name = "Mike"
 ```
 
-![Pasted image 20220504163259.png](tool\shell\powershell\assets\Pasted image 20220504163259.png)
+![Pasted image 20220504163259](./assets/Pasted-image-20220504163259.png)
 
 ## CSV 文件
 
 我们从一个假想的场景开始讲起，现在有一个 `csv` 文件，其中是学校里面 100 名学生的名单，和它们的（假的）数学、英语成绩：
 
-![Pasted image 20220504163318.png](tool\shell\powershell\assets\Pasted image 20220504163318.png)
+![Pasted image 20220504163318](./assets/Pasted-image-20220504163318.png)
 
 > 本文 [CSV 文件地址](https://raw.githubusercontent.com/wendoufu/surl/main/powershell-ep3-students.csv)
 
@@ -79,11 +80,11 @@ $person.Name = "Mike"
 
 我们来为 `Import-Csv` 运行 `Get-Help`，稍微了解一下它的用法，看这一行，很简单，我们只需要提供一个东西：文件路径：
 
-![Pasted image 20220504163332.png](tool\shell\powershell\assets\Pasted image 20220504163332.png)
+![Pasted image 20220504163332](./assets/Pasted-image-20220504163332.png)
 
 来试试看，运行 `Import-Csv`，将 `Path` 设置为 CSV 文件的路径，之后再将把命令的输出放进一个叫为 `students` 的变量中，这样才能轻松地操作这些对象，运行试试
 
-![Pasted image 20220504163350.png](tool\shell\powershell\assets\Pasted image 20220504163350.png)
+![Pasted image 20220504163350](./assets/Pasted-image-20220504163350.png)
 
 ## 类型转换 Cast
 
@@ -91,9 +92,9 @@ $person.Name = "Mike"
 
 CSV 文件有一个根本性缺陷，它们无法区分数值是文本还是数字。也就是说，读取 CSV 文件时，CSV 没有办法知道是把属性当作文本，还是当作其他类型。对于计算机来说，数字 `12` 和文字 `12` 是有区别的，前者是数字，可以进行数学运算，后者只是只是字母或符号，CSV 无法区分文本和其他类型，这意味着任何读取 CSV 的内容的应用，会将所有属性视为文本。对于其他格式，比如 XML 和 JSON，这不是个问题，因为它们实际上有办法区分属性的类型，但 CSV 格式没有办法，所以每个属性都会被当成字面意义上的符号，视为文本。PowerShell 也不例外，在这里看到的所有属性，它们的值实际上都是文本类型：
 
-![Pasted image 20220504163408.png](tool\shell\powershell\assets\Pasted image 20220504163408.png)
+![Pasted image 20220504163408](./assets/Pasted-image-20220504163408.png)
 
-::: note 
+::: note comment
 不愧是基于CLR的，和C#没什么区别
 :::
 
@@ -114,15 +115,15 @@ $t = "123"
 
 `int` 是 integer 的缩写，意思是 `整数`，这种方法会输出一个数字类型。我们是在获取变量中的内容后，将其变成，或者说，` 转换 ` 成数字。那么，按 ENTER，就会看到转换过数字。
 
-![Pasted image 20220504163459.png](tool\shell\powershell\assets\Pasted image 20220504163459.png)
+![Pasted image 20220504163459](./assets/Pasted-image-20220504163459.png)
 
 那么，下面对获取的学生列表执行这一操作。我们要把 `Maths` 和 `English` 转换为数字，实现起来很简单。输入 `学生` 变量，将它的每一行中的 `数学` 改成转换为整数的 `数学`，每有一个学生，我们将其 ` 数学` 属性转换为数字，再把转换后的放回去，英语属性也是同样的道理：
 
-![Pasted image 20220504163508.png](tool\shell\powershell\assets\Pasted image 20220504163508.png)
+![Pasted image 20220504163508](./assets/Pasted-image-20220504163508.png)
 
 好了，它们现在都变成数字了。现在，要求得数学平均成绩，像之前一样，用 `ForEach` 将其过滤到仅剩 `数学` 属性，再用 `Measure -Average` 来得到平均值，执行命令后，便得到了平均成绩：
 
-![Pasted image 20220504163515.png](tool\shell\powershell\assets\Pasted image 20220504163515.png)
+![Pasted image 20220504163515](./assets/Pasted-image-20220504163515.png)
 
 ## NoteProperty
 
@@ -132,7 +133,7 @@ $t = "123"
 
 属性有一个很重要的特点：假设我们有一个代表进程的对象，它有三个属性。那么，这三个属性是无法更改的。
 
-![Pasted image 20220504163534.png](tool\shell\powershell\assets\Pasted image 20220504163534.png)
+![Pasted image 20220504163534](./assets/Pasted-image-20220504163534.png)
 
 它们实际上存储在 .NET 代码中，进一步说，你能获取的各种不同类型的对象，` 进程 `对象也好，` 文件 `对象也罢，你看到的所有` 属性 `都是从 .NET 的代码中生成的。它们甚至在我们启动 PowerShell 之前就已经存在了，这同时意味着，我们无法更改他们。那些属性已经在代码中预先定义好了，因而，它们永远保持不变，无法删除也无法添加。
 
@@ -140,13 +141,13 @@ $t = "123"
 
 还记得 `Import-Csv` 输出的的对象吗？这些对象上的所有属性实际上都是 `NoteProperties` ：
 
-![Pasted image 20220504163607.png](tool\shell\powershell\assets\Pasted image 20220504163607.png)
+![Pasted image 20220504163607](./assets/Pasted-image-20220504163607.png)
 
 因为 `Import-Csv` 不能在它读取 CSV 文件之前就知道需要什么属性，这显然是在 PowerShell 运行时才发生的，也就是说，它输出的所有对象的每个属性都是 NoteProperty。
 
 我们可以把 NoteProperty 用于我们新任务。
 
-::: note 
+::: note comment
 和C#的扩展方法思路很像
 :::
 
@@ -160,7 +161,7 @@ $t = "123"
 
 首先，要搞清楚该怎么去给对象添加属性，比如说，在这个 $file 变量中，有一个非常简单的文件对象，是通过运行 `ls`，再用 `Where` 将其过滤到仅此一个文件得到的：
 
-![Pasted image 20220504163636.png](tool\shell\powershell\assets\Pasted image 20220504163636.png)
+![Pasted image 20220504163636](./assets/Pasted-image-20220504163636.png)
 
 现在，我要把自己的属性添加到此对象中，我要把这个属性叫做 `Importance`，用来标识文件的重要性。那么，这就要使用本节要学习的最后一个命令，`**Add-Member**`**，它允许用户向对象添加一个小部分**。
 
@@ -189,17 +190,17 @@ Add-Member -InputObject $file -MemberType NoteProperty -Name "Importance" -Value
 ```
 
 但是，PowerShell 认为我们的属性不够重要，所以不把它显示在表格视图中：
-![Pasted image 20220504163756.png](tool\shell\powershell\assets\Pasted image 20220504163756.png)
+![Pasted image 20220504163756](./assets/Pasted-image-20220504163756.png)
 
 不过也没关系，专门告诉 `Format-Table` 我们希望它也向展示这个属性即可，方案是使用 `Property` 参数，告诉表格我们希望它向我们显示哪些属性。假设我们想看到 `Name`、`Length`，和我们添加的 `Importance`，就像这样：
 
-![Pasted image 20220504163806.png](tool\shell\powershell\assets\Pasted image 20220504163806.png)
+![Pasted image 20220504163806](./assets/Pasted-image-20220504163806.png)
 
 当然，在这个案例中，我们确实需要稍微调整一下 `Format-Table` 来向我们显示它，因为命令认为该属性不值得展示，但无论如何我们成功了，能看到这个属性的值是 0。
 
 该如何修改这个值呢：方法也很简单，获取我们的文件变量，进入其中更深一层的 `Importance` 属性，将其设置为 `5`，完成：
 
-![Pasted image 20220504163830.png](tool\shell\powershell\assets\Pasted image 20220504163830.png)
+![Pasted image 20220504163830](./assets/Pasted-image-20220504163830.png)
 
 好的，来总结一下，不像常规的预设的属性，NoteProperties 可以自行添加，添加的方式是使用 `Add-Member`。输入对象；告诉它我们想要一个 `NoteProperty`，然后告诉它该属性的名称以及放入其中的内容，最后，一旦我们属性添加完成，我们就可以通过变量、一个点和属性值来修改它。
 
@@ -219,11 +220,11 @@ $students | ForEach { Add-Member -InputObject $_ -MemberType NoteProperty -Name 
 
 我们希望其属性值为：当前对象的 ` 数学` 加上当前对象的 ` 英语`，对吧？那么我们如何将两个数字相加呢？退一步讲，假设有一个名为 `singleStudent` 的变量，其中只包含一个学生，该怎么把 `数学` 和 `英语` 分数加在一起？
 
-![Pasted image 20220504163932.png](tool\shell\powershell\assets\Pasted image 20220504163932.png)
+![Pasted image 20220504163932](./assets/Pasted-image-20220504163932.png)
 
 很简单，首先要获取 `Maths` 的值，因而我们要获取变量，并访问其中的 `Maths`；然后我们要把它和 `English` 相加，所以我们在变量中获取 English 属性。它们加在一起后，因为我们没有把结果存储到任何地方，PowerShell 直接将它们显示了出来：
 
-![Pasted image 20220504163939.png](tool\shell\powershell\assets\Pasted image 20220504163939.png)
+![Pasted image 20220504163939](./assets/Pasted-image-20220504163939.png)
 
 因为想把我们当前对象的数学添加到当前对象的英语中，我们需要对 ForEach 中的 $_ 做同样的事情：
 
@@ -239,7 +240,7 @@ $students | ForEach { Add-Member -InputObject $_ -MemberType NoteProperty -Name 
 
 这些括号基本功能是让 PowerShell `先做这件事 `，然后再使用这个表达式的结果。运行命令后，如果我们查看变量中的内容，是我们预期的结果：
 
-![Pasted image 20220504164012.png](tool\shell\powershell\assets\Pasted image 20220504164012.png)
+![Pasted image 20220504164012](./assets/Pasted-image-20220504164012.png)
 
 所有的 ` 总和 ` 都已填写完毕。如果想把它保存为 CSV 文件，就将其通过管道传输到 `Export-Csv` 中，提供一个文件名，就像这样：
 

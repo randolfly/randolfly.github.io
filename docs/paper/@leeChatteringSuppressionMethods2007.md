@@ -1,7 +1,13 @@
 ---
 date: 2022-08-09
 tag:
-  - default
+  - paper
+  - unread
+  - Chattering
+  - chattering-supppression
+  - Hysteresis
+  - Sliding-mode
+  - Sliding-mode-control
 category:
   - library
   - zotero

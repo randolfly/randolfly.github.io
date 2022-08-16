@@ -7,5 +7,5 @@ category:
 ---
 
  ## 目录
-- [MPC 控制](MPC 控制.md)
+- [MPC-控制](MPC-控制.md)
 - [MPC](MPC.md)

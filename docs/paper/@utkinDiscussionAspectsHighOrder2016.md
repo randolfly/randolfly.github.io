@@ -1,7 +1,20 @@
 ---
 date: 2022-08-09
 tag:
-  - default
+  - paper
+  - unread
+  - chattering
+  - Chattering
+  - Convergence
+  - Filtering
+  - Noise
+  - order-of-sliding-mode
+  - relative-degree
+  - sliding-mode
+  - Sliding-mode-control
+  - stability
+  - Switches
+  - Trajectory
 category:
   - library
   - zotero

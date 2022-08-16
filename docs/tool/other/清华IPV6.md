@@ -1,7 +1,9 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - thu
+  - ipv6
+  - network
 category:
   - skill
   - other

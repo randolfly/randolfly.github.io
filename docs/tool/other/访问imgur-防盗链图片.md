@@ -1,7 +1,8 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - imgur
+  - 图片
 category:
   - skill
   - other

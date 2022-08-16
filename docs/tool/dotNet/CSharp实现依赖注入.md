@@ -440,7 +440,7 @@ namespace VisionLogic.Training.DependencyInjection.Scenario.Attributer
 ```
 
 Assembler 上增加通过 Attribute 注入限制的响应。
-::: note 
+::: note note
 这里和上一个比少了一个TMap，也就是虚拟-实现的映射。
 根据我个人理解，上面服务是调用虚拟接口，因此需要这个映射来完成后面Assembler的实体类创建。但是对于属性，用户使用的时候直接调用属性，就不需要这个映射了
 :::

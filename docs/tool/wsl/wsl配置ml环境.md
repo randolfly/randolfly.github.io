@@ -1,7 +1,10 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - ml
+  - wsl
+  - cuda
+  - cudnn
 category:
   - skill
   - wsl

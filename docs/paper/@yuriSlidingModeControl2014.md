@@ -1,7 +1,8 @@
 ---
 date: 2022-08-09
 tag:
-  - default
+  - paper
+  - unread
 category:
   - library
   - zotero
@@ -34,4 +35,4 @@ The sliding mode control methodology has proven effective in dealing with comple
 
 参考
 
-[滑模控制.md](control\非线性控制\滑模控制\滑模控制.md)
+[滑模控制](./../control/非线性控制/滑模控制/滑模控制.md)

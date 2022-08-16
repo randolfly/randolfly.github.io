@@ -1,7 +1,10 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - miniconda
+  - conda
+  - python
+  - pip
 category:
   - skill
   - conda

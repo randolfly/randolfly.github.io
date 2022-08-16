@@ -7,4 +7,4 @@ category:
 ---
 
  ## 目录
-- [windows scoop配置](windows scoop配置.md)
+- [windows-scoop配置](windows-scoop配置.md)

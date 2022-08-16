@@ -1,7 +1,13 @@
 ---
 date: 2022-08-09
 tag:
-  - default
+  - 中国
+  - 大学教材
+  - 教材
+  - math
+  - 物理
+  - 自然科学
+  - paper
 category:
   - library
   - zotero
@@ -26,4 +32,4 @@ category:
 
 ## Contents
 
-- [数学物理方程.md](physics\数学物理方程\数学物理方程.md)
+- [数学物理方程](./../physics/数学物理方程/数学物理方程.md)

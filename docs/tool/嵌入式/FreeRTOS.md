@@ -1,7 +1,8 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - freertos
+  - stm32
 category:
   - skill
   - 嵌入式

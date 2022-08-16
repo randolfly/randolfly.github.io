@@ -1,7 +1,9 @@
 ---
 date: 2022-06-06
 tag:
-  - default
+  - wsl
+  - windows
+  - linux
 category:
   - skill
   - wsl

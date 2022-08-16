@@ -8,4 +8,4 @@ category:
 ---
 
  ## 目录
-- [Geometry Control 几何控制](Geometry Control 几何控制.md)
+- [Geometry-Control-几何控制](Geometry-Control-几何控制.md)
