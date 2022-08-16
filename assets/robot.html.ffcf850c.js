@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{o,c as r}from"./app.d3f4c7db.js";const t={};function c(_,a){return o(),r("div")}var m=e(t,[["render",c],["__file","robot.html.vue"]]);export{m as default};
