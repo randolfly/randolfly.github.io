@@ -1,3 +1,4 @@
+import { docsearchPlugin } from "@vuepress/plugin-docsearch";
 import { defineUserConfig } from "vuepress";
 import { hopeTheme } from "vuepress-theme-hope";
 // import theme from "./theme";
@@ -104,8 +105,18 @@ export default defineUserConfig({
         },
 
         components: ["PDF"],
+        
+        
     },
   }),
+
+  plugins: [
+    docsearchPlugin({
+        apiKey: 'a773bf952be496962e80b1b7f1e788e5',
+        indexName: 'randolf',
+        appId: '8HA96TAG7V'
+    }),
+  ]
 });
 
 // module.exports = {
