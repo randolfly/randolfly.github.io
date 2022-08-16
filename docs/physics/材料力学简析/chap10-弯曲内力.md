@@ -75,7 +75,7 @@ $$
 
 $$
 
-{\color{red}\frac{\mathrm{d}F_s}{\mathrm{d}x}=q,\frac{\mathrm{d}M}{\mathrm{d}x}=F_s,\frac{\mathrm{d}^2M}{\mathrm{d}x^2}=q}
+{\color{red}{\frac{\mathrm{d}F_s}{\mathrm{d}x}=q,\frac{\mathrm{d}M}{\mathrm{d}x}=F_s,\frac{\mathrm{d}^2M}{\mathrm{d}x^2}=q}}
 
 $$
 

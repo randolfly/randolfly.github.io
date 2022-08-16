@@ -121,7 +121,7 @@ $$
 \begin{array}{c}
 	\int_A{\rho \tau _{\rho}\mathrm{d}A}=T\Rightarrow G\frac{\mathrm{d}\phi}{\mathrm{d}x}\int_A{\rho ^2\mathrm{d}A}=T\\
 	I_{\rho}=\int_A{\rho ^2\mathrm{d}A}\Rightarrow \frac{\mathrm{d}\phi}{\mathrm{d}x}=\frac{T}{GI_{\rho}}\\
-	\Rightarrow {\color{red}\gamma _{\rho}=\frac{\rho T}{GI_{\rho}},\,\,\tau _{\rho}=\frac{\rho T}{I_{\rho}}}\\
+	\Rightarrow {\color{red}{\gamma _{\rho}=\frac{\rho T}{GI_{\rho}},\,\,\tau _{\rho}=\frac{\rho T}{I_{\rho}}}}\\
 \end{array}
 
 $$
