@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - windows
   - python
@@ -11,6 +11,7 @@ category:
   - python
 ---
 
+# windows 配置ml开发环境
 
 # Windows 配置 Ml 开发环境
 

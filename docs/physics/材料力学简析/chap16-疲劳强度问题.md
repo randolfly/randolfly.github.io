@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-02
 tag:
   - default
 category:
@@ -8,5 +8,6 @@ category:
   - 材料力学简析
 ---
 
+# chap16 疲劳强度问题
 
 ## chap16 疲劳强度问题

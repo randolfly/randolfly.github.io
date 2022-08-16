@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - tool
   - matlab
@@ -10,6 +10,7 @@ category:
   - matlab
 ---
 
+# sfunction实现
 
 # 实现 S-function
 

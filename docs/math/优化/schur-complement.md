@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-02
 tag:
   - convex-optimization
   - math
@@ -10,6 +10,7 @@ category:
   - 优化
 ---
 
+# schur complement
 
 # Schur Complement
 

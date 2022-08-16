@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - zotero
   - config
@@ -8,6 +8,7 @@ category:
   - zotero
 ---
 
+# zotero 配置
 
 ## 解决方法
 

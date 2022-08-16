@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - adobe
   - illustrator
@@ -8,6 +8,7 @@ category:
   - adobe illustrator
 ---
 
+# ai 学习
 
 # Ai 学习
 

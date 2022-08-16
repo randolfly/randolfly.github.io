@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - hexo
   - blog
@@ -8,6 +8,7 @@ category:
   - blog
 ---
 
+# Hexo 建站Bug
 
 # Hexo 建站 Bug
 
@@ -16,7 +17,7 @@ category:
 
 
 ## 报错
---
+--------------
 
 如果你的博客是使用 github+hexo 搭建的，很可能也遇到过由于 `nunjucks` 模板标签导致 MD 文件解析报错的问题，常见问题如下：
 
@@ -71,7 +72,7 @@ Unhandled rejection Template render error: (unknown path) [Line 10, Column 95]
 `` 但是治标不治本啊，如果是用这个标签处理，那么你后续的 Markdown 文件内容但凡是包含 `{{}}`` 或者 `{{#}}`等等这些标签的内容都会解析失败，那么有什么好的处理方案呢？
 
 ## 处理方案2
-
+------------------------
 
 答案是有的，我们可以直接修改`nunjucks` 模板的源代码，找到如下文件：
 
@@ -185,7 +186,7 @@ node_modules/hexo-generator-search/templates/search.xml
 其他插件处理方法类似，找到模板解析标签全局修改即可。
 
 ## 方案 3
-
+------------------
 
 > **注意这个方案不需要修改 nunjunks**
 

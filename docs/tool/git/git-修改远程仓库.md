@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - git
   - 修改仓库
@@ -8,6 +8,7 @@ category:
   - git
 ---
 
+# git 修改远程仓库
 
 > 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码，原文地址 [blog.csdn.net](https://blog.csdn.net/ShelleyLittlehero/article/details/95980669)
 

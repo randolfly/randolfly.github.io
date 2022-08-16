@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-08
 tag:
   - default
 category:
@@ -10,6 +10,7 @@ category:
   - wqxuetang-downloader-0.2.1
 ---
 
+# README
 # 文泉学堂下载器
 
 用于下载文泉学堂教材图片的 Chrome 扩展程序。支持自动下载全部页面，从特定页面开始下载，或手动点击下载特定页面的 jpeg 文件。

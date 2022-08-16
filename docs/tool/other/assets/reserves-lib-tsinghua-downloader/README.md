@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-08
 tag:
   - default
 category:
@@ -9,6 +9,7 @@ category:
   - reserves-lib-tsinghua-downloader
 ---
 
+# README
 ## 写在前面
 
 目前学校对教参平台的访问添加了速率限制，短时间内多次爬取会暂时ban IP，请过一段时间重试。

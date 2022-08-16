@@ -8,6 +8,7 @@ category:
   - 数学物理方程
 ---
 
+# Ch1 偏微分方程问题
 
 ## Ch1 偏微分方程问题
 
@@ -187,7 +188,7 @@ $$
 
 $$
 
-\iiint_V{c\rho \left[ u\left( x,y,z,t_2 \right) -u\left( x,y,z,t_1 \right) \right]}dV=\int_{t_1}^{t_2}{\left( \iint_S{k\,\,\mathbf{grad}}u\cdot d\boldsymbol{S} \right)}dt
+\iiint_V{c\rho \left[ u\left( x,y,z,t_2 \right) -u\left( x,y,z,t_1 \right) \right]}dV=\int_{t_1}^{t_2}{\left( \iint_S{k\,\,\mathbf{grad}}u\cdot d\boldsymbol{S} \right)}dt
 
 $$
 
@@ -197,8 +198,8 @@ $$
 $$
 
 \begin{array}{c}
-	\iiint_V{c\rho \left[ u\left( x,y,z,t_2 \right) -u\left( x,y,z,t_1 \right) \right]}dV\\
-	=\iiint_V{c\rho \left[ \int_{t_1}^{t_2}{\frac{\partial u}{\partial t}}dt \right]}dV=\int_{t_1}^{t_2}{\left( \iiint_V{c\rho \frac{\partial u}{\partial t}dV} \right)}dt\\
+	\iiint_V{c\rho \left[ u\left( x,y,z,t_2 \right) -u\left( x,y,z,t_1 \right) \right]}dV\\
+	=\iiint_V{c\rho \left[ \int_{t_1}^{t_2}{\frac{\partial u}{\partial t}}dt \right]}dV=\int_{t_1}^{t_2}{\left( \iiint_V{c\rho \frac{\partial u}{\partial t}dV} \right)}dt\\
 \end{array}
 
 $$

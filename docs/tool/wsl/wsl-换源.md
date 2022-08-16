@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - wsl
   - windows
@@ -9,6 +9,7 @@ category:
   - wsl
 ---
 
+# wsl 换源
 
 # Wsl 换源
 
@@ -17,7 +18,7 @@ category:
 > 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [blog.csdn.net](https://blog.csdn.net/weixin_41529012/article/details/117226884)
 
 1. 找到 wsl 镜像源
--
+-------------
 
 首先，我们找到自己的 wsl 镜像源所在的地方，在 cmd 中输入 **\\wsl$**
 ![](https://img-blog.csdnimg.cn/20210524164536858.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTUyOTAxMg==,size_16,color_FFFFFF,t_70)
@@ -31,7 +32,7 @@ category:
 ![](https://img-blog.csdnimg.cn/20210524170509855.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTUyOTAxMg==,size_16,color_FFFFFF,t_70)
 
 2. 替换镜像源
---
+--------
 
 以下附各类国内镜像源：
 阿里云：
@@ -73,7 +74,7 @@ deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted univer
 ![](https://img-blog.csdnimg.cn/20210524172158419.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTUyOTAxMg==,size_16,color_FFFFFF,t_70)
 
 3. 更新镜像源列表
-----
+----------
 
 一次输入以下命令就可以更新啦
 

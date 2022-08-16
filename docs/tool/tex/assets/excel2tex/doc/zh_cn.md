@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-08
 tag:
   - default
 category:
@@ -10,6 +10,7 @@ category:
   - doc
 ---
 
+# zh_cn
 # excel表格转换工具
 
 将excel中的表格转换为latex中的表格，支持识别多种格式。
@@ -133,5 +134,5 @@ python excel2tex.py -s table.xlsx -o table.tex --sig
 
 <!-- ![wechat](](./../img/alipay.jpg) -->
 | 微信                                                                                     | 支付宝                                                                                     |
-|  |  |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | <img src="https://github.com/ZhiyuanLck/excel2tex/blob/master/img/wechat.png" width="300"> | <img src="https://github.com/ZhiyuanLck/excel2tex/blob/master/img/alipay.jpg" width="300"> |

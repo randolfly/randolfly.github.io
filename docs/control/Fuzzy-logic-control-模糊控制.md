@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-16
 tag:
   - default
 category:
@@ -7,6 +7,7 @@ category:
   - 控制
 ---
 
+# Fuzzy logic control 模糊控制
 
 # Fuzzy Logic Control 模糊控制
 

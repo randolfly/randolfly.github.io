@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-02
 tag:
   - control
   - h-infinity
@@ -8,6 +8,7 @@ category:
   - 控制
 ---
 
+# H-Infinity control
 
 # H-Infinity Control
 
@@ -24,7 +25,7 @@ category:
 这些方法在 20 世纪 70 年代末 80 年代初由 George Zmes(灵敏度最小化/sensitivity minimization)[^1]、J.William Helton(带宽匹配/broadband matching)[^2]、Allen Tannenbaum(增益裕度优化/gain margin optimization)[^3] 引入控制理论。
 
 
-H∞控制来自于在其上进行优化的数学空间的名称：H∞是矩阵值函数的 [Hardy space - Wikipedia](https://en.wikipedia.org/wiki/Hardy_space) 空间 ([|Hardy Space](./../math/杂项/Hardy-space.md))，这些函数是解析的，并且在 Re (S)>0 定义的复平面的开右半平面上有界；**H∞范数是该空间上函数的最大奇异值**==(这可以解释为在任何方向和任何频率上的最大增益；对于SISO系统，这实际上是频率响应的最大幅度)== 。
+H∞控制来自于在其上进行优化的数学空间的名称：H∞是矩阵值函数的 [Hardy space - Wikipedia](https://en.wikipedia.org/wiki/Hardy_space) 空间 ([Hardy Space](./../math/杂项/Hardy-space.md))，这些函数是解析的，并且在 Re (S)>0 定义的复平面的开右半平面上有界；**H∞范数是该空间上函数的最大奇异值**==(这可以解释为在任何方向和任何频率上的最大增益；对于SISO系统，这实际上是频率响应的最大幅度)== 。
 
 H∞技术可用于最小化扰动的闭环影响：根据问题的表示，其影响将以稳定性或性能来衡量。
 

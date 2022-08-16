@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - tex
   - beamer
@@ -8,6 +8,7 @@ category:
   - tex
 ---
 
+# thubeamer 使用
 
 # Thubeamer 使用
 

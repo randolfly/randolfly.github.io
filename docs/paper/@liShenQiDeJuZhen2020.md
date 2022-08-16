@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-02
 tag:
   - Math
   - 矩阵
@@ -10,6 +10,7 @@ category:
   - paper_note
 ---
 
+# @liShenQiDeJuZhen2020
 
 # liShenQiDeJuZhen2020
 

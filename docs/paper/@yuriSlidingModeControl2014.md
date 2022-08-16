@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-04
 tag:
   - paper
   - unread
@@ -9,6 +9,7 @@ category:
   - paper_note
 ---
 
+# @yuriSlidingModeControl2014
 
 # yuriSlidingModeControl2014
 

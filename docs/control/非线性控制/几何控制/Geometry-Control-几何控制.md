@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-13
 tag:
   - default
 category:
@@ -9,5 +9,6 @@ category:
   - 几何控制
 ---
 
+# Geometry Control 几何控制
 
 #todo

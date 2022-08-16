@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-10
 tag:
   - paper
   - unread
@@ -14,6 +14,7 @@ category:
   - paper_note
 ---
 
+# @royAdaptiveSlidingMode2020
 
 # royAdaptiveSlidingMode2020
 

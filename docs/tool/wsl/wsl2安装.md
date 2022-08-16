@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - wsl
   - windows
@@ -9,6 +9,7 @@ category:
   - wsl
 ---
 
+# wsl2安装
 
 # wsl2 安装
 
@@ -46,7 +47,25 @@ wsl --set-default-version 1
 本文适用于已经安装 WSL1 的系统。
 
 0. 查看当前 WSL 版本号
--
+---------------
+
+打开 PowerShell，执行命令
+
+```
+wsl -l -v
+```
+
+可以看到 WSL 版本号。如果 WSL 版本号是 1，则需要进行一些操作，才能升级到 WSL2。
+
+1. 检查运行 WSL2 的系统要求
+------------------
+
+WSL2 对系统版本有一定要求，键盘选择 **Win + R**，输入 **winver**，点击回车，便可查看当前系统的详细版本。对照下图，看一下是否满足要求，如果不满足要求，则需要对系统进行升级。
+
+![](https://pic2.zhimg.com/v2-42dc211488e829c75975808d579e6041_b.jpg)
+
+2. 启用虚拟机功能
+----------
 
 WSL2 需要使用虚拟机，因此需要在系统中启动虚拟机功能。
 
@@ -71,7 +90,17 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 ![](https://pic3.zhimg.com/v2-bdb6cddfe4bfbaa524706b5ee764545e_r.jpg)
 
 3. 下载 Linux 内核更新包
--
+-----------------
+
+1. 根据系统进行选择：
+
+> x64：[https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi](https://link.zhihu.com/?target=https%3A//wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi)
+> arm64：[https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_arm64.ms](https://link.zhihu.com/?target=https%3A//wslstorestorage.blob.core.windows.net/wslblob/wsl_update_arm64.msi)
+
+2. 运行上一步下载的更新包。
+
+4. 设置分发版版本
+----------
 
 打开 PowerShell，执行命令 ：
 

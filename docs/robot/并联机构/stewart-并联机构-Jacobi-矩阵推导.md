@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-02
 tag:
   - robot
   - parallel-stewart-platform
@@ -11,6 +11,7 @@ category:
   - 并联机构
 ---
 
+# stewart 并联机构 Jacobi 矩阵推导
 
 # Stewart 并联机构 Jacobi 矩阵推导
 

@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-04
 tag:
   - control
   - mpc
@@ -9,6 +9,7 @@ category:
   - MPC
 ---
 
+# MPC 控制
 
 # MPC 控制
 

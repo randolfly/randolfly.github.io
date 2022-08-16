@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - git
   - encoding
@@ -8,6 +8,7 @@ category:
   - git
 ---
 
+# git 目录中文乱码
 
 # Git 目录中文乱码
 

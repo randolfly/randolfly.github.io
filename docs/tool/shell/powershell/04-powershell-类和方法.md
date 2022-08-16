@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-09
 tag:
   - shell
   - powershell
@@ -9,6 +9,7 @@ category:
   - powershell
 ---
 
+# 04-powershell-类和方法
 
 # 04-powershell- 类和方法
 

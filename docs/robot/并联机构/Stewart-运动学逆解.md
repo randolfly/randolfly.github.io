@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-02
 tag:
   - tool
   - matlab
@@ -14,6 +14,7 @@ category:
   - 并联机构
 ---
 
+# Stewart 运动学逆解
 
 
 # Stewart 运动学逆解

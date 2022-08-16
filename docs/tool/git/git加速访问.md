@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - git
   - vpn
@@ -8,6 +8,7 @@ category:
   - git
 ---
 
+# git加速访问
 
 # Git 加速访问
 
@@ -96,7 +97,7 @@ https://raw.fastgit.org/
 
 #### 2、[https://gitclone.com](https://link.zhihu.com/?target=https%3A//gitclone.com)
 
-----
+----------------------------------------------------------------------------------
 
 加速 git clone
 

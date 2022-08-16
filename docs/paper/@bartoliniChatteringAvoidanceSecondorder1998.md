@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-03
 tag:
   - paper
   - unread
@@ -19,6 +19,7 @@ category:
   - paper_note
 ---
 
+# @bartoliniChatteringAvoidanceSecondorder1998
 
 # bartoliniChatteringAvoidanceSecondorder1998
 

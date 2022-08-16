@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - tex
   - excel
@@ -9,6 +9,7 @@ category:
   - tex
 ---
 
+# excel2tex 使用帮助
 
 # excel2tex 使用帮助
 

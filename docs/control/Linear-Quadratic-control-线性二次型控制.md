@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-06-01
 tag:
   - control
   - lqr
@@ -8,6 +8,7 @@ category:
   - 控制
 ---
 
+# Linear Quadratic control 线性二次型控制
 
 # Linear Quadratic Control 线性二次型控制
 

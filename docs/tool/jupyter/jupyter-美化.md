@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - jupyter
 category:
@@ -7,6 +7,7 @@ category:
   - jupyter
 ---
 
+# jupyter 美化
 
 # Jupyter 美化
 
@@ -24,7 +25,33 @@ category:
 GitHub 地址：[https://github.com/dunovank/jupyter-themes](https://link.zhihu.com/?target=https%3A//github.com/dunovank/jupyter-themes)
 
 安装步骤：
---
+-----
+
+当然，前提是你已经安装过了 jupyter notebook！如果没有的话，就直接安装 Anaconda 吧，里面自带了 jupyter notebook。
+
+在 cmd 中使用 pip 安装：
+
+```
+# install jupyterthemes
+pip install jupyterthemes
+
+# upgrade to latest version
+pip install --upgrade jupyterthemes
+```
+
+官方的安装到这里就结束了。但是我在进行了上面的操作之后，还是不行，打开 notebook 之后，代码都不能运行了。后来经过排查，发现是 notebook 版本太低，这也是安装 jupyterthemes 的时候最常见的问题。
+于是，我们对我们的 notebook 进行升级，在 cmd 中输入：
+
+```
+conda upgrade notebook
+```
+
+升级之后，再重新安装一下 jupyterthemes，即可安装成功。
+
+然后，我们就可以调整我们的样式了。
+
+调整样式：
+-----
 
 首先，我们看看有哪些样式可供选择。
 在 cmd 中，我们允许命令：
@@ -41,22 +68,27 @@ jt -l
 下面我随便展示一下其中的几个：
 
 ①chesterish：
-
+------------
 
 ![](https://pic4.zhimg.com/v2-95256c493633f087cb11b9821036f467_r.jpg)
 
 ②grade3：
---
+--------
 
 ![](https://pic4.zhimg.com/v2-4da952f822856b0c67944217948d3d2b_r.jpg)
 
 ③gruvboxd：
--
+----------
+
+![](https://pic3.zhimg.com/v2-668771828d97de9cea18a1449344430a_r.jpg)
+
+④gruvboxl：
+----------
 
 ![](https://pic3.zhimg.com/v2-a990e264cb58b374dc4b33ece554c7d2_r.jpg)
 
 ⑤monokai：
----
+---------
 
 ![](https://pic4.zhimg.com/v2-abe173266ce29a4b9e5c245c86352f13_r.jpg)
 

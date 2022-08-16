@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-08
 tag:
   - default
 category:
@@ -9,6 +9,7 @@ category:
   - excel2tex
 ---
 
+# README
 # Convert excel table to latex table
 
 A powerful tool that converts excel table to latex table in human-readable format.
@@ -133,5 +134,5 @@ Does this tool help you? You can buy me coffee!
 
 <!-- ![wechat](](./img/alipay.jpg) -->
 | wechat                                                                                     | alipay                                                                                     |
-|  |  |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
 | <img src="https://github.com/ZhiyuanLck/excel2tex/blob/master/img/wechat.png" width="300"> | <img src="https://github.com/ZhiyuanLck/excel2tex/blob/master/img/alipay.jpg" width="300"> |

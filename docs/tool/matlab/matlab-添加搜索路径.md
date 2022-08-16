@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - tool
   - matlab
@@ -9,6 +9,7 @@ category:
   - matlab
 ---
 
+# matlab 添加搜索路径
 
 # Matlab 添加搜索路径
 

@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-08
 tag:
   - default
 category:
@@ -8,6 +8,7 @@ category:
   - assets
 ---
 
+# msfuntmpl_basic
 ```matlab
 function msfuntmpl_basic(block)
 %MSFUNTMPL_BASIC A Template for a Level-2 MATLAB S-Function
@@ -77,7 +78,14 @@ block.SampleTimes = [0 0];
 %    'DisallowSimState' < Error out when saving or restoring the model sim state
 block.SimStateCompliance = 'DefaultSimState';
 
-%% --
+%% -----------------------------------------------------------
+%% The MATLAB S-function uses an internal registry for all
+%% block methods. You should register all relevant methods
+%% (optional and required) as illustrated below. You may choose
+%% any suitable name for the methods and implement these methods
+%% as local functions within the same file. See comments
+%% provided for each function for more information.
+%% -----------------------------------------------------------------
 
 block.RegBlockMethod('PostPropagationSetup',    @DoPostPropSetup);
 block.RegBlockMethod('InitializeConditions', @InitializeConditions);

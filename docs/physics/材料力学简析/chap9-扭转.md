@@ -8,6 +8,7 @@ category:
   - 材料力学简析
 ---
 
+# chap9 扭转
 
 ## chap9 扭转
 
@@ -120,7 +121,7 @@ $$
 \begin{array}{c}
 	\int_A{\rho \tau _{\rho}\mathrm{d}A}=T\Rightarrow G\frac{\mathrm{d}\phi}{\mathrm{d}x}\int_A{\rho ^2\mathrm{d}A}=T\\
 	I_{\rho}=\int_A{\rho ^2\mathrm{d}A}\Rightarrow \frac{\mathrm{d}\phi}{\mathrm{d}x}=\frac{T}{GI_{\rho}}\\
-	\Rightarrow {\color[RGB]{240, 0, 0} \gamma _{\rho}=\frac{\rho T}{GI_{\rho}},\,\,\tau _{\rho}=\frac{\rho T}{I_{\rho}}}\\
+	\Rightarrow {\color{red}\gamma _{\rho}=\frac{\rho T}{GI_{\rho}},\,\,\tau _{\rho}=\frac{\rho T}{I_{\rho}}}\\
 \end{array}
 
 $$
@@ -142,7 +143,7 @@ $$
 根据上面介绍，抗扭截面系数可以计算如下：
 
 | 截面形状   | 示意图                                                       | 抗扭截面系数                                                 |
-| --- |
+| ---------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | 实心圆截面 | ![image-20211130211839558](./../../paper/assets/image-20211130211839558.png) | $W_p=\frac{\pi d^3}{16}$                                     |
 | 空心圆截面 | ![image-20211130211924288](./../../paper/assets/image-20211130211924288.png) | $W_p=\frac{\pi D^3}{16}\left( 1-\left( \frac{d}{D} \right) ^4 \right)$ |
 | 薄壁圆截面 | ![image-20211130212026020](./../../paper/assets/image-20211130212026020.png) | $W_p=2{\pi R_0}^2\delta$                                    |

@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-10
 tag:
   - tool
   - matlab
@@ -11,6 +11,7 @@ category:
   - matlab
 ---
 
+# matlab函数内获取workspace变量
 
 # Matlab 函数内获取 Workspace 变量
 

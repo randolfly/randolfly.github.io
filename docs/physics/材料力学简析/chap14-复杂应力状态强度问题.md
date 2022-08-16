@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-02
 tag:
   - default
 category:
@@ -8,5 +8,6 @@ category:
   - 材料力学简析
 ---
 
+# chap14 复杂应力状态强度问题
 
 ## chap14 复杂应力状态强度问题

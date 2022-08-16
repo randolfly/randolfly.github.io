@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - git
   - 换行符
@@ -8,6 +8,7 @@ category:
   - git
 ---
 
+# git 换行符修改
 
 # Git 换行符修改
 
@@ -22,7 +23,19 @@ category:
 
 ==禁用 git 的自动换行功能==
 
+---
 
+### 方法 1
+在本地路径 C:\ Users\ [用户名] \ .gitconfig 下修改 git 配置 [core]，如果没有就直接添加上去：
+```julia
+[core]
+
+autocrlf =false
+filemode =false
+safecrlf =true
+```
+
+---
 
 ### 方法 2
 使用 cmd 进行 bash 修改吗，原理也是修改.gitconf 文件。输入以下命令：

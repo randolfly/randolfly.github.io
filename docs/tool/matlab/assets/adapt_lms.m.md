@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-08
 tag:
   - default
 category:
@@ -8,6 +8,7 @@ category:
   - assets
 ---
 
+# adapt_lms
 ```matlab
 function adapt_lms(block)
 % Level-2 MATLAB file S-Function for system identification using 

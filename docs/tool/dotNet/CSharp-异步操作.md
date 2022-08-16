@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-16
 tag:
   - CSharp
   - 异步
@@ -8,6 +8,7 @@ category:
   - dotNet
 ---
 
+# CSharp 异步操作
 
 # CSharp 异步操作
 
@@ -82,7 +83,7 @@ _DOS_ 通过一行一行命令运行程序。在同一时刻里，你只可能�
 下面，我会介绍每种方案是如何实现的
 
 Thread
-
+------
 
 首先，如上面所提到的，**异步** 的目标就是，先开始 **某个任务**，然后利用等待的时间去做点 **别的事情**。
 
@@ -161,7 +162,128 @@ Assert.AreEqual(100, resultOfSomeTask);
 _ThreadPool_ 可以开启有限个的线程，并对任务排队，仅当有线程空闲时，才会继续处理任务。
 
 BeginInvoke
--
+-----------
+
+_BeginInvoke_ 是 _Delegate_ 上的一个成员，它与 _EndInvoke_ 一起使用可以实现异步操作。
+
+* _BeginInvoke_ 相当于上面例子中 _Thread.Start()_ 的功能
+* _EndInvoke_ 相当于上面例子中 _Thread.Join()_ 的功能
+
+因为 _BeginInvoke_ 是 _Delegate_ 上的成员，所以我们先声明一个 _Delegate_
+
+```c#
+/// <summary>
+/// 这是一个描述了一个使用整形并返回整形的委托类型。
+/// 你可以使用直接使用 Func<int,int> 来作为委托的类型。
+/// </summary>
+/// <param ></param>
+/// <returns></returns>
+public delegate int TaskGetIntByInt(int i);
+```
+
+_BeginInvoke_ 的入参比较特别，它分为两个分部。
+
+* 前面的几个参数，就是委托中定义的参数
+* 后面两个参数，一个是异步任务完成时的回调，一个是可以向回调函数传入的额外参数，你可以传递任何你需要的内容至回调里，而避免了在进程内访问进程外成员的情况
+
+下面是一个 _BeginInvoke_ 的例子
+
+```c#
+// 这是一个耗时1秒的任务，会返回入参的平方数
+TaskGetIntByInt someTask = new TaskGetIntByInt(i =>
+{
+    Thread.Sleep(1000);
+    return i * i;
+});
+
+// 定义一个函数，用于 someTask 完成时的回调
+AsyncCallback callback = new AsyncCallback(ar =>
+{
+    string state = ar.AsyncState as string;
+    Assert.AreEqual("Hello", state);
+});
+
+// 开始平方数运算的任务
+// callback, "HelloWorld" 根据需求传入，你也可以传 null
+IAsyncResult ar = someTask.BeginInvoke(10, callback, "HelloWorld");
+
+// 开始一些别的任务
+DoSomeThing(1);
+DoSomeThing(2);
+DoSomeThing(3);
+
+// 等待 someTask 的运算结果，形如 Thread.Join()
+int result = someTask.EndInvoke(ar);
+
+Assert.AreEqual(100, result);
+```
+
+**代码说明**
+
+**首先** 创建委托的实例，你可以使用其它类型上的成员来构造，也可以像示例中那样直接写一个内部方法。
+
+**接下来** 使用 _BeginInvoke_ 开始异步调用。 **注意** 这里返回了一个 _IAsyncResult_ 类型。
+
+你可以把这个 _IAsyncResult_ 理解为你在 _McDonald's_ 点好餐后的 **号** , 每个人的 **号** 都是不同的，每个顾客都可以用这个 **号** 领取你的美食。
+
+在代码中，每次调用 _BeginInvoke_ 都会产生不同的 _IAsyncResult_，你可以用不同的 _IAsyncResult_ 去获取它们对应的结果。
+
+_BeginInvoke_ 的时候，你还可以指定一个 **回调函数** ，还可以指定一个变量，供 **回调函数** 使用。
+
+此时，_someTask_ 已经在子线程中运行了。同时，主线程继续执行了 3 个 _DoSomething()_ 方法。
+
+当你需要 _someTask_ 的运行结果时，你只需要调用 **someTask.EndInvoke(IAsyncResult)** 。
+
+* 当子线程已经完成后，调用 _EndInvoke_ 你可以立即得到结果。
+* 当子线程尚未完成时，调用 _EndInvoke_ 会一直等待，等到子线程执行完成后，才可以得到结果。
+
+**题外话**
+
+若你的异步任务是一个耗时极长的任务，在主线程使用 _EndInvoke_ 会 **傻等** 很久。
+
+此时，你可以将 _EndInvoke_ 方法在 _Callback_ 内执行。
+
+将 _someTask_ 作为 **回调函数** 的参数传入，就可以在 **Callback** 内使用 _EndInvoke_ 得到结果。
+
+```c#
+TaskGetIntByInt someTask = new TaskGetIntByInt(i =>
+{
+    Thread.Sleep(3000);
+    return i * i;
+});
+
+DoSomeThing(1);
+DoSomeThing(2);
+DoSomeThing(3);
+
+AsyncCallback callback = new AsyncCallback(_ar =>
+{
+    // BeginInvoke 的最后一位参数可以通过 AsyncState 取得
+    TaskGetIntByInt task = (TaskGetIntByInt)_ar.AsyncState;
+    int result = task.EndInvoke(_ar);
+    Assert.AreEqual(100, result);
+});
+
+IAsyncResult ar = someTask.BeginInvoke(10, callback, someTask);
+```
+
+对于一个 **异步** 任务的结果，我们往往有两种方法处理 :
+
+* 在主线程中等待结果
+* 在子线程中处理结果
+
+对于一个耗时较短的任务，我们可以先利用 **异步** 将该任务放在子线程中执行。
+再继续在主线程中处理其它任务，最后等待 **异步** 任务的完成。
+这种方式就是 **在主线程中等待结果** 。
+
+对于一个耗时较长的任务，如果在主线程中 **等待** 会有可能对终端用户带来不好的应用体验。
+
+因此，我们不会在主线程中等待 **异步** 的完成。
+
+我们在 **异步** 任务开启后，就可以早早通知用户 **你的任务正在处理中**。同时在子线程中，当任务完成后，你可以利用数据库等手段，将 **正在处理中的任务** 标为 **已完成**，并通知他们。
+
+Task
+----
 
 从 **.Net4.0** 开始，_Task_ 成为了实现 **异步** 的主要利器。
 
@@ -194,7 +316,23 @@ private Task<int> AsyncPower(int i)
 我们看看两种模式分别是如何实现的
 
 在主线程中等待结果
+---------
 
+直接访问 _Task.Result_ 属性，就可以等待并得到 **异步** 任务的结果。
+
+```c#
+var task = AsyncPower(10);
+
+// 这里会等 1 秒
+int result = task.Result; 
+
+// result = 100
+```
+
+> 怎么样 ? 是不是超级简单 ?
+
+在子线程中处理结果
+---------
 
 使用方法 _ContinueWith_ 可以添加一个方法，在 _Task_ 完成后被执行。
 
@@ -236,7 +374,7 @@ task.ContinueWith(t =>
 ```
 
 async / await
--
+-------------
 
 这个 **.Net 4.5** 加入的关键字，让 **异步代码** 写起来和 **同步代码** 没什么区别了。
 
@@ -312,14 +450,23 @@ async void Main()
 **异步** 在带来性能提高的同时，还会带来一些更复杂的问题：
 
 线程安全
+----
 
+线程间的切换并不是有着类似 **事务** 的特征，它无法保证两个线程对同一资源的读写的完整性。
+
+而且大部分情况下，一个线程操作完，就会被挂机执行另一个线程，所以对于多个线程访问同一资源，需要考虑线程安全的问题。
+
+换句话说，就是保证一个线程在执行一个最小操作时，另一个线程不允许操作该对象。
+
+调试难
+---
 
 **异步** 的本质就是 **多线程** ，当你尝试用断点调试代码时，由于两个线程都在你的代码中运行，因此常常出现从这个线程的断点进入另一个线程的断点的情景。
 
 需要依赖 **IDE** 中更多的工具和设置，才能解决上述的问题。
 
 不统一的上下文
--
+-------
 
 **异步** 代码往往在子线程中运行。
 

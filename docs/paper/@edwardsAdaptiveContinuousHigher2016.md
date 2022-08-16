@@ -13,6 +13,7 @@ category:
   - paper_note
 ---
 
+# @edwardsAdaptiveContinuousHigher2016
 
 # edwardsAdaptiveContinuousHigher2016
 
@@ -266,7 +267,7 @@ for **any given** $\delta_{0}$ and $a_1$, then the control law forces $|\delta(t
 
 ^themrem-siso-a0-a1
 
-![|375](./assets/Pasted-image-20220809231444.png)
+![375](./assets/Pasted-image-20220809231444.png)
 
 ::: note remark
 1. The scalar $\delta_0$ needs to be larger than noise or computational errors

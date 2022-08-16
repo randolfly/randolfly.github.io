@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - shell
   - grep
@@ -8,6 +8,7 @@ category:
   - wsl
 ---
 
+# shell 快速匹配内容并替换
 
 # Shell 快速匹配内容并替换
 

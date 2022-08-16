@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-05
 tag:
   - control
   - ftc
@@ -9,6 +9,7 @@ category:
   - 控制
 ---
 
+# Fault-Tolerant control 容差控制
 
 # Fault-Tolerant Control 容差控制
 

@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - default
 category:
@@ -7,13 +7,236 @@ category:
   - code theory
 ---
 
+# DDD-CS实现
 
 # DDD-CS 实现
 
 > 本文是实现领域驱动设计 (DDD) 的实用指南. 虽然在实现中依赖了 ABP 框架, 但是本文中的概念, 理论和设计模式同样适用于其它类型的项目, 不仅限于. Net 项目.
 
 [#总述](.//) 总述
--
+---------
+
+本文是实现领域驱动设计 (DDD) 的 **实用指南**. 虽然在实现中依赖了 ABP 框架, 但是本文中的概念, 理论和设计模式同样适用于其它类型的项目, 不仅限于. Net 项目.
+
+### [#目标](.//) 目标
+
+本文的目标是:
+
+* **介绍并解释** DDD 的架构, 概念, 原理及构建.
+* **解释** ABP 框架的分层架构及解决方案结构.
+* 通过 **案例**, 介绍实现 DDD 的一些 **规则** 及最佳实践.
+* 展示 **ABP 框架** 为 DDD 的实现提供了哪些基础设施.
+* 最后, 基于软件开发 **最佳实践** 和我们的经验提供 **建议** 来创建一个 **可维护的代码库**.
+
+### [#简单的代码](.//) 简单的代码
+
+> **踢足球** 非常 **简单**, 但是 **踢简单的足球** 却 **非常难**.— 约翰 · 克鲁伊夫 (Johan Cruyff)
+
+在编码的世界中, 引用此名言:
+
+> **写代码** 非常 **简单**, 但是 **写简单的代码** 却 **非常难** — ???
+
+在本文中, 我们将介绍一些容易实现的规则.
+
+随着 **应用程序的变化**, 有时候, 为了节省开发时间会 **违反一些本应遵守的规则**, 使得代码变得 **复杂** 且难以维护. 短期来看确实节省了开发时间, 但是后期可能需要花费更多的时间为之前的偷懒而 **买单**. **无法对原有的代码进行维护**, 导致大量的逻辑都需要进行 **重写**.
+
+如果你 **遵循规则并按最佳实践的方式** 进行编码, 那么你的代码将易于维护, 你的业务逻辑将 **更快的满足** 需求的变化.
+
+[#什么是领域驱动设计](.//) 什么是领域驱动设计?
+------------------------
+
+领域驱动设计 (DDD) 是一种将实现与 **持续进化** 的模型连接在一起来满足 **复杂** 需求的软件开发方法.
+
+DDD 适用于 **复杂领域** 或 **较大规模** 的系统, 而不是简单的 CRUD 程序. 它着重与 **核心领域逻辑**, 而不是基础架构. 这样有助于构建一个 **灵活**, 模块化, **可维护** 的代码库.
+
+### [#oop-solid](.//)OOP & SOLID
+
+实现 DDD 高度依赖面对对象编程思想 (OOP) 和 [SOLID](https://zh.wikipedia.org/wiki/SOLID_(%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1)) 原则. 事实上, DDD 已经 **实现** 并 **延伸** 了这些原则, 因此, **深入了解** OOP 和 SOLID 对实施 DDD 十分有利.
+
+### [#ddd分层与整洁架构](.//)DDD 分层与整洁架构
+
+基于 DDD 的架构分为四个基础层
+
+[![](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-layers.png)](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-layers.png "domain-driven-design-layers")
+
+**业务逻辑** 分为两层, 分别为 _领域 (Domain)_ 层和 _应用 (Application)_ 层, 它们包含不同类型的业务逻辑.
+
+* **领域层**: 只实现领域业务逻辑, 与用例无关.
+* **应用层**: 基于领域层来实现满足用例的业务逻辑. 用例可以看作是用户界面 (UI) 或外部应用程序的交互.
+* **展现层**: 包含应用程序的 UI 元素.
+* **基础设施层**: 通过对第三方库的集成或抽象, 来满足其它层的非核心业务逻辑的实现.
+
+同样的分层架构也可以如下图所示: 被称为 **整洁架构**, 又或者称为 **洋葱架构**:
+
+[![](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-clean-architecture.png)](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-clean-architecture.png "domain-driven-design-clean-architecture")
+
+在整洁架构中, **每层只依赖内部的层**, 独立的层在圆圈的最中心, 也就是领域层.
+
+### [#核心构建组成](.//) 核心构建组成
+
+DDD 的关注点在 **领域层** 和 **应用层** 上, 而展现层和基础设施层则视为 _ 细节 _ (这个词原文太抽象, 自己体会吧), 业务层不应依赖它们.
+
+这并不意味着展现层和基础设施层不重要. 它们非常重要, 但 _UI 框架_ 和 _数据库提供程序_ 需要你自己定义规则和总结最佳实践. 这些不在 DDD 的讨论范围中.
+
+本节将介绍领域层和应用层的基本构建组件.
+
+#### [#领域层构建组成](.//) 领域层构建组成
+
+* **实体 (Entity)**: [实体](https://docs.abp.io/zh-Hans/abp/latest/Entities) 是种领域对象, 它有自己的属性 (状态, 数据) 和执行业务逻辑的方法. 实体由唯一标识符 (Id) 表示, 不同 ID 的两个实体被视为不同的实体.
+* **值对象 (Value Object)**: [值对象](https://docs.abp.io/zh-Hans/abp/latest/Value-Objects) 是另外一种类型的领域对象, 使用值对象的属性来判断两个值对象是否相同, 而非使用 ID 判断. 如果两个值对象的属性值全部相同就被视为同一对象. 值对象通常是不可变的, 大多数情况下它比实体简单.
+* **聚合 (Aggregate) 和 聚合根 (Aggregate Root)**: [聚合](https://docs.abp.io/zh-Hans/abp/latest/Entities) 是由 **聚合根** 包裹在一起的一组对象 (实体和值对象). 聚合根是一种具有特定职责的实体.
+* **仓储 (Repository)** (接口): [仓储](https://docs.abp.io/zh-Hans/abp/latest/Repositories) 是被领域层或应用层调用的数据库持久化接口. 它隐藏了 DBMS 的复杂性, 领域层中只定义仓储接口, 而非实现.
+* **领域服务 (Domain Service)**: [领域服务](https://docs.abp.io/zh-Hans/abp/latest/Domain-Services) 是一种无状态的服务, 它依赖多个聚合 (实体) 或外部服务来实现该领域的核心业务逻辑.
+* **规约 (Specification)**: [规约](https://docs.abp.io/zh-Hans/abp/latest/Specifications) 是一种 **强命名**, **可重用**, **可组合**, **可测试** 的实体过滤器.
+* **领域事件 (Domain Event)**: [领域事件](https://docs.abp.io/zh-Hans/abp/latest/Event-Bus) 是当领域某个事件发生时, 通知其它领域服务的方式, 为了解耦领域服务间的依赖.
+
+#### [#应用层构建组成](.//) 应用层构建组成
+
+* **应用服务 (Application Service)**: [应用服务](https://docs.abp.io/zh-Hans/abp/latest/Application-Services) 是为实现用例的无状态服务. 展现层调用应用服务获取 DTO. 应用服务调用多个领域服务实现用例. 用例通常被视为一个工作单元.
+* **数据传输对象 (DTO)**: [DTO](https://docs.abp.io/zh-Hans/abp/latest/Data-Transfer-Objects) 是一个不含业务逻辑的简单对象, 用于应用服务层与展现层间的数据传输.
+* **工作单元 (UOW)**: [工作单元](https://docs.abp.io/zh-Hans/abp/latest/Unit-Of-Work) 是事务的原子操作. UOW 内所有操作, 当成功时全部提交, 失败时全部回滚.
+
+[#实现领域驱动-重点](.//) 实现领域驱动: 重点
+------------------------
+
+### [#net解决方案分层](.//).NET 解决方案分层
+
+下图是使用 [ABP 的启动模板](https://docs.abp.io/zh-Hans/abp/latest/Startup-Templates/Application) 创建的解决方案:
+
+[![](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-vs-solution.png)](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-vs-solution.png "domain-driven-design-vs-solution")
+
+解决方案名为 `IssueTracking` , 它包含多个项目. 该解决方案出于 **DDD 原则** 及 **开发** 和 **部署** 的实践来进行分层. 后面会在各小节中介绍解决方案中的项目.
+
+> 在使用启动模板时, 如果选择了其它类型的 UI 或 _ 数据库提供程序 _, 解决方案的结构会略有不同. 但是领域层和应用层是一样的, 这才是 DDD 的重点. 如果你想了解有关解决方案的更多信息, 请参见 [启动模板](https://docs.abp.io/zh-Hans/abp/latest/Startup-Templates/Application).
+
+#### [#领域层](.//) 领域层
+
+领域层分为两个项目:
+
+* `IssueTracking.Domain` 是 **领域层中必需** 的, 它包含之前介绍的 **构建组成** (实体, 值对象, 领域服务, 规约, 仓储接口等).
+* `IssueTracking.Domain.Shared` 是领域层中 **很薄的项目**, 它只包含领域层与其它层共享的数据类型的定义. 例如, 枚举, 常量等.
+
+#### [#应用层](.//) 应用层
+
+应用层也被分为了两个项目:
+
+* `IssueTracking.Application.Contracts` 包含 **接口** 的定义及接口依赖的 **DTO**, 此项目可以被展现层或其它客户端应用程序引用.
+* `IssueTracking.Application` 是 **应用层中必需** 的, 它实现了 `IssueTracking.Application.Contracts` 项目中定义的接口.
+
+#### [#展现层](.//) 展现层
+
+* `IssueTracking.Web` 是一个 ASP.NET Core MVC / Razor Pages 应用程序. 它是提供 UI 元素及 API 服务的可执行程序.
+
+> ABP 框架还支持其它类型的 UI 框架, 包括 [Angular](https://docs.abp.io/zh-Hans/abp/latest/UI/Angular/Quick-Start) 和 [Blazor](https://docs.abp.io/zh-Hans/abp/latest/UI/Blazor/Overall). 当选择 _Angular_ 或 _Blazor_ 时, 解决方案不会有 `IssueTracking.Web` 项目. 但是会添加 `IssueTracking.HttpApi.Host` 在解决方案中, 此项目会提供 HTTP API 供 UI 调用.
+
+#### [#远程服务层](.//) 远程服务层
+
+* `IssueTracking.HttpApi` 包含了 HTTP API 的定义. 它通常包含 _MVC Controller_ 和 _Model_(如果有). 因此, 你可以在此项目中提供 HTTP API.
+
+> 大多数情况下, 通过使用 _API Controller_ 包装应用服务, 供客户端远程调用. ABP 框架的 [API 自发现系统](https://docs.abp.io/zh-Hans/abp/latest/API/Auto-API-Controllers) 可以自动将应用服务公开为 API, 因此, 通常不需要在此项目中再创建 Controller. 出于需要手动添加额外 Controller 的情况, 也包含在模板解决方案中.
+
+* `IssueTracking.HttpApi.Client` 当 C# 客户端应用程序需要调用 `IssueTracking.HttpApi` 的 API 时, 这个项目非常有用. 客户端程序仅需引用此项目就可以通过依赖注入方式, 远程调用应用服务. 它是通过 ABP 框架的 [动态 C# 客户端 API 代理系统](https://docs.abp.io/zh-Hans/abp/latest/API/Dynamic-CSharp-API-Clients) 来实现的.
+
+> 在解决方案文件夹 `test` 下, 有一个名为 `IssueTracking.HttpApi.Client.ConsoleTestApp` 的控制台程序. 它演示了如何使用 `IssueTracking.HttpApi.Client` 项目来远程调用应用程序公开的 API. 因为只是演示, 你可以删除此项目, 再或者你认为 `IssueTracking.HttpApi` 不需要, 同样可以删除.
+
+#### [#基础设施层](.//) 基础设施层
+
+你可能只创建一个基础设施项目来完成所有抽象类的定义及外部类的集成, 又或者为不同的依赖创建多个不同的项目.
+
+我们建议采用一种平衡的方法: 为主要的依赖的库 (例如 Entity Framework Core) 创建一个独立的项目, 为其它的依赖库创建一个公共的基础设施项目.
+
+ABP 的启动解决方案中包含两个用于集成 Entity Framework Core 的项目:
+
+* `IssueTracking.EntityFrameworkCore` 是必需的, 因为需要集成 _EF Core_. 应用程序的 `数据库上下文(DbContext)`, 数据库对象映射, 仓储接口的实现, 以及其它与 _EF Core_ 相关的内容都位于此项目中.
+* `IssueTracking.EntityFrameworkCore.DbMigrations` 是管理 Code First 方式数据库迁移记录的特殊项目. 此项目定义了一个独立的 `DbContext` 来追踪迁移记录. 只有当添加一个新的数据库迁移记录或添加一个新的 [应用模块](https://docs.abp.io/zh-Hans/abp/latest/Modules/Index) 时, 才会使用此项目, 否则, 其它情况无需修改此项目内容.
+
+> 你可能想知道为什么会有两个 EF Core 项目, 主要是因为 [模块化](https://docs.abp.io/zh-Hans/abp/latest/Module-Development-Basics). 每个应用模块都有自己独立的 `DbContext`, 你的应用程序也有自己 `DbContext`.`DbMigrations` 项目包含 **合并** 所有模块迁移记录的 **单个迁移路径**. 虽然大多数情况下你无需过多了解, 但也可以查看 [EF Core 迁移](https://docs.abp.io/zh-Hans/abp/latest/Entity-Framework-Core-Migrations) 了解更多信息.
+
+#### [#其它项目](.//) 其它项目
+
+另外还有一个项目 `IssueTracking.DbMigrator`, 它是一个简单的控制台程序, 用来执行数据库迁移, 包括 **初始化** 数据库及创建 **种子数据**. 这是一个非常实用的应用程序, 你可以在开发环境或生产环境中使用它.
+
+### [#项目间的依赖关系](.//) 项目间的依赖关系
+
+下图展示了解决方案中项目间的依赖关系 (有些项目比较简单就未展示):
+
+[![](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-project-relations.png)](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-project-relations.png "domain-driven-design-project-relations")
+
+之前已介绍了这些项目. 现在, 我们来解释依赖的原因:
+
+* `Domain.Shared` 所有项目直接或间接依赖此项目. 此项目中的所有类型都可以被其它项目所引用.
+* `Domain` 仅依赖 `Domain.Shared` 项目, 因为 `Domain.Shared` 本就属于领域层的一部分. 例如,`Domain.Shared` 项目中的枚举类型 `IssueType` 被 `Domain` 项目中的 `Issue` 实体所引用.
+* `Application.Contracts` 依赖 `Domain.Shared` 项目, 可以在 DTO 中重用 `Domain.Shared` 中的类型. 例如,`Domain.Shared` 项目中的枚举类型 `IssueType` 同样被 `Contracts` 项目中的 `CreateIssueDto`DTO 所引用.
+* `Application` 依赖 `Application.Contracts` 项目, 因为此项目需要实现应用服务的接口及接口使用的 DTO. 另外也依赖 `Domain` 项目, 因为应用服务的实现必须依赖领域层中的对象.
+* `EntityFrameworkCore` 依赖 `Domain` 项目, 因为此项目需要将领域对象 (实体或值对象) 映射到数据库的表, 另外还需要实现 `Domain` 项目中的仓储接口.
+* `HttpApi` 依赖 `Application.Contracts` 项目, 因为 Controllers 需要注入应用服务.
+* `HttpApi.Client` 依赖 `Application.Contracts` 项目, 因为此项目需要是使用应用服务.
+* `Web` 依赖 `HttpApi` 项目, 因为此项目对外提供 HTTP APIs. 另外 Pages 或 Components 需要使用应用服务, 所以还间接依赖了 `Application.Contracts` 项目
+
+#### [#虚线依赖](.//) 虚线依赖
+
+你在上图中会发现用虚线表示了另外两个依赖.`Web` 项目依赖了 `Application` and `EntityFrameworkCore`, 理论上 `Web` 不应该依赖这两个项目, 但实际上依赖了. 原因如下:
+
+`Web` 是最终的运行程序, 是负责托管 Web 的宿主, 它在运行时需要 **应用服务和仓储的实现类**.
+
+这种依赖关系的设计, 可能会让你有机会在展现层直接使用到 EF Core 的对象, **应该严格禁止这样的做法**. 如果想在解决方案分层上规避这种问题, 有下面两种方式, 相对复杂一些:
+
+* 将 `Web` 项目类型改为 razor 类库, 并创建一个新项目, 比如 `Web.Host`,`Web.Host` 依赖 `Web`,`Application`,`EntityFrameworkCore` 三个项目, 并作为 Web 宿主程序运行. 注意, 不要写任何与 UI 相关的代码, 只是作为 **宿主运行**.
+* 在 `Web` 项目中移除对 `Application` 和 `EntityFrameworkCore` 的引用,`Web` 在启动时, 再动态加载程序集 `IssueTracking.Application.dll` 和 `IssueTracking.EntityFrameworkCore.dll`. 可以使用 ABP 框架的 [插件模块](https://docs.abp.io/zh-Hans/abp/latest/PlugIn-Modules) 来动态加载程序集.
+
+### [#ddd模式的应用程序执行顺序](.//)DDD 模式的应用程序执行顺序
+
+下图展示了基于 DDD 模式下的 Web 应用程序执行顺序:
+
+[![](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-web-request-flow.png)](https://raw.githubusercontent.com/abpframework/abp/rel-5.0/docs/zh-Hans/images/domain-driven-design-web-request-flow.png)
+
+* 通常由 UI(用例) 发起一个 HTTP 请求到服务器.
+* 由展现层 (或分布式服务层) 中的一个 _MVC Controller_ 或 _Razor Page Handler_ 处理请求, 在这个阶段可以执行一些 AOP 逻辑 ([授权](https://docs.abp.io/zh-Hans/abp/latest/Authorization), [验证](https://docs.abp.io/zh-Hans/abp/latest/Validation), [异常处理](https://docs.abp.io/zh-Hans/abp/latest/Exception-Handling) 等),_MVC Controller_ 或 _Razor Page Handler_ 调用注入的应用服务接口, 并返回其调用后的结果 (DTO)..
+* 应用服务使用领域层的对象 (实体, 仓储接口, 领域服务等) 来实现 UI(用例) 交互. 此阶段同样可以执行一些 AOP 逻辑 (授权, 验证等). 应用服务中的每个方法应该是一个 [工作单元](https://docs.abp.io/zh-Hans/abp/latest/Unit-Of-Work), 代表它是一次原子性操作.
+
+跨域问题大多数由 **ABP 框架自动实现**, 通常不需要为此额外编码.
+
+### [#通用原则](.//) 通用原则
+
+在详细介绍之前, 我们先来看一些 DDD 的总体原则.
+
+#### [#数据库提供程序-orm-独立原则](.//) 数据库提供程序 / ORM 独立原则
+
+领域层和应用层应该与 _ 数据库提供程序 / ORM_ 无关. 领域层和应用层仅依赖仓储接口, 并且仓储接口不依赖特定的 ORM 对象.
+
+原因如下:
+
+1. 未来领域层或应用层的基础设施会发生改变, 例如, 需要支持另外一种数据库类型, 因此需要保持 **领域层或应用层的基础设施是独立的**.
+2. 将基础设施的实现隐藏在仓储中, 使得领域层或应用层更 **专注于业务逻辑代码**.
+3. 可以通过模拟仓储接口, 使得自动化测试更为方便.
+
+> 关于此原则, `EntityFrameworkCore` 项目只被启动程序项目所引用, 解决方案中其它项目均未引用.
+
+##### [#关于数据库独立原则的讨论](.//) 关于数据库独立原则的讨论
+
+**原因 1** 会非常影响你 **领域对象的建模** (特别是实体间的关系) 及 **应用程序的代码**. 假如, 开始选择了关系型数据库, 并使用了 [Entity Framework Core](https://docs.abp.io/zh-Hans/abp/latest/Entity-Framework-Core), 后面尝试切换到 [MongoDB](https://docs.abp.io/zh-Hans/abp/latest/MongoDB), 那么 **EF Core 中一些非常用的特性** 你就不能使用了, 例如:
+
+* 无法使用 [变更追踪](https://docs.microsoft.com/zh-cn/ef/core/querying/tracking) , 因为 _MongoDB provider_ 没有提供此功能, 因此, 你始终需要显式的更新已变更的实体.
+* 无法在不同的聚合间使用 [导航属性](https://docs.microsoft.com/zh-cn/ef/core/modeling/relationships), 因为文档型数据库是不支持的. 有关更多信息, 请参见 " 规则: 聚合间仅通过 Id 关联 ".
+
+如果你认为这些功能对你很 **重要**, 并且你永远都不会 **离开** _EF Core_, 那么我们认为你可以忽略这一原则. 假如你在设计实体关系时使用了 _EF Core_, 你甚至可以在应用层引用 _EF Core Nuget_ 包, 并直接使用异步的 LINQ 扩展方法, 例如 `ToListAsync()`(有关更多信息, 请参见 [仓储](https://docs.abp.io/zh-Hans/abp/latest/Repositories) 文档中的 _IQueryable_ 和 _Async Operations_).
+
+但是我们仍然建议采用仓储模式来隐藏基础设施中实现过程.
+
+#### [#展现层技术无关原则](.//) 展现层技术无关原则
+
+展现层技术 (UI 框架) 时现代应用程序中最多变的部分之一. **领域层和应用层** 应该对展现层所采用的技术或框架 **一无所知**. 使用 ABP 启动模板就非常容易实现此原则.
+
+在某些情况下, 你可能需要在应用层和展现层中写重复的逻辑, 例如, 参数验证和授权检查. 展现层检查出于 **用户体验**, 应用层或领域层检查出于 **数据安全性** 和 **数据完整性**.
+
+#### [#关注状态的变化-而不是报表-查询](.//) 关注状态的变化, 而不是报表 / 查询
+
+DDD 关注领域对象的 **变化和相互作用**, 如何创建或修改一个具有数据 **完整性, 有效性**, 符合 **业务规则** 的实体对象.
+
+DDD 忽略 **领域对象的数据展示**, 这并不意味着它们并不重要, 如果应用程序没有精美的看板和报表, 谁会愿意用呢? 但是报表是另外一个讨论话题, 你可以通过使用 SQL Server 报表功能或 ElasticSearch 来提供数据展示, 又或者使用优化后的 SQL 查询语句, 创建数据库索引或存储过程. 唯一的原则是不要将这些内容混入领域的业务逻辑中.
+
+[#实现领域驱动-构建组成](.//) 实现领域驱动: 构建组成
+----------------------------
 
 这是本指南的重要部分, 我们将通过示例介绍并解释一些 **明确的规则**, 在实现领域驱动设计时, 你可以遵循这些规则并将其应用于解决方案中.
 
@@ -506,7 +729,103 @@ DTO 和实体通常具有相同或相似的属性, 你经常需要从一个实�
 有关此部分的建议, 请参加下面的 " _实体创建_ " 部分
 
 [#用例](.//) 用例
---
+---------
+
+本节将演示一些用例, 并讨论替代方案
+
+### [#实体创建](.//) 实体创建
+
+实体或聚合根的创建, 是实体生命周期的开始." _聚合 / 聚合根规则及最佳实践_ " 章节中建议为 Entity 类定义 **一个主构造函数**, 以确保创建一个 **有效的实体**. 因此, 需要创建该实体对象实例时, 都应该 **使用该构造函数**.
+
+`Issue` 聚合根的代码如下:
+
+* 通过其非空参数的构造函数创建有效的实体.
+* 如需修改 `Title` 属性, 必须通过 `SetTitle` 方法, 来确保被设置值的有效性.
+* 如需将此问题关联至用户, 则需要使用 `IssueManager`(关联前需要执行一些业务逻辑, 相关逻辑参见上面的 " _领域服务_ " 部分)
+* `Text` 属性 setter 是公开的, 因为它可以为 null, 并且本示例中也没有验证规则, 它在构造函数中也是可选的.
+
+创建问题的应用服务代码:
+
+`CreateAsync` 方法;
+
+* 使用 `Issue` **构造函数** 创建一个有效的问题.`Id` 属性通过 [IGuidGenerator](https://docs.abp.io/zh-Hans/abp/latest/Guid-Generation) 服务生成. 此处没有使用对象自动映射.
+* 如果需要将 **问题关联至用户**, 则通过 `IssueManager` 来执行关联逻辑.
+* **保存** 实体至数据库.
+* 最后, 使用 `IObjectMapper` 将 `Issue` 实体 **映射** 为 `IssueDto` 并返回.
+
+#### [#在创建实体时执行领域规则](.//) 在创建实体时执行领域规则
+
+`Issue` 除了在构造函数中进行了一些简单验证外, 示例中没其它业务验证. 在有些情况下, 在创建实体时会有一些其它业务规则.
+
+假如, 已经存在一个完全相同的问题, 那么就不要再创建问题. 这个规则应该在哪里执行? 在 **应用服务中执行是不对的**, 因为它是 **核心业务 (领域) 的规则**, 应该将此规则在领域服务中执行. 在这种情况下, 我们应该在 `IssueManager` 中执行此规则, 因此应该强制应用服务调用领域服务 `IssueManager` 来新建 `Issue`.
+
+首先修改 `Issue` 构造函数的访问级别为 `internal`:
+
+这样可以防止, 应用服务直接使用 `Issue` 的构造函数去创建 `Issue` 实例, 必须使用 `IssueManager` 来创建. 然后我们再添加一个 `CreateAsync` 方法:
+
+* `CreateAsync` 方法会检查标题是否已经存在, 当有相同标题的问题时, 会抛出业务异常.
+* 如果标题没有重复的, 则创建并返回一个新的 `Issue` 对象.
+
+再修改 `IssueAppService` 的代码, 来调用 `IssueManager` 的 `CreateAsync` 方法:
+
+##### [#讨论-为什么issuemanager中没有执行issue的保存](.//) 讨论: 为什么 `IssueManager` 中没有执行 `Issue` 的保存?
+
+你可能会问 " **为什么 `IssueManager` 中没有执行 `Issue` 的保存?**". 我们认为这是应用服务的职责.
+
+因为, 应用服务可能在保存 `Issue` 对象之前, 需要对其它对象进行修改. 如果领域服务执行了保存, 那么 _ 保存 _ 操作就是重复的.
+
+* 会触发两次数据库会交互, 这会导致性能损失.
+* 需要额外添加显式的事务来包含这两个操作, 才能保证数据一致性.
+* 如果因为业务规则取消了实体的创建, 则应该在数据库事务中回滚事务, 取消所有操作.
+
+假如在 `IssueManager.CreateAsync` 中先保存一次数据, 那么数据会先执行一次 _Insert_ 操作, 后面关联用户的逻辑执行后, 又会再执行一次 _Update_ 操作.
+
+如果不在 `IssueManager.CreateAsync` 中保存数据, 那么, 新建 `Issue` 和关联用户, 只会执行一次 _Insert_ 操作.
+
+##### [#讨论-为什么没有在应用服务中执行标题是否重复的检查](.//) 讨论: 为什么没有在应用服务中执行标题是否重复的检查?
+
+简单地说 " 因为它是 **核心领域逻辑**, 应该在领域层实现 ". 这又带来一个新问题," **如何确定** 是领域层逻辑, 还是应用层逻辑 "?(这个我们后面再详细讨论)
+
+对于此示例, 可以用一个简单的问题来判断到底是领域逻辑还是应用逻辑:" 如果还有另外一种创建 `Issue` 的方式 (用例), 我们是否还需要执行? 如果需要执行, 就属于领域层逻辑, 不需要执行就是应用层逻辑 ". 你可能认为为什么还有别的用例来创建 `Issue` 呢?
+
+* 应用程序的 **最终用户** 可能会在 UI 上创建 `Issue`.
+* 系统内部人员, 可以在 **后台管理** 端采用另外一种方式创建 `Issue`(这种情况下, 可能使用不同的业务规则).
+* 对 **第三方客户端** 开放的 API, 它们的规则又有所不同.
+* 还有 **后台作业系统** 会执行某些操作时创建 `Issue`, 这样, 它是在没有任何用户交互情况下创建 `Issue`.
+* 还有可能是 UI 上某个按钮, 可以将某些内容 (例如, 讨论) 转为 `Issue`.
+
+我们还可以举更多例子. 所有这些都应该通过 **不同的应用服务方法来实现** (请参见下面的 " _多个应用服务层_ " 部分), 但是它们 **始终遵循** 以下的规则:
+
+新的问题标题不能与任何已有的问题标题相同. 这就是为什么说的 " _标题是否重复的检查_ " 属于核心领域逻辑的原因, 这个逻辑应该在领域层, 而 **不应该** 在应用层的所有方法中 **去重复** 定义.
+
+### [#修改实体](.//) 修改实体
+
+创建实体后, 将根据用例对实体进行修改, 直到将其从系统中删除. 可以有不同的用例直接或间接的修改实体.
+
+在本节中, 我们将讨论一种典型的修改操作, 该操作会修改 `Issue` 的多个属性.
+
+从 _Update_ DTO 开始:
+
+对比 `IssueCreationDto`, 可以发现, 缺少了 `RepositoryId` 属性, 因为我们不允许跨仓库移动 `Issue`. 仅 `Title` 属性是必填的.
+
+`IssueAppService` 中 _Update_ 的实现如下::
+
+* `UpdateAsync` 方法参数 `id` 被作为独立参数, 放置在 `UpdateIssueDto` 之外. 这是一项设计决策, 当你将此应用服务 [自动导出](https://docs.abp.io/zh-Hans/abp/latest/API/Auto-API-Controllers) 为 HTTP API 时, API 端点时帮助 ABP 正确定义 HTTP 路由, 这与 DDD 无关.
+* 首先从数据库中 **获取** `Issue` 实体.
+* 通过 `IssueManager` 的 `ChangeTitleAsync` 方法修改标题, 而非直接通过 `Issue.SetTitle(...)` 直接修改. 因为我们需要像创建时那样, **执行标题的重复检查逻辑**. 这需要对 `Issue` 类和 `IssueManager` 类进行一些调整 (将在下面说明).
+* 通过 `IssueManager` 的 `AssignToAsync` 方法来 **关联用户**.
+* 直接设置 `Issue.Text` 属性, 因为它本身没有任何业务逻辑需要执行. 如果以后需要可以再进行重构.
+* **保存修改** 至数据库. 同样, 保存修改后的实体属于应用服务的职责, 它可以协调业务对象和事务. 如果在 `IssueManager` 内部的 `ChangeTitleAsync` 和 `AssignToAsync` 方法中进行保存, 则会导致两次数据库操作 (请参见上面的 _ 讨论: 为什么 `IssueManager` 中没有执行 `Issue` 的保存?_)
+* 最后, 使用 `IObjectMapper` 将 `Issue` 实体 **映射** 为 `IssueDto` 并返回.
+
+如前所述, 我们需要对 `Issue` 类和 `IssueManager` 类进行一些调整:
+
+首先, 修改 `SetTitle` 方法的访问级别为 internal:
+
+再在 `IssueManager` 中添加一个新方法来修改标题:
+
+[#领域逻辑和应用逻辑](.//) 领域逻辑和应用逻辑
+-----------------------
 
 如前所述, 领域驱动设计中的 _ 业务逻辑 _ 分为两部分 (各层): 领域逻辑和应用逻辑
 
@@ -592,7 +911,7 @@ DTO 和实体通常具有相同或相似的属性, 你经常需要从一个实�
 > 不要创建 " 将来可能需要 " 这种 CRUD 领域服务方法 ([YAGNI](https://en.wikipedia.org/wiki/You_aren%27t_gonna_need_it)), 在需要时重构它并重构现有代码. 由于应用层优雅地抽象了领域层, 因此重构过程不会影响 UI 层和其他客户端.
 
 [#相关书籍](.//) 相关书籍
--
+-------------
 
 如果你对领域驱动设计和构建大型系统有兴趣, 建议将以下书籍作为参考书籍:
 

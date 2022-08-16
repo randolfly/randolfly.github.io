@@ -1,5 +1,5 @@
 ---
-date: 2022-07-08
+date: 2022-07-11
 tag:
   - adams simulink
 category:
@@ -7,6 +7,7 @@ category:
   - adams
 ---
 
+# adams与simulink联合仿真
 
 ## 定义
 
@@ -17,7 +18,71 @@ Adams 的软件 UI 设计很糟糕，因此尽量不在 Adams 中做仿真；此
 > 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [zhuanlan.zhihu.com](https://zhuanlan.zhihu.com/p/64786908)
 
 ### 前言
+-----
 
+本例子参考自 Robert L. Norton 编写的《Adams Tutorial Kit for Mechanical Engineering Courses (Third Edition)》中的 Example 34: DC Motor，对其进行了更加仔细的整理，补足了一些不够仔细的部分，这个例子应该可以说是我见过的最为详细完整的 Adams 与 Simulink 联合仿真的例子，即使是对零基础的人也很友好。因此整理出来，以供有需要的人参考。
+
+对于写文章分享，还是小学生一个，如果觉得对你有帮助的，请不要忘记点个赞，如果觉得写得不错，会考虑整理更多相关的图文教程。
+
+### 理论部分
+-------
+
+![](https://pic2.zhimg.com/v2-e6b60fd8607e6c20ce8f03cb10132189_b.jpg)
+
+根据基尔霍夫电压定律：
+
+![](https://www.zhihu.com/equation?tex=v_i-v_L-v_R-v_b%3D0%5C%5C)
+
+其中： ![](https://www.zhihu.com/equation?tex=v_i) 是输入电压； ![](https://www.zhihu.com/equation?tex=v_L) 和 ![](https://www.zhihu.com/equation?tex=v_R) 分别是电感和电阻两端的电压； ![](https://www.zhihu.com/equation?tex=v_b) 是反向电压，与电机转速成正比，即：
+
+![](https://www.zhihu.com/equation?tex=v_b%3DK_b%5Ccdot+%5Cdot%7B%5Ctheta%7D%5C%5C)
+
+现在，根据电枢电流和电机转速写出电压降的表达式:
+
+![](https://www.zhihu.com/equation?tex=v_i-L_A%5Ccdot+%5Cfrac%7Bdi_A%7D%7Bdt%7D-R_A%5Ccdot+i_A-K_b%5Ccdot+%5Cdot%7B%5Ctheta%7D%3D0+%5C%5C)
+
+电机输出的扭矩与电枢电流成正比，
+
+![](https://www.zhihu.com/equation?tex=T_m%3DK_t%5Ccdot+i_A+%5C%5C)
+
+根据电机轴动力学公式得出：
+
+![](https://www.zhihu.com/equation?tex=T_m-c%5Ccdot+%5Cdot%7B%5Ctheta%7D%3DJ%5Ccdot+%5Cddot%7B%5Ctheta%7D+%5C%5C)
+
+整理公式得出：
+
+![](https://www.zhihu.com/equation?tex=%5Cbegin%7Bcases%7D+%09%5Cfrac%7Bdi_A%7D%7Bdt%7D%3D%5Cfrac%7Bv_i-R_A%5Ccdot+i_A-K_b%5Ccdot+%5Cdot%7B%5Ctheta%7D%7D%7BL_A%7D%5C%5C+%09%5Cddot%7B%5Ctheta%7D%3D%5Cfrac%7BK_t%5Ccdot+i_A-c%5Ccdot+%5Cdot%7B%5Ctheta%7D%7D%7BJ%7D%5C%5C+%5Cend%7Bcases%7D%5C%5C)
+
+### Simulink 模型
+--------------
+
+根据上面的公式，可以在 Simulink 里面搭建对应的框图模型，相应参数以及对应框图如下。
+
+#### 3.1. 仿真参数
+
+```matlab
+% initialize DC motor parameters
+L   = 0.01;    % unit: H
+R   = 10;      % unit: ohm
+K_t = 0.6;     % unit: Nm/A
+K_b = 0.002;   % unit: V*s/rad
+J   = 1.22e-5; % unit: kg*m^2
+c   = 0.0001;  % unit: Nm*s/rad
+
+```
+
+#### 3.2 Simulink 模型框图
+
+![](https://pic4.zhimg.com/v2-9cae715751a14f89d9bd02827cbb10a7_r.jpg)
+
+#### 3.3 仿真结果
+
+进行 5s 仿真，结果如下，以作为联合仿真的对照结果。
+
+![](https://pic1.zhimg.com/v2-360bb9e116b5dda13bf6047fdc139e60_b.jpg)
+
+### Adams 建模
+---------------
 
 #### 4.1 创建新模型
 
@@ -116,7 +181,7 @@ Adams 的软件 UI 设计很糟糕，因此尽量不在 Adams 中做仿真；此
 至此，Adams 模型的创建已经完成。
 
 ### Adams 与 Simulink 联合仿真
-
+------------------------
 
 #### 5.1 导出 Adams 模型
 
@@ -175,7 +240,7 @@ Adams 子模块复制出来以后，代替原有的动力学模型，框图如�
 ![](https://pic4.zhimg.com/v2-84eb77b2dd6404648f308332a79d083b_b.jpg)
 
 ### Adams 中查看结果
---
+--------------
 
 如果 Simulink 中的数据并不能满足你的需求，需要查看非输出变量的变化，或者说想要看到或者导出具体的机构运动动画的话，你需要先找到联合仿真以后生成的【*.res】文件。注意这个文件每仿真一次都会重新覆盖，有需要的记得复制到其他目录下保存。
 

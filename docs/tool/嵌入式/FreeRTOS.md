@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - freertos
   - stm32
@@ -8,6 +8,7 @@ category:
   - 嵌入式
 ---
 
+# FreeRTOS
 
 # FreeRTOS 使用
 

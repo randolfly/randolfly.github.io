@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - mma
   - derivate
@@ -11,6 +11,7 @@ category:
   - mma
 ---
 
+# mma推导函数微分矩阵
 
 # Mma 推导函数微分矩阵
 

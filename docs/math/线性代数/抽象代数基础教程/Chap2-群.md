@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-13
 tag:
   - abstractAlgebra
 category:
@@ -9,6 +9,7 @@ category:
   - 抽象代数基础教程
 ---
 
+# Chap2 群
 
 # Chap2 群
 
@@ -70,7 +71,7 @@ $$
 ::: tip 笛卡尔积(cartesian product)
 
 如果X和Y是集合，我们定义其笛卡尔积(cartesian product) $X \times Y$ 是所有有序对(x,y)的集合，其中 $x\in X\,\,\mathrm{and} y\in Y$
-- 更进一步，可以参考[|线性映射章节](./../从线性映射理解线性代数/Chap3-线性映射.md)，可以发现 $\left| X\times Y \right|=\left| X \right|\left| Y \right|$
+- 更进一步，可以参考[线性映射章节](./../从线性映射理解线性代数/Chap3-线性映射.md)，可以发现 $\left| X\times Y \right|=\left| X \right|\left| Y \right|$
 :::
 
 
@@ -286,7 +287,7 @@ $$
 \mathrm{if}\alpha \circ \,\,\gamma =\beta \circ \gamma ,\quad \mathrm{then}\alpha =\beta 
 $$
 
-使用前面定义的 [|二行记号](./)，尽管可以直观的展示映射关系，但对我们理解映射性质带来了干扰：
+使用前面定义的 [二行记号](./)，尽管可以直观的展示映射关系，但对我们理解映射性质带来了干扰：
 - 一个置换的平方是什么样子？不能直接看出
 - 可以经过多少次置换使得其变为恒等的？
 

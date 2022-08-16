@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - miniconda
   - conda
@@ -9,6 +9,7 @@ category:
   - conda
 ---
 
+# miniconda 安装及配置
 
 # Miniconda 安装及配置
 

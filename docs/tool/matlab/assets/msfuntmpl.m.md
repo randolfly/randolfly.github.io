@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-08
 tag:
   - default
 category:
@@ -8,6 +8,7 @@ category:
   - assets
 ---
 
+# msfuntmpl
 ```matlab
 function msfuntmpl(block)
 %MSFUNTMPL A Template for a MATLAB S-Function
@@ -70,7 +71,9 @@ function setup(block)
   %  [-2, 0]               : Variable sample time
   block.SampleTimes = [0 0];
   
-  % --
+  % -----------------------------------------------------------
+  % Options
+  % -----------------------------------------------------------------
   % Specify if Accelerator should use TLC or call back to the 
   % MATLAB file
   block.SetAccelRunOnTLC(false);
@@ -85,9 +88,17 @@ function setup(block)
   %   'Disallow': Error out when saving or restoring the block operating point.
   block.OperatingPointCompliance = 'Default';
   
-  % --
+  % -----------------------------------------------------------------
+  % The MATLAB S-function uses an internal registry for all
+  % block methods. You should register all relevant methods
+  % (optional and required) as illustrated below. You may choose
+  % any suitable name for the methods and implement these methods
+  % as local functions within the same file.
+  % -----------------------------------------------------------------
    
-  % --
+  % -----------------------------------------------------------------
+  % Register the methods called during update diagram/compilation.
+  % -----------------------------------------------------------------
   
   % 
   % CheckParameters:
@@ -165,7 +176,9 @@ function setup(block)
   %
   block.RegBlockMethod('PostPropagationSetup', @DoPostPropSetup);
 
-  % --
+  % -----------------------------------------------------------------
+  % Register methods called at run-time
+  % -----------------------------------------------------------------
   
   % 
   % ProcessParameters:
@@ -252,7 +265,9 @@ function setup(block)
   %
   block.RegBlockMethod('SetOperatingPoint', @SetOperatingPoint);
 
-  % --
+  % -----------------------------------------------------------------
+  % Register the methods called during code generation.
+  % -----------------------------------------------------------------
   
   %
   % WriteRTW:
@@ -262,10 +277,10 @@ function setup(block)
   block.RegBlockMethod('WriteRTW', @WriteRTW);
 %endfunction
 
-% -
+% -------------------------------------------------------------------
 % The local functions below are provided to illustrate how you may implement
 % the various block methods listed above.
-% -
+% -------------------------------------------------------------------
 
 function CheckPrms(block)
   

@@ -1,5 +1,5 @@
 ---
-date: 2022-07-08
+date: 2022-08-13
 tag:
   - default
 category:
@@ -7,6 +7,7 @@ category:
   - adams
 ---
 
+# solidworks导入adams联合仿真
 
 ## 定义
 

@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - tex
   - bug
@@ -9,6 +9,7 @@ category:
   - tex
 ---
 
+# tex踩坑
 
 # Tex 踩坑
 

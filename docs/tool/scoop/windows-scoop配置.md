@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-16
 tag:
   - windows
   - scoop
@@ -9,6 +9,7 @@ category:
   - scoop
 ---
 
+# windows scoop配置
 
 # Windows Scoop 配置
 

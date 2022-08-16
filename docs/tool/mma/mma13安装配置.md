@@ -1,5 +1,5 @@
 ---
-date: 2022-06-17
+date: 2022-08-13
 tag:
   - mma
   - install
@@ -8,6 +8,7 @@ category:
   - mma
 ---
 
+# mma13安装配置
 
 > 本文由 [简悦 SimpRead](http://ksria.com/simpread/) 转码， 原文地址 [zhuanlan.zhihu.com](https://zhuanlan.zhihu.com/p/475924203)
 

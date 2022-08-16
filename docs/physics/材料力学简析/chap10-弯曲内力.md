@@ -8,6 +8,7 @@ category:
   - 材料力学简析
 ---
 
+# chap10 弯曲内力
 
 ## chap10 弯曲内力
 
@@ -74,7 +75,7 @@ $$
 
 $$
 
-{\color[RGB]{240, 0, 0} \frac{\mathrm{d}F_s}{\mathrm{d}x}=q,\frac{\mathrm{d}M}{\mathrm{d}x}=F_s,\frac{\mathrm{d}^2M}{\mathrm{d}x^2}=q}
+{\color{red}\frac{\mathrm{d}F_s}{\mathrm{d}x}=q,\frac{\mathrm{d}M}{\mathrm{d}x}=F_s,\frac{\mathrm{d}^2M}{\mathrm{d}x^2}=q}
 
 $$
 

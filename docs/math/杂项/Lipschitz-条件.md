@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-13
 tag:
   - math
   - Condition
@@ -9,6 +9,7 @@ category:
   - 杂项
 ---
 
+# Lipschitz 条件
 
 # Lipschitz 条件
 

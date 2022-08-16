@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - tool
   - matlab
@@ -9,6 +9,7 @@ category:
   - matlab
 ---
 
+# matlab 文档格式
 
 # Matlab 文档格式
 
@@ -155,7 +156,7 @@ setText ([‘Long line split’ …
 * 在 =,& 和 | 的左右需要插入空格，例如：`simpleSum = firstTerm+secondTerm;`
 * 在常用的操作符左右最好插入空格，但这是由争议的，例如：`simpleAverage = (firstTerm + secondTerm) / two;`
 * 逗号后面加空格，例如：`foo(alpha, beta, gamma)`
-* 代码块中间要用几个空行进行分隔，一般是用三行。也可以使用： %**_**_***，或者 %----
+* 代码块中间要用几个空行进行分隔，一般是用三行。也可以使用： %**_**_***，或者 %----------------
 
 ### 4.3 注释
 

@@ -96,7 +96,8 @@ export default defineUserConfig({
                 leqno: false,
                 fleqn: true,
                 throwOnError: false,
-                strict: false
+                strict: false,
+                colorIsTextColor: true,
             },
             mark: true,
             footnote: true,

@@ -8,6 +8,7 @@ category:
   - 数学物理方程
 ---
 
+# Ch2 分离变量法
 
 ## Ch2 分离变量法
 
@@ -111,7 +112,7 @@ $$
 $$
 
 
-​	注意这里不需要考虑 n<0 的情形，因为 sin 是奇函数，实际上 -n 对应的也是相同的形式
+- 注意这里不需要考虑 n<0 的情形，因为 sin 是奇函数，实际上 -n 对应的也是相同的形式
 
 因此特征值问题 (30) 的解为：
 
@@ -140,8 +141,8 @@ $$
 $$
 
 \begin{array}{c}
-	u_n\left( x,t \right) =\left( {\color[RGB]{240, 0, 0} C'_n}\cos \frac{n\pi a}{l}t+{\color[RGB]{240, 0, 0} D'_n}\sin \frac{n\pi a}{l}t \right) B_n\sin \frac{n\pi}{l}x\\
-	=\left( {\color[RGB]{240, 0, 0} C_n}\cos \frac{n\pi a}{l}t+{\color[RGB]{240, 0, 0} D_n}\sin \frac{n\pi a}{l}t \right) \sin \frac{n\pi}{l}x\\
+	u_n\left( x,t \right) =\left( {\color{red}C'_n}\cos \frac{n\pi a}{l}t+{\color{red}D'_n}\sin \frac{n\pi a}{l}t \right) B_n\sin \frac{n\pi}{l}x\\
+	=\left( {\color{red}C_n}\cos \frac{n\pi a}{l}t+{\color{red}D_n}\sin \frac{n\pi a}{l}t \right) \sin \frac{n\pi}{l}x\\
 	u\left( x,t \right) =\sum_{n=1}^{\infty}{u_n\left( x,t \right)}\\
 \end{array}
 
@@ -351,7 +352,7 @@ $$
 
 \begin{cases}
 	\varTheta ''+\lambda \varTheta =0\\
-	{\color[RGB]{240, 0, 0} \varTheta \left( \theta \right) =\varTheta \left( \theta +2\pi \right) }\\
+	{\color{red}\varTheta \left( \theta \right) =\varTheta \left( \theta +2\pi \right)}\\
 \end{cases}, \begin{cases}
 	\rho ^2R''+\rho R'-\lambda R=0\\
 	\left| R\left( 0 \right) \right|<+\infty\\
@@ -447,7 +448,7 @@ $$
 $$
 
 \left\{ \begin{array}{l}
-	{\color[RGB]{240, 0, 0} \frac{\partial ^2V}{\partial t^2}=a^2\frac{\partial ^2V}{\partial x^2}+f(x,t)},0<x<l,t>0\\
+	{\color{red}{\frac{\partial ^2V}{\partial t^2}=a^2\frac{\partial ^2V}{\partial x^2}+f(x,t)},0<x<l,t>0}\\
 	\left. V \right|_{x=0}=\left. V \right|_{x=l}=0,t>0\\
 	\left. V \right|_{t=0}=\left. \frac{\partial V}{\partial t} \right|_{1=0}=0,0\leqslant x\leqslant l.\\
 \end{array} \right.
@@ -461,7 +462,7 @@ $$
 \left\{ \begin{array}{l}
 	\frac{\partial W}{\partial t^2}=a^2\frac{\partial ^2W}{\partial x^2},0<x<l,t>0\\
 	\left. W \right|_{x=0}=\left. W \right|_{x=l}=0,t>0\\
-	{\color[RGB]{240, 0, 0} \left. W \right|_{t=0}=\varphi \left( x \right) ,\left. \frac{\partial W}{\partial t} \right|_{t=0}=\psi \left( x \right) },0\leqslant x\leqslant l\\
+	{\color{red}{\left. W \right|_{t=0}=\varphi \left( x \right) ,\left. \frac{\partial W}{\partial t} \right|_{t=0}=\psi \left( x \right) },0\leqslant x\leqslant l}\\
 \end{array} \right.
 
 $$
@@ -637,7 +638,7 @@ $$
 
   - 当且仅当两个边界条件都是齐次第二类边界条件时，$\lambda=0$ 是一个特征值
 
-- ${\color[RGB]{240, 0, 0} \lambda _m\ne \lambda _n}$，对应的特征函数为 $y_m(x), y_n(x)$
+- ${\color{red}\lambda _m\ne \lambda _n}$，对应的特征函数为 $y_m(x), y_n(x)$
 
   - 
 $$

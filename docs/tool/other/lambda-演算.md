@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - lambda
   - code
@@ -9,6 +9,7 @@ category:
   - other
 ---
 
+# lambda 演算
 
 # Lambda 演算
 
@@ -96,7 +97,69 @@ console.log(result);
 至于减法和除法，实现起来相对来说比较复杂，大家如果感兴趣的话，可以参考其他的资料进行学习。
 
 控制语句
--
+----
+
+接下来我们再进一步考虑一下如何实现条件分支语句。条件分支语句中一个很重要的元素就是布尔值，先来定义 TRUE 和 FALSE 这两个基本的布尔值类型:
+
+```
+const TRUE = first => second => first;
+const FALSE = first => second => second;
+```
+
+它表示的是从两个事物中选择其中一个事物，TRUE 表示选择的第一个，而 FALSE 与之相反，选择的是第二个。
+
+定义好基本的布尔值类型，再实现条件分支语句就很简单了：
+
+```
+const ifElse = boolFn => first => second => boolFn(first)(second);
+// ifElse(TRUE)(x)(y) ===> x
+// ifElse(FALSE)(x)(y) ===> y
+```
+
+再增加一个转换函数：
+
+```
+const toBoolean = boolFn => boolFn(true)(false);
+
+console.log(toBoolean(TRUE));
+// true
+```
+
+大功告成，Bingo!
+
+逻辑
+--
+
+利用上述定义的布尔值，推导出三大逻辑运算：与（and)、或（or)、非（not) 就顺理成章了。反转逻辑最简单，只要将上面定义条件分支语句的逻辑反过来就可以了。这与布尔值的定义也是强联系，如果说 TRUE 表示的是选择第一个分支条件，那么 not 就要反转这种逻辑:
+
+```
+const not = boolFn => first => second => boolFn(second)(first);
+toBoolean(not(TRUE));
+// false
+```
+
+至于或运算符，实质上应该是个带有两个操作数的运算，所以我们需要定义个高阶函数，需要调用两次，每次接收一个操作数。根据之前的定义，我们知道 TRUE 会返回第一个变量，FALSE 会返回第二个变量。而或运算 (or) 的意思是只要两个操作数中有一个 TRUE，就返回 TRUE。那么我们只要使变量应用的顺序和调用顺序一致，就能保证当 TRUE 作为第一个参数时，正好应用到 TRUE 函数上, 当 FALSE 作为第一个参数时，函数返回第二个参数的值。
+
+```
+const or = first => second => first(first)(second);
+toBoolean(or(TRUE)(FALSE)); // true
+toBoolean(or(FALSE)(FALSE)); // false
+toBoolean(or(TRUE)(FALSE)) // true
+```
+
+与操作与或操作相似，我们要保证当两个操作数都是 TRUE 的时候才会返回 TRUE。将上面的实现逻辑反转一下，就能得到下面的代码：
+
+```
+const and = first => second => first(second)(first);
+toBoolean(and(FALSE)(FALSE)); // false
+toBoolean(and(FALSE)(TRUE)); // false
+toBoolean(and(TRUE)(TRUE)); // true
+```
+
+这块逻辑可能比较绕，大家可以用心体会一下。
+
+递归 (Y 组合子)
+----------
 
 我们先从一个最简单的递归定义说起，下面这个故事想必大家都有听说过:
 

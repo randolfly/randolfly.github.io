@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - ml
   - wsl
@@ -10,6 +10,7 @@ category:
   - wsl
 ---
 
+# wsl配置ml环境
 
 # Wsl 配置 Ml 环境
 

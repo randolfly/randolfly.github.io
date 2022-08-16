@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-16
 tag:
   - 公理系统
   - logic
@@ -10,6 +10,7 @@ category:
   - 微分几何
 ---
 
+# Chap1 基础集合论
 
 
 ## 基本逻辑
@@ -28,7 +29,23 @@ A proposition p is a variable that can take the values true (T) or false (F), an
 在一些 proposition 基础上，可以通过不同的 *logical operator* 来构造新的 proposition。有 4 种 unary operator，将其真值表列在下面：
 
 | p   | $\lnot p$ | id(p) | $\top{p}$ | $\bot{p}$ |
-|  |  |  | - |  | -- | --- |
+| --- | --------- | ----- | --------- | --------- |
+| F   | T         | F     | T         | F         |
+| T   | F         | T     | T         | F          |
+
+考虑 2 元的运算符 (binary operator )，基本的有 3 种：
+
+| p   | q   | $p\land q$ | $p \lor q$ | $p \veebar q$ |
+| --- | --- | ---------- | ---------- | ------------- |
+| F   | F   | F          | F          | F             |
+| F   | T   | F          | T          | T             |
+| T   | F   | F          | T          | T             |
+| T   | T   | T          | T          | F             |
+
+除了上面的 3 个 binary operator (*and or exclusive*)，还有 2 个常用的运算符：
+
+| p   | q   | $p \Rightarrow q$ | $p \Leftrightarrow q$ |
+| --- | --- | ----------------- | --------------------- |
 | F   | F   | ==T==               | T                     |
 | F   | T   | T               | F                     |
 | T   | F   | F                 | F                     |

@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-09
 tag:
   - shell
   - powershell
@@ -9,6 +9,7 @@ category:
   - powershell
 ---
 
+# 02-powershell-命令和参数
 
 # 02-powershell- 命令和参数
 

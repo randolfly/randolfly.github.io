@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - pdf
   - 目录
@@ -8,6 +8,7 @@ category:
   - other
 ---
 
+# pdf文件制作目录
 
 # Pdf 文件制作目录
 
@@ -27,14 +28,34 @@ category:
 [English](https://github.com/ifnoelse/pdf-bookmark/blob/master/README-EN.md)
 
 [#示例](.//) 示例
+---------
 
+[![](./assets/intro.gif)](https://github.com/ifnoelse/pdf-bookmark/blob/master/img/intro.gif)
+
+[#下载地址](.//) 下载地址
+-------------
+
+1. 下载地址：[pdf-bookmark](https://github.com/ifnoelse/pdf-bookmark/releases)
+2. 执行方式：执行 `bin/pdf-bookmark`
+
+> 如果软件无法运行，请按以下步骤自行打包
+
+```
+git clone https://github.com/ifnoelse/pdf-bookmark.git
+cd pdf-bookmark
+./gradlew jlink
+build/image/bin/pdf-bookmark
+```
+
+[#简介](.//) 简介
+---------
 
 由于互联网上存在很多没有书签的 pdf 书籍，阅读起来十分不方便，手动添加书签工作量太大，本项目用来给 pdf 书籍自动打上书签方便阅读
 **软件界面**
 [![](./assets/main_gui.png)](https://github.com/ifnoelse/pdf-bookmark/blob/master/img/main_gui.png)
 
 [#使用方法](.//) 使用方法
--
+-------------
 
 ### [#1-选择pdf文件](.//)1. 选择 Pdf 文件
 
@@ -73,7 +94,7 @@ category:
 [![](./assets/scala_exp.png)](https://github.com/ifnoelse/pdf-bookmark/blob/master/img/scala_exp.png)
 
 [#关于目录内容格式](.//)关于目录内容格式
----
+---------------------
 
 目录内容格式基本结构为 ` 章节序号 章节标题 章节页码`即可，示例如下：
 

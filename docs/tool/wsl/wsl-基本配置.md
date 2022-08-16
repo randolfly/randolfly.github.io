@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - wsl
   - linux
@@ -9,6 +9,7 @@ category:
   - wsl
 ---
 
+# wsl 基本配置
 
 # Wsl 基本配置
 

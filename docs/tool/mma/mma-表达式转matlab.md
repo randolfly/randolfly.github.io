@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - mma
   - tool
@@ -9,6 +9,7 @@ category:
   - mma
 ---
 
+# mma 表达式转matlab
 
 # Mathematica 表达式转 Matlab
 

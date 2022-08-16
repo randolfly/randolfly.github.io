@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - miniconda
   - conda
@@ -10,6 +10,7 @@ category:
   - conda
 ---
 
+# pip不存在解决方案
 
 # Pip 不存在解决方案
 

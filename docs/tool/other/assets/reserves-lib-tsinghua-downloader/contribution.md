@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-08
 tag:
   - default
 category:
@@ -9,6 +9,7 @@ category:
   - reserves-lib-tsinghua-downloader
 ---
 
+# contribution
 本文档用于陈述本项目的核心思想。同样欢迎大家对本文档的内容提出建议。
 
 ## 核心思想

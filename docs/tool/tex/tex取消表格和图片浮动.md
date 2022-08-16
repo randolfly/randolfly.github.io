@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - tex
   - image
@@ -9,6 +9,7 @@ category:
   - tex
 ---
 
+# tex取消表格和图片浮动
 
 # Tex 取消表格和图片浮动
 

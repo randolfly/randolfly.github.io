@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - dataview
 category:
@@ -7,6 +7,7 @@ category:
   - obsidian
 ---
 
+# dataview使用
 
 # Dataview 使用
 
@@ -27,7 +28,11 @@ Dataview 插件目前支持多种索引方案，现在我们先来介绍其中�
 例如，如果你想要根据 Games 文件夹生成一个表格，而且表格的内容基于你这个文件夹中的每个文件的 YAML 进行索引，已知你设置了一些笔记的 YAML 为
 
 ```
-
+---
+time-played: All the time.
+length: 2000h
+rating: 9.5
+---
 ```
 
 然后你有一大堆类似的游戏笔记，那么你可以用下列的 Dataview 生成式来生成对应的表格

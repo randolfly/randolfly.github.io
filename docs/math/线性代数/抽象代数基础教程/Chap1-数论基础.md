@@ -1,5 +1,5 @@
 ---
-date: 2022-08-09
+date: 2022-08-13
 tag:
   - abstractAlgebra
 category:
@@ -9,6 +9,7 @@ category:
   - 抽象代数基础教程
 ---
 
+# Chap1 数论基础
 
 # Chap1 数论基础
 

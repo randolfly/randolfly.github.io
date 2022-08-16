@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - nvidia
   - bug
@@ -8,6 +8,7 @@ category:
   - other
 ---
 
+# nvidia 控制面板闪退
 
 # Nvidia 控制面板闪退
 

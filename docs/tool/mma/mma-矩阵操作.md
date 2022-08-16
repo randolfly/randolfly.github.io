@@ -1,5 +1,5 @@
 ---
-date: 2022-06-06
+date: 2022-08-13
 tag:
   - mma
   - math
@@ -9,6 +9,7 @@ category:
   - mma
 ---
 
+# mma 矩阵操作
 
 # Mma 矩阵操作
 
