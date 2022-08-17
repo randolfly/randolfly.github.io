@@ -8,4 +8,3 @@ category:
 
  ## 目录
 - [ai-学习](ai-学习.md)
-- [assets](assets)

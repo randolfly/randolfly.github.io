@@ -22,4 +22,3 @@ category:
 - [访问imgur-防盗链图片](访问imgur-防盗链图片.md)
 - [金字塔原理](金字塔原理.md)
 - [阅读障碍](阅读障碍.md)
-- [assets](assets)

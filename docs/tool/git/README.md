@@ -13,4 +13,3 @@ category:
 - [git-目录中文乱码](git-目录中文乱码.md)
 - [gitignore-使用](gitignore-使用.md)
 - [git加速访问](git加速访问.md)
-- [assets](assets)

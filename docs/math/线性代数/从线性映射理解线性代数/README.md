@@ -19,4 +19,3 @@ category:
 - [Chap7-内积空间上的算子](Chap7-内积空间上的算子.md)
 - [Chap8-复向量空间上的算子](Chap8-复向量空间上的算子.md)
 - [Chap9-实向量空间上的算子](Chap9-实向量空间上的算子.md)
-- [assets](assets)

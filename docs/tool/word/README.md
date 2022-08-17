@@ -8,4 +8,3 @@ category:
 
  ## 目录
 - [word插入代码块](word插入代码块.md)
-- [assets](assets)

@@ -8,4 +8,3 @@ category:
 
  ## 目录
 - [Chap1-基础集合论](Chap1-基础集合论.md)
-- [assets](assets)

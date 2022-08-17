@@ -15,4 +15,3 @@ category:
 - [tex配置](tex配置.md)
 - [thubeamer-使用](thubeamer-使用.md)
 - [标准论文模板](标准论文模板.md)
-- [assets](assets)

@@ -14,4 +14,3 @@ category:
 - [mma推导函数微分矩阵](mma推导函数微分矩阵.md)
 - [mma矩阵微分](mma矩阵微分.md)
 - [拉格朗日法动力学分析](拉格朗日法动力学分析.md)
-- [assets](assets)

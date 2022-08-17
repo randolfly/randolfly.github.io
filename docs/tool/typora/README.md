@@ -7,4 +7,3 @@ category:
 ---
 
  ## 目录
-- [assets](assets)

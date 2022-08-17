@@ -13,4 +13,3 @@ category:
 - [02-powershell-命令和参数](02-powershell-命令和参数.md)
 - [03-powershell-变量和属性](03-powershell-变量和属性.md)
 - [04-powershell-类和方法](04-powershell-类和方法.md)
-- [assets](assets)
