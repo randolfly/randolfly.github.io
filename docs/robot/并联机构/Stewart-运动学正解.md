@@ -10,7 +10,7 @@ tag:
   - 运动学
 category:
   - library
-  - 机器人
+  - robot
   - 并联机构
 ---
 

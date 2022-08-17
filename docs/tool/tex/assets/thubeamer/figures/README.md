@@ -1,9 +1,9 @@
 ---
-date: 2022-08-08
+date: 2022-06-06
 tag:
   - default
 category:
-  - skill
+  - tool
   - tex
   - assets
   - thubeamer

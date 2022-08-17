@@ -1,5 +1,5 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - mma
   - derivate
@@ -7,7 +7,7 @@ tag:
   - mat
   - 符号计算
 category:
-  - skill
+  - tool
   - mma
 ---
 

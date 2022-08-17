@@ -1,12 +1,12 @@
 ---
-date: 2022-08-11
+date: 2022-06-06
 tag:
   - tool
   - matlab
   - 图片
   - 绘图
 category:
-  - skill
+  - tool
   - matlab
 ---
 

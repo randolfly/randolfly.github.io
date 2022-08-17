@@ -1,11 +1,11 @@
 ---
-date: 2022-06-01
+date: 2022-08-09
 tag:
   - control
   - lqr
 category:
   - library
-  - 控制
+  - control
 ---
 
 # Linear Quadratic control 线性二次型控制

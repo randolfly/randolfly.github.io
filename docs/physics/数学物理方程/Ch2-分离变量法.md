@@ -1,10 +1,10 @@
 ---
-date: 2022-08-09
+date: 2022-08-17
 tag:
   - default
 category:
   - library
-  - 力学
+  - physics
   - 数学物理方程
 ---
 

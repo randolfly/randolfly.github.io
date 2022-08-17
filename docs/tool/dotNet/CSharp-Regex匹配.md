@@ -1,10 +1,10 @@
 ---
-date: 2022-08-16
+date: 2022-08-17
 tag:
   - CSharp
   - regex
 category:
-  - skill
+  - tool
   - dotNet
 ---
 

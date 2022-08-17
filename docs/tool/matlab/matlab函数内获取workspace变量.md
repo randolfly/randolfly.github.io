@@ -1,5 +1,5 @@
 ---
-date: 2022-08-10
+date: 2022-06-06
 tag:
   - tool
   - matlab
@@ -7,7 +7,7 @@ tag:
   - evalin
   - workspace
 category:
-  - skill
+  - tool
   - matlab
 ---
 

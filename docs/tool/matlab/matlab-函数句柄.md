@@ -1,12 +1,12 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - tool
   - matlab
   - 函数
   - 句柄
 category:
-  - skill
+  - tool
   - matlab
 ---
 

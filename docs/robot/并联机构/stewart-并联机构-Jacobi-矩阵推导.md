@@ -1,5 +1,5 @@
 ---
-date: 2022-08-02
+date: 2022-08-09
 tag:
   - robot
   - parallel-stewart-platform
@@ -7,7 +7,7 @@ tag:
   - Jacobian
 category:
   - library
-  - 机器人
+  - robot
   - 并联机构
 ---
 

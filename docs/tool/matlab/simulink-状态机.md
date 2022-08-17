@@ -1,5 +1,5 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - simulink
   - 状态机
@@ -7,7 +7,7 @@ tag:
   - matlab
   - stateflow
 category:
-  - skill
+  - tool
   - matlab
 ---
 

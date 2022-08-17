@@ -3,7 +3,7 @@ date: 2022-08-02
 tag:
   - obsidian
 category:
-  - skill
+  - tool
   - obsidian
 ---
 

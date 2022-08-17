@@ -1,11 +1,11 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - wsl
   - windows
   - linux
 category:
-  - skill
+  - tool
   - wsl
 ---
 

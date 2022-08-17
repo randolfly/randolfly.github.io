@@ -1,10 +1,10 @@
 ---
-date: 2022-08-16
+date: 2022-08-09
 tag:
   - default
 category:
   - library
-  - 控制
+  - control
 ---
 
 # Fuzzy logic control 模糊控制

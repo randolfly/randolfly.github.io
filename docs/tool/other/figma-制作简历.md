@@ -1,10 +1,10 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - figma
   - 简历
 category:
-  - skill
+  - tool
   - other
 ---
 

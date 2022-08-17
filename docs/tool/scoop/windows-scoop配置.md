@@ -1,11 +1,11 @@
 ---
-date: 2022-08-16
+date: 2022-06-06
 tag:
   - windows
   - scoop
   - cmd
 category:
-  - skill
+  - tool
   - scoop
 ---
 

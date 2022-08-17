@@ -1,10 +1,10 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - tex
   - beamer
 category:
-  - skill
+  - tool
   - tex
 ---
 

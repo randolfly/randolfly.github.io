@@ -1,11 +1,11 @@
 ---
-date: 2022-08-02
+date: 2022-08-09
 tag:
   - control
   - h-infinity
 category:
   - library
-  - 控制
+  - control
 ---
 
 # H-Infinity control

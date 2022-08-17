@@ -1,10 +1,10 @@
 ---
-date: 2022-08-13
+date: 2022-08-09
 tag:
   - default
 category:
   - library
-  - 控制
+  - control
   - 非线性控制
   - 几何控制
 ---

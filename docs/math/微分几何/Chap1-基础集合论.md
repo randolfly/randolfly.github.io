@@ -1,12 +1,12 @@
 ---
-date: 2022-08-16
+date: 2022-08-09
 tag:
   - 公理系统
   - logic
   - set-theory
 category:
   - library
-  - 数学
+  - math
   - 微分几何
 ---
 

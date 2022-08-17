@@ -1,9 +1,9 @@
 ---
-date: 2022-07-11
+date: 2022-07-08
 tag:
   - adams simulink
 category:
-  - skill
+  - tool
   - adams
 ---
 

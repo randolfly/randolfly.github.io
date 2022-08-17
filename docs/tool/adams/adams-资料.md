@@ -1,9 +1,9 @@
 ---
-date: 2022-06-20
+date: 2022-06-06
 tag:
   - adams
 category:
-  - skill
+  - tool
   - adams
 ---
 

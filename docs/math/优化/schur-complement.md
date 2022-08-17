@@ -1,12 +1,12 @@
 ---
-date: 2022-08-02
+date: 2022-08-09
 tag:
   - convex-optimization
   - math
   - mat
 category:
   - library
-  - 数学
+  - math
   - 优化
 ---
 

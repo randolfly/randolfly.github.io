@@ -1,12 +1,12 @@
 ---
-date: 2022-08-05
+date: 2022-08-09
 tag:
   - control
   - ftc
   - 容差控制
 category:
   - library
-  - 控制
+  - control
 ---
 
 # Fault-Tolerant control 容差控制

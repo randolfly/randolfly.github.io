@@ -1,10 +1,10 @@
 ---
-date: 2022-08-13
+date: 2022-06-17
 tag:
   - mma
   - install
 category:
-  - skill
+  - tool
   - mma
 ---
 

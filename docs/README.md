@@ -11,33 +11,32 @@ projects:
   - icon: project
     name: Math
     desc: 盲人摸象
-    link: https://randolfly.github.io/math
+    link: /math/
 
   - icon: link
     name: Tool
     desc: 钻木取火
-    link: https://randolfly.github.io/tool
+    link: /tool/
 
   - icon: book
     name: Paper
     desc: 聚沙成塔
-    link: https://randolfly.github.io/paper
+    link: /paper/
 
   - icon: article
     name: Physics
     desc: 大音希声
-    link: https://randolfly.github.io/physics
+    link: /physics/
 
   - icon: friend
     name: Robot
     desc: 我是火车王
-    link: https://randolfly.github.io/robot
+    link: /robot/
 
   - icon: book
     name: Control
     desc: 如履薄冰
-    link: https://randolfly.github.io/control
-
+    link: /control/
 #   - icon: article
 #     name: 文章名称
 #     desc: 文章详细描述

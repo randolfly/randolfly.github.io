@@ -1,11 +1,11 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - thu
   - ipv6
   - network
 category:
-  - skill
+  - tool
   - other
 ---
 

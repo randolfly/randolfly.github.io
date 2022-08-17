@@ -7,3 +7,4 @@ category:
 ---
 
  ## 目录
+- [powershell](powershell)

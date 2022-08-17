@@ -1,11 +1,11 @@
 ---
-date: 2022-08-13
+date: 2022-08-09
 tag:
   - math
   - Condition
 category:
   - library
-  - 数学
+  - math
   - 杂项
 ---
 

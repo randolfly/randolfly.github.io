@@ -4,7 +4,7 @@ tag:
   - default
 category:
   - library
-  - 力学
+  - physics
   - 材料力学简析
 ---
 

@@ -1,12 +1,12 @@
 ---
-date: 2022-08-13
+date: 2022-08-09
 tag:
   - math
   - 线性代数应该这样学
   - linearAlgebra
 category:
   - library
-  - 数学
+  - math
   - 线性代数
   - 从线性映射理解线性代数
 ---

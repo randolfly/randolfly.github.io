@@ -1,5 +1,5 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - windows
   - python
@@ -7,7 +7,7 @@ tag:
   - cuda
   - cudnn
 category:
-  - skill
+  - tool
   - python
 ---
 

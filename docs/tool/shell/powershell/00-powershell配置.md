@@ -1,11 +1,11 @@
 ---
-date: 2022-08-05
+date: 2022-06-06
 tag:
   - shell
   - powershell
   - config
 category:
-  - skill
+  - tool
   - shell
   - powershell
 ---

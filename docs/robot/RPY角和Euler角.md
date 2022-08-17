@@ -1,12 +1,12 @@
 ---
-date: 2022-08-13
+date: 2022-08-09
 tag:
   - rpy
   - euler
   - 并联机器人
 category:
   - library
-  - 机器人
+  - robot
 ---
 
 # RPY角和Euler角

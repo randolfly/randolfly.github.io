@@ -1,11 +1,11 @@
 ---
-date: 2022-08-04
+date: 2022-08-09
 tag:
   - control
   - mpc
 category:
   - library
-  - 控制
+  - control
   - MPC
 ---
 

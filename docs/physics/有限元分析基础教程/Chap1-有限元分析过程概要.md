@@ -4,7 +4,7 @@ tag:
   - 有限元 FEM
 category:
   - library
-  - 力学
+  - physics
   - 有限元分析基础教程
 ---
 

@@ -12,3 +12,4 @@ category:
 - [wsl-换源](wsl-换源.md)
 - [wsl2安装](wsl2安装.md)
 - [wsl配置ml环境](wsl配置ml环境.md)
+- [assets](assets)

@@ -1,11 +1,11 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - word
   - code
   - office
 category:
-  - skill
+  - tool
   - word
 ---
 

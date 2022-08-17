@@ -12,7 +12,6 @@ category:
 - [markdown-公式引用](markdown-公式引用.md)
 - [markdown语法规则](markdown语法规则.md)
 - [nvidia-控制面板闪退](nvidia-控制面板闪退.md)
-- [other](other.md)
 - [pdf文件制作目录](pdf文件制作目录.md)
 - [实验室云盘指北](实验室云盘指北.md)
 - [实验室投影系统使用](实验室投影系统使用.md)
@@ -23,3 +22,4 @@ category:
 - [访问imgur-防盗链图片](访问imgur-防盗链图片.md)
 - [金字塔原理](金字塔原理.md)
 - [阅读障碍](阅读障碍.md)
+- [assets](assets)

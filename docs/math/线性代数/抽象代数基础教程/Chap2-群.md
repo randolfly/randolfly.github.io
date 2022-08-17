@@ -1,10 +1,10 @@
 ---
-date: 2022-08-13
+date: 2022-08-09
 tag:
   - abstractAlgebra
 category:
   - library
-  - 数学
+  - math
   - 线性代数
   - 抽象代数基础教程
 ---

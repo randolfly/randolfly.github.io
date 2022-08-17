@@ -1,5 +1,5 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - tool
   - matlab
@@ -8,7 +8,7 @@ tag:
   - ndgrid
   - pagetimes
 category:
-  - skill
+  - tool
   - matlab
 ---
 

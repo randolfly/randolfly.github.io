@@ -1,10 +1,10 @@
 ---
-date: 2022-08-13
+date: 2022-06-06
 tag:
   - git
   - 修改仓库
 category:
-  - skill
+  - tool
   - git
 ---
 
