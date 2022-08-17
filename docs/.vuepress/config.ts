@@ -27,9 +27,16 @@ export default defineUserConfig({
         "/": "structure"
     },
 
+    themeColor: {
+        blue: "#003865",
+        red: "#b93160",
+        green: "#3ccf4e",
+        orange: "#ef5b0c",
+    },
+
     iconAssets: "iconfont",
 
-    logo: "/logo.svg",
+    logo: "/site_logo.svg",
     
     repo: "randolfly/randolfly.github.io",
 
@@ -43,6 +50,7 @@ export default defineUserConfig({
 
     blog: {
         description: "満月は照らす獣を選んでる",
+        avatar: "/duck.svg",
         intro: "/intro.html",
         medias: {
         Email: "mailto:email@1665718426@qq.com",

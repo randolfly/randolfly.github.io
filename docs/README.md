@@ -5,6 +5,7 @@ icon: home
 title: 博客主页
 heroImage: /logo.svg
 heroText: 天策
+bgImage: /bg.jpg
 heroFullScreen: true
 tagline: 银鞍照白马，飒沓如流星
 projects:
