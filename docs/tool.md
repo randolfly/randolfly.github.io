@@ -1,7 +1,7 @@
 ---
 home: true
 icon: home
-title: TOOl
+title: TOOL
 heroImage: /logo.svg
 heroText: 技巧
 tagline: 为什么不问问神奇海螺呢？

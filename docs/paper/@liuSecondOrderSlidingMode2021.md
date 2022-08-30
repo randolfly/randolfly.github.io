@@ -106,8 +106,6 @@ $$
 
 where $x\in \mathbb{R}^n, u\in \mathbb{R}$ is state and input, $s(t,x)$ is output function(i.e., the sliding variable)
 
-#todo
-
 
 #### Construct BLF and SOSM Controller
 

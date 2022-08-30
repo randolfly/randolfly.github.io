@@ -161,7 +161,7 @@ event_or_message trigger[condition]{condition_action}/{transition_action}
 - [转移动作的类型 - MATLAB & Simulink - MathWorks 中国](https://ww2.mathworks.cn/help/stateflow/ug/transition-action-types.html)
 
 - [Stateflow Editor 操作 - MATLAB & Simulink - MathWorks 中国](https://ww2.mathworks.cn/help/stateflow/ug/editor-operations.html)
-- [Stateflow 快速入门](./assets/stateflow_gs_zh_CN.pdf)
-- [Stateflow userguide](./assets/stateflow_ug.pdf)
-- [Stateflow API](./assets/stateflow_api.pdf)
-- [Stateflow Reference](./assets/stateflow_ref.pdf)
+- ![Stateflow 快速入门](./assets/stateflow_gs_zh_CN.pdf)
+- ![Stateflow userguide](./assets/stateflow_ug.pdf)
+- ![Stateflow API](./assets/stateflow_api.pdf)
+- ![Stateflow Reference](./assets/stateflow_ref.pdf)

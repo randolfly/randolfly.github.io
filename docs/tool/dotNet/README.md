@@ -12,3 +12,4 @@ category:
 - [CSharp实现依赖注入](CSharp实现依赖注入.md)
 - [NET客户端学习领域](NET客户端学习领域.pdf)
 - [vscode-运行CSharp](vscode-运行CSharp.md)
+- [blazor](blazor)
