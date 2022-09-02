@@ -1,0 +1,1 @@
+import{_ as e}from"./plugin-vue_export-helper.21dcd24c.js";import{o as c,c as r}from"./app.e400f7f4.js";const t={};function o(s,_){return c(),r("div")}var f=e(t,[["render",o],["__file","physics.html.vue"]]);export{f as default};
