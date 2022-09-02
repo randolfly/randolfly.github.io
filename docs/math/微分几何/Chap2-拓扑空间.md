@@ -507,6 +507,8 @@ $$
 
 ### 拓扑空间上的不变量
 
+我们说不变量意思是说，两个 [homeomorphic](./) 的 space 共享这一个性质.
+
 #### 拓扑空间的分离性质
 
 ::: tip T1
@@ -592,6 +594,7 @@ $$
 
 :::
 
+^def-compact
 
 根据 [Induced Topology](./#induced-topology) 的思想，我们自然会研究其上子集的紧性：
 
@@ -702,6 +705,7 @@ refinement 可以具有一些特性：
 
 :::
 
+^def-paracompact
 
 ::: danger corollary
 如果一个拓扑空间是紧的，那么他也是paracompact的
@@ -783,10 +787,232 @@ $$
 
 #### Connectedness And Path-connectedness
 
+从直觉上我们可以给出连通的定义：
+
+::: tip connectedness
+
+
+一个拓扑空间是连通的，除非存在 2 个非空、不相交的 **开集**A,B 使得：$M=A\cup B$
+
+:::
+
+^def-connect
+
+::: note note
+注意既然是开集，那么连通与否自然和拓扑选取有关，比如我们选取chaotic topology, 那么所有的空间都是连通的
+
+> 移动：我有话说
+
+考虑 $\left\{ \mathbb{R} \backslash \left\{ 0 \right\} ,\mathcal{O} _{\mathrm{std}}|_{\mathbb{R} \backslash \left\{ 0 \right\}} \right\}$，这个拓扑空间不是连通的，因为可以找到 2 个不相交的非空开集：$(-\infty, 0)$ 和 $(0,\infty)$ 满足条件
+
+
+:::
+
+
+根据定义，容易发现，一个拓扑空间 $(M, \mathcal{O})$ 是连通的，当且仅当其既开又闭的子集仅为：$\oslash, M$
+
+拓展定义，考虑定义：**path-connectedness**
+
+::: tip path-connectedness
+
+
+一个拓扑空间 $(M, \mathcal{O})$ 被称为 path-connectedness, 如果任何一对点 $p, q \in M$，存在一条连续的曲线 $\gamma :\left[ 0,1 \right] \rightarrow M$ 使得 $\gamma \left( 0 \right) =p$，$\gamma \left( 1 \right) =q$。这里的连续性在 [^def-continuity](./#^def-continuity) 中定义
+
+:::
+
+^def-path-connectedness
+
+`::: note remark
+path-connectedness 是比 connectedness 更强的性质，连通的不一定可以找到这样的连续曲线，比如：
+
+考虑 $S\coloneqq \left\{ \left( x,\sin \frac{1}{x} \right) |x\in \left( 0,1 \right] \right\} \cup \left\{ \left( 0,0 \right) \right\}$，且装备了从 $R^2$ 继承的拓扑，那么 $\left( S,\mathcal{O} _{\mathrm{std}}|_S \right)$ 是连通的，但不是 path-connectedness
+
+:::
+functionplot
+---
+title: test
+xLabel: 
+yLabel: 
+bounds: [0,1,-1,1]
+disableZoom: false
+grid: true
+---
+f(x)=sin(1/x)
+```
+
+````
+
+
+#### Homotopic Curves and the Fundamental Group
+
+::: tip definition
+考虑 $(M,\mathcal{O})$ 中的 2 条曲线， $\gamma ,\delta :\left[ 0,1 \right] \rightarrow M$ 使得：
+
+
+$$
+\gamma \left( 0 \right) =\delta \left( 0 \right) \quad \gamma \left( 1 \right) =\delta \left( 1 \right) 
+$$
+
+
+且存在一个连续映射 $h:[0,1]\times [0,1]\rightarrow M$，使得对所有的 $\lambda\in [0,1]$:
+
+
+$$
+h(0,\lambda)=\gamma(\lambda)\quad h(1,\lambda)=\delta(\lambda)
+$$
+
+称这两条曲线是 **homotopic/同伦**
+
+![Pasted image 20220902160048](./assets/Pasted-image-20220902160048.png)
+
+:::
+
+^def-homotopic
+
+容易发现，同伦其实是一种 *等价关系*，那么我们可以在任意的拓扑空间上定义其对应的等价类，这就可以诱导出某种不变量。为此我们先定义 Space of loops
+
+::: tip space of loops
+
+
+考虑拓扑空间 $(M, \mathcal{O})$, 对 M 中的所有点 $p\in M$ 定义 **space of loops**
+
+$$
+\mathscr{L} _p\coloneqq \left\{ \gamma :\left[ 0,1 \right] \rightarrow M|\gamma \,\,\mathrm{is continious and} \gamma \left( 0 \right) =\gamma \left( 1 \right)=p \right\} 
+$$
+
+
+:::
+
+^def-space-of-loop
+
+在 space of loops 上，我们定义 concatenation 连接操作 (某种意义上的加法？)：
+
+
+$$
+*:\mathscr{L} _p\times \mathscr{L} _p\rightarrow \mathscr{L} _p
+\\
+\left( \gamma *\delta \right) \left( \lambda \right) \coloneqq \begin{cases}
+	\gamma \left( 2\lambda \right)\\
+	\delta \left( 2\lambda -1 \right)\\
+\end{cases}\quad \begin{array}{c}
+	\mathrm{if} 0\leqslant \lambda \leqslant \frac{1}{2}\\
+	\mathrm{if} \frac{1}{2}\leqslant \lambda \leqslant 1\\
+\end{array}\quad
+$$
+
+
+从而我们可以导出一个等价类：
+
+::: tip fundamental group
+
+
+考虑 $(M,\mathcal{O})$ 是拓扑空间，定义该空间的 p 点的 fundamental group $\pi_{1}(p)$ 是集合：
+
+
+$$
+\pi _1\left( p \right) \coloneqq \mathscr{L} _p/\sim =\left\{ \left[ \gamma \right] |\gamma \in \mathscr{L} _p \right\} 
+$$
+
+
+这里的等价关系 $\sim$ 指的是 homotopic(同伦)
+
+在fundamental group上附带一个运算：
+
+
+$$
+\begin{array}{c}
+	\bullet :\pi _1\left( p \right) \times \pi _1\left( p \right) \rightarrow \pi _1\left( p \right)\\
+	\quad \left( \gamma ,\delta \right) \mapsto \left[ \gamma \right] \bullet \left[ \delta \right] \coloneqq \left[ \gamma * \delta \right]\\
+\end{array}
+\\
+
+$$
+
+
+:::
+
+^def-fundamental-group
+
+::: note remark
+注意，我们说一个群是一个集合附带一个 (双目) 运算构成的 pair$(G,\bullet)$：
+
+- $\forall a,b,c\in G:\left( a\bullet b \right) \bullet c=a\bullet \left( b\bullet c \right)$
+- $\exists e\in G:\forall g\in G:g\bullet e=e\bullet g=g$
+- $\forall g\in G:\exists g^{-1}\in G:g\bullet g^{-1}=g^{-1}\bullet g=e$
+
+此外，如果可交换 $a\bullet b=b\bullet a :\forall a,b\in G$ ，那么称这个群是阿贝尔群 (abelian/commutative)
+
+类似集合的同构，可以定义群的 isomorphism：
+
+在两个群 $(G,\bullet)$ 和 $(H,\circ)$ 之间的 group isomorphism 是一个双射 $\phi: G\rightarrow H$ 使得：
+
+
+$$
+\forall a,b\in G:\phi \left( a\bullet b \right) =\phi \left( a \right) \circ \phi \left( b \right) 
+$$
+
+
+如果 2 个群 $(G,\bullet)$ 和 $(H,\circ)$ 之间存在 group isomorphism，我们称这两个群是 isomorphic(group)，记为：
+
+
+$$
+G\cong _{\mathrm{grp}}H
+$$
+
+
+参考 [Chap2 群](./../线性代数/抽象代数基础教程/Chap2-群.md)
+
+:::
 
 
 
+考虑一个 2-sphere(球面) 为:
 
+
+$$
+S^2\coloneqq \left\{ \left( x,y,z \right) \in \mathbb{R} ^3|x^2+y^2+z^2=1 \right\} 
+$$
+
+![Pasted image 20220902165103](./assets/Pasted-image-20220902165103.png)
+
+其上装备了从 $R^3$ 上继承的拓扑。
+
+该球面具有性质：任意一个点的任意 loop 都是 homotopic 的，从而我们知道在该球面上的 fundamental group(在任意点出) 是：
+
+
+$$
+\forall p\in S^2:\pi _1\left( p \right) =1\coloneqq \left\{ \left[ \gamma _e \right] \right\} 
+$$
+
+
+考虑一个无限长圆柱 $C\coloneqq \mathbb{R} \times S^1$，装备了 [Product Topology](./#product-topology).
+
+![Pasted image 20220902165343](./assets/Pasted-image-20220902165343.png)
+
+在 C 上的 loop 可以分为 2 种：绕着中心轴的，或者不绕中心轴的 (可以被连续地变形为一个点)。我们称绕着圆柱的次数为 *winding number*，具有不同 winding number 的 loop 是不同伦的
+
+进一步，我们可以给出其 fundamental group 的结构:
+
+
+$$
+\forall p\in C:\left( \pi _1\left( p \right) ,\bullet \right) \cong _{\mathrm{grp}}\left( \mathbb{Z} ,+ \right) 
+$$
+
+
+考虑更复杂
+的结构：2-torus：$T^2\coloneqq S^1\times S^1$，其上装备了 product topology：
+
+![Pasted image 20220902165810](./assets/Pasted-image-20220902165810.png)
+
+类似地可以发现，其 fundamental group 可以表示为：
+
+
+$$
+\forall p\in T^2:\left( \pi _1\left( p \right) ,\bullet \right) \cong _{\mathrm{grp}}\left( \mathbb{Z} \times \mathbb{Z} ,+ \right) 
+$$
+
+
+其中 $\mathbb{Z}\times \mathbb{Z}$ 上的 + 是 pairwise addition.
 
 
 ## 参考
