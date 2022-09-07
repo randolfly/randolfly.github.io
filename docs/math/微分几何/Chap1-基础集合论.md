@@ -668,8 +668,8 @@ $$
 
 $$
 \begin{array}{c}
-	\phi ^{-1}\comp \phi =\mathrm{id}_A\\
-	\phi \comp \phi ^{-1}=\mathrm{id}_B\\
+	\phi ^{-1}\circ \phi =\mathrm{id}_A\\
+	\phi \circ \phi ^{-1}=\mathrm{id}_B\\
 \end{array}
 $$
 
@@ -849,7 +849,7 @@ $$
 
 $$
 \begin{array}{l}
-	S^n\coloneqq S\comp S^{P\left( n \right)}\quad \mathrm{if} n\in \mathbb{N} ^*\\
+	S^n\coloneqq S\circ S^{P\left( n \right)}\quad \mathrm{if} n\in \mathbb{N} ^*\\
 	S^0\coloneqq \mathrm{id}_{\mathbb{N} }\\
 \end{array}
 $$

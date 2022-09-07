@@ -11,3 +11,4 @@ category:
 - [obsidian-Citation-tag替换空格为连字符](obsidian-Citation-tag替换空格为连字符.md)
 - [obsidian-卡片知识网络](obsidian-卡片知识网络.md)
 - [obsidian-配置](obsidian-配置.md)
+- [excalidraw](excalidraw)
