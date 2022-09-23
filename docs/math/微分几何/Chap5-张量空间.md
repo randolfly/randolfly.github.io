@@ -452,8 +452,8 @@ $$
 $$
 
 \begin{align}
-(T\otimes S)({\color{red} w_{1},\cdots,w_{p}}, & {\color{blue} w_{p+1},\cdots,w_{p+r}},{\color{red} v_{1},\cdots,v_{q}},{\color{blue} v_{q+1},\cdots,v_{q+s}})\coloneqq \\
-	 & T({\color{red} w_{1},\cdots,w_{p},v_{1},\cdots,v_{q}})S({\color{blue} w_{p+1},\cdots,w_{p+r},v_{q+1},\cdots,v_{q+s}})
+(T\otimes S)({\color{red}{w_{1},\cdots,w_{p}}}, & {\color{blue} {w_{p+1},\cdots,w_{p+r}}},{\color{red} {v_{1},\cdots,v_{q}}},{\color{blue} {v_{q+1},\cdots,v_{q+s}}})\coloneqq \\
+	 & T({\color{red}{ w_{1},\cdots,w_{p},v_{1},\cdots,v_{q}}})S({\color{blue} {w_{p+1},\cdots,w_{p+r},v_{q+1},\cdots,v_{q+s}}})
 \end{align}
 
 $$
@@ -498,7 +498,7 @@ $$
 
 在线性空间中，为了确定坐标，我们需要给出一组基底，而唯一的不依赖任何额外的结构的基底是 Hamel basis
 
-::: details Hamel basis
+::: tip Hamel basis
 
 
 如果 $(V,+,\cdot)$ 是在 K 上的线性空间，子集 $\mathcal{B}\subseteq V$ 被称为 V 的 Hamel basis，如果：
@@ -732,9 +732,316 @@ $$
 
 
 
-不幸的是，transpose 是很容易造成误解的，是一个很坏的 notation… #todo
+不幸的是，transpose 是很容易造成误解的，是一个很坏的 notation…比如参考 [^example-matrix-flaw](./#^example-matrix-flaw) 是其中一个问题 #todo
 
 这个故事的寓意是,你应该尽力不要把向量、向量和张量看作数字数组。相反,总是试着从抽象的、内在的、没有组件的角度来理解它们。
+
+前面介绍了换基的部分操作，即：
+
+有 V 的 2 组基 $\left\{ e_{a} \right\}$ 和 $\left\{ \overline{e}_{a} \right\}$，不同基底下应该有：$\overline{e}_{a}=A^b_{a}e_{b}$，$e_{a}=B^m_{a}\overline{e}_{m}$，且有 $A^{-1}=B$，使用 index 进行表示则有：$AB=I$，或者 $A^a_{m}B^m_{b}=\delta^a_{b}$
+
+我们现在考虑张量的分量在改变基前后的变化。
+
+考虑 $v=v^ae_{a}=\bar{v}^a\overline{e}_{a}\in V$，那么有：
+
+
+$$
+
+v^a=f^a(v)=f^a(\overline{v}^b\overline{e}_{b})=\overline{v}^b f^a(\overline{e}_{b})=\overline{v}^b f^a(A^m_{b}e_{m})=A^m_{b}\overline{v}^b
+f^a(e_{m})=A^a_{b}\overline{v}^b
+$$
+
+
+考虑 $w=w_{a}f^a= \bar{w}_{a} \overline{f}^a\in V*$，有：
+
+
+$$
+
+w_{a}=w(e_{a})=w(B^m_{a}\overline{e}_{m})=B^m_{a}w(\overline{e}_{m})=B^m_{a}\bar{w}_{b}\overline{f}^b(\overline{e}_{m})=B^m_{a}\bar{w}_{m}
+
+$$
+
+
+总结起来，对 $v\in V,w\in V^*$，基 $\overline{e}_{a}=A^b_{a}e_{b}$，我们有：
+
+
+$$
+
+\begin{matrix}
+v^a=A^a_{b}\overline{v}^b & w_{a}=B^b_{a}\bar{w}_{b} \\
+\overline{v}^a=B^a_{b}v^b & \bar{w}_{a}=A^b_{a}w_{b}
+\end{matrix}
+
+$$
+
+
+考虑一个 tensor $T\in T^p_{q}V$，那么：
+
+
+$$
+
+T^{a_{1}\cdots a_{p}}_{b_{1}\cdots b_{q}}=A^{a_{1}}_{m_{1}}\cdots A^{a_{p}}_{m_{p}}B^{n_{1}}_{b_{1}}\cdots B^{n_{q}}_{b_{q}}\bar{T}^{m_{1}\cdots m_{p}}_{n_{1}\cdots n_{q}}
+
+$$
+
+
+根据我们之前定义 matrix 的操作，既然 matrix 是由我们的 convention 鼓捣出来的，那么自然可以鼓捣出 matrix 上的操作，比如一个 matrix 的 determinant(行列式)
+
+::: warning problem
+考虑一个张量 $\phi \in T^{1}_{1}V$，那么我们可以将张量的分量 $\phi^a_{b}$ 写成矩阵形式：
+
+
+$$
+
+\phi=\phi^a_{b}e_{a} \otimes f^b \Leftrightarrow \phi = \begin{pmatrix}
+\phi^1_{1} & \phi^1_{2} & \cdots & \phi^1_{d} \\
+\phi^2_{1} & \phi^2_{2} & \cdots & \phi^2_{d} \\
+\vdots & \vdots & \ddots & \vdots \\
+\phi^d_{1} & \phi^d_{2} & \cdots & \phi^d_{d}
+\end{pmatrix}
+
+$$
+
+
+类似的，如果我们有张量 $g\in T^0_{2}V$，其分量 $g_{ab} \coloneqq g(e_{a},e_{b})$，可以写为：
+
+
+$$
+
+g=g_{ab}f^a \otimes f^b \Leftrightarrow g=\begin{pmatrix}
+g_{11} & g_{12} & \cdots & g_{1d} \\
+g_{21} & g_{22} & \cdots & g_{2d} \\
+\vdots & \vdots & \ddots & \vdots \\
+g_{d 1} & g_{d 2} & \cdots & g_{dd}
+\end{pmatrix}
+
+$$
+
+
+显然这俩张量完全不同，其中 $\phi$ 是 $End(V)$ 中的一个元素，而 $g$ 是一个 V 上的双线性形式，但是根据其矩阵形式描述，我们其实很难区分，这也是矩阵描述的一个缺点。
+
+:::
+
+^example-matrix-flaw
+
+总之回到原问题，我们在矩阵上有求行列式的操作，你可能会想这俩都有矩阵形式表述，是不是都可以做行列式操作呢？答案是否定的！我们只能对 [^def-endomorphism](./#^def-endomorphism) 进行这种操作，我们将给出原因：
+
+考虑 M 是一个集合，称 M 的一个置换 (permutation) 是一个 $M\to M$ 的双射，进一步定义 n 阶对称群 (symmetric group of order n)，记为 $S_{n}$，是集合 $\left\{ 1,\cdots,n \right\}$ 的置换的集合，其上附带了函数复合的操作作为运算 (来构成群)
+
+我们称一个 transposition 是一个置换，其只改变 2 个元素，其他元素不变。那么我们有下面的结论：
+
+任何置换 $\pi \in S_{n}$，可以被写成 $S_{n}$ 中 transposition 的复合
+
+尽管一个置换 $\pi$ 的分解可能是不唯一的，但是其分解为 transposition 的数目则是要么为奇数要么偶数，是一个 $\pi$ 的不变量（否则就存在使用奇数次 transposition 回到原点的操作），从而我们可以定义一个关于 $\pi$ 的函数：
+
+::: tip sgn
+
+
+
+$$
+
+\text{sgn} \left( x \right) \coloneqq \begin{cases}
+	+1\\
+	-1\\
+\end{cases}\quad \begin{cases}
+	\mathrm{if} ~N\left( \pi \right) \,\,\mathrm{is} ~\mathrm{even}\\
+	\mathrm{if} ~N\left( \pi \right) \,\,\mathrm{is} ~\mathrm{odd}\\
+\end{cases}
+
+$$
+
+
+其中 $N(\pi)$ 代表分解 $\pi$ 的 transpositions 的数量
+
+:::
+
+^def-sgn
+
+::: tip n-form
+
+现在回到 tensor space，考虑 V 是一个 d 维向量空间，一个 n-form on V 是一个 $(0,n)$ 张量 $w$，且是完全反对称的 (totally antisymmetric)，即：
+
+
+$$
+
+\forall \pi \in S_{n}: w(v_{1},v_{2},\cdots,v_{n})=sgn(\pi)w(v_{\pi(1)},v_{\pi(2)},\cdots, v_{\pi(n)})
+
+$$
+
+
+:::
+
+^def-n-form
+
+注意到 0-form 是一个 scalar，1-form 是一个 covector，一个 d-form 也被称为一个 top-form。定义 n-form 还有一些别的方式，比如：
+
+::: info theorem
+一个 $(0,n)$tensor w 被称为 n-form，当且仅当： 当 $\left\{ v_{1},\cdots,v_{n} \right\}$ 是线性相关时， $w(v_{1},\cdots, v_{n})=0$
+
+:::
+
+
+
+上面的定理告诉我们，尽管我们可以定义 n>d 的 form，但其值只能是 0.
+
+::: info theorem
+记 $\Lambda ^n V$ 是 V 上 n-form 构成的向量空间，那么我们有：
+
+
+$$
+
+dim \Lambda^n V=\begin{cases}
+\begin{pmatrix}
+d \\
+n
+\end{pmatrix} & if~1\leq n\leq d\\
+0 & if~ n>d
+\end{cases}
+
+$$
+
+其中
+
+$$
+
+\begin{pmatrix}
+d \\
+n
+\end{pmatrix}=\frac{d!}{n!(n-d)!}
+
+$$
+
+
+:::
+
+
+特别的，$dim \Lambda^d V=1$，这意味着：
+
+
+$$
+
+\forall w,w'\in \Lambda^dV: \exists c\in K: w=cw'
+
+$$
+
+
+即我们可以称只有一个 top form on V
+
+::: tip definition
+称一个 choice of top-form on V 是一个 choice of volume form on V，一个带有 chosen volume form 的向量空间被称为一个带有体积的向量空间 (vector space with volume)
+
+:::
+
+^def-vector-space-with-volume
+
+这一定义的有用之处在于下面定义：
+
+考虑 $dimV=d$，取 $w\in \Lambda^dV$ 是一个 V 上的 volume form，那么给定 $v_{1},\cdots,v_{d}\in V$，可以定义 $v_{1},\cdots,v_{d}$ 扩充出的空间的 **体积** 为：
+
+
+$$
+
+\text{vol}(v_{1},\cdots,v_{d})\coloneqq w(v_{1},\cdots,v_{d})
+
+$$
+
+
+直觉上来看，w 上的反对称性质保证了当 $\left\{ v_{1},\cdots,v_{d} \right\}$ 是线性相关的时候，定义的体积为 0，这也是符合我们几何直觉的，因为线性相关的时候最多构成一个 V 上的 d-1 维超平面，体积为 0
+
+::: note remark
+我们定义体积的时候似乎并没有要求V上的一些其余结构，比如长度、角度、内积啥的，我们唯一要求的是一个top form，其定义依赖于V是一个有限维拓扑流形
+:::
+
+
+现在终于可以给出行列式在 tensor 意义下的定义了：
+
+V 是一个 d 维向量空间，考虑 $\phi \in End(V)\cong_{\text{vec}} T^1_{1}V$，定义 $\phi$ 的 determinant 为：
+
+
+$$
+
+\det \phi \coloneqq \frac{w(\phi(e_{1}),\cdots, \phi(e_{d}))}{w(e_{1},\cdots,e_{d})}
+
+$$
+
+
+其中 $w\in \Lambda^dV$，$\left\{ e_{1},\cdots,e_{d} \right\}$ 是 V 的一组基
+
+我们首先检查是不是 well-defined，注意到 $\phi$ 是不依赖于基选取的，也不依赖于 $w$ 选取的，可以验证，两个都是成立的。
+
+从这里 determinant 的定义可以看出，其只能对 $T^1_{1}V$ 元素进行计算。
+
+现在回顾我们研究的 2 个对象的定义：[^example-matrix-flaw](./#^example-matrix-flaw)
+
+可以发现，如果使用矩阵形式，进行转换基底操作，有：$\overline{e}_{a}=A^b_{a}e_{b}$：
+
+那么：
+
+
+$$
+
+\phi^a_{b}=A^a_{m}B^n_{b}\bar{\phi}^{m}_{n} \Rightarrow \phi \to A^{-1}\bar{\phi}A
+
+$$
+
+
+对 g 有：
+
+
+$$
+
+g_{ab}=B^{m}_{a}B^n_{b}\bar{g}_{mn} \Rightarrow g\to A^T \bar{g} A
+
+$$
+
+
+如果按照矩阵方式计算其行列式，有：
+
+
+$$
+
+\det(A^{-1}\phi A)=\det(\phi)
+
+$$
+
+
+至少是和基底无关的；
+
+考虑 (类似度量矩阵) 的 g，有：
+
+
+$$
+
+\det(A^TgA)=\det(A)^{2}\det(g)
+
+$$
+
+
+表明结果和基底有关，这不是一个 well-defined 的 object
+
+但是我们之后将会遇见一个量 $X$，其具有下面变换性质：
+
+
+$$
+
+X\to \frac{1}{\det(A)^2}X
+
+$$
+
+
+这表明这一量 X 在换基作用下也不是 well-defined。但是如果结合起来有：
+
+
+$$
+
+\det(g)X\to \cancel{ \frac{\det(A)^{2}}{\det(A)^{2}} }\det(g)X=\det(g)X
+
+$$
+
+
+这就是一个 well-defined 的 object 了。这一结果将在 *principal fibre bundle* 中遇见，使用这一结果，我们可以给 bundle 上定义 tensor，并给出 tensor densities，其直观上来讲是一种可以在换基变换下
+随着 detA 的指数变化的量
+
 
 
 
