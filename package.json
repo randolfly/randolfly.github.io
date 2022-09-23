@@ -4,9 +4,9 @@
   "description": "银鞍照白马，飒沓如流星",
   "license": "MIT",
   "scripts": {
-    "docs:build": "vuepress build docs",
-    "docs:clean-dev": "vuepress dev docs --clean-cache",
-    "docs:dev": "vuepress dev docs"
+    "docs:build": "node --max_old_space_size=8192 ./node_modules/vuepress/bin/vuepress.js build docs",
+    "docs:clean-dev": "node --max_old_space_size=8192 ./node_modules/vuepress/bin/vuepress.js dev docs --clean-cache",
+    "docs:dev": "node --max_old_space_size=8192 ./node_modules/vuepress/bin/vuepress.js dev docs"
   },
   "devDependencies": {
     "@vuepress/bundler-webpack": "^2.0.0-beta.49",
