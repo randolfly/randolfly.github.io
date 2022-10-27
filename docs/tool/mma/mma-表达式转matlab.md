@@ -60,6 +60,15 @@ ToMatlab[rotMat /. {\[Alpha] -> a, \[Beta] -> b, \[Gamma] -> c}]
 
 ::: note note
 注意，对于表达式长的，可以直接 Export[path, expr]为文件，然后使用Vscode的正则表达式替换完成
+
+使用这样的表达式：
+
+> `(\.\.\.\\n)(.+)\\$\n`
+
+替换为：
+
+> `...\n$2`
+
 :::
 
 

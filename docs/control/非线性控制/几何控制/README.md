@@ -8,4 +8,5 @@ category:
 ---
 
  ## 目录
+- [Chap1-问题引入](Chap1-问题引入.md)
 - [Geometry-Control-几何控制](Geometry-Control-几何控制.md)

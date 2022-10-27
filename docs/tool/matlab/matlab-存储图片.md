@@ -21,6 +21,12 @@ category:
 
 ## 解决
 
+::: note note
+建议使用方案1
+:::
+
+
+
 ### 方案 1
 
 ```matlab
@@ -33,6 +39,12 @@ exportgraphics(ax,'image/r-'+ image_name + '.pdf','Resolution',300);
 ```
 
 使用 `exportgraphics` 导出 png 格式的图片
+
+::: note note
+注意，如果是多图，比如`subplot`之类的，使用gcf代替gca，获取当前图窗
+:::
+
+
 
 ### 方案 2
 
@@ -50,7 +62,7 @@ close(gcf)
 
 使用 `saveas` 导出 svg 格式图片，之后可以放到 AI 里面修图
 
-注意，使用 [方案 1](./#方案-1) 导出的 **pdf** 可以保留字体信息，字体不会变成 Consola，因此建议还是用方案 1
+注意，使用 [方案 1](./#方案-1) 导出的 **pdf** 可以保留字体信息，字体不会变成 Consola，因此 **建议还是用方案 1**
 
 方案 1: ![r-e_no_a_10-08-2022-17-42-12](./assets/r-e_no_a_10-08-2022-17-42-12.pdf)
 
