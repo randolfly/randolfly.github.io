@@ -30,27 +30,7 @@ category:
 
 ## Contents
 
-### 问题描述
-
-#### 问题背景
-
-#### 前人工作
-
-- group A ^pre-group-A
-
-
-#### 本文工作
-
-### 实验方法
-
-
-### 优点缺点
-
-#### 优点
-
-#### 缺点
-
-### 个人评价
+[Pott_2018_Cable-Driven Parallel Robots](.//)
 
 ## 参考
 
